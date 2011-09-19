@@ -104,6 +104,12 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.escalasTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -719,6 +725,12 @@
             // 
             // perfilTab
             // 
+            this.perfilTab.Controls.Add(this.textBox3);
+            this.perfilTab.Controls.Add(this.label26);
+            this.perfilTab.Controls.Add(this.textBox2);
+            this.perfilTab.Controls.Add(this.label25);
+            this.perfilTab.Controls.Add(this.textBox1);
+            this.perfilTab.Controls.Add(this.label24);
             this.perfilTab.Controls.Add(this.button7);
             this.perfilTab.Controls.Add(this.label20);
             this.perfilTab.Controls.Add(this.label19);
@@ -826,7 +838,7 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(704, 465);
+            this.zedGraphControl1.Size = new System.Drawing.Size(704, 436);
             this.zedGraphControl1.TabIndex = 0;
             // 
             // cartasTab
@@ -974,6 +986,54 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "RoseCalc";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(132, 454);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(35, 13);
+            this.label24.TabIndex = 9;
+            this.label24.Text = "Título";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(173, 451);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(180, 20);
+            this.textBox1.TabIndex = 10;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(375, 452);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(37, 13);
+            this.label25.TabIndex = 11;
+            this.label25.Text = "Eixo X";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(418, 452);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(180, 20);
+            this.textBox2.TabIndex = 12;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(616, 453);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(37, 13);
+            this.label26.TabIndex = 13;
+            this.label26.Text = "Eixo Y";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(659, 451);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(180, 20);
+            this.textBox3.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1097,6 +1157,12 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label24;
     }
 }
 
