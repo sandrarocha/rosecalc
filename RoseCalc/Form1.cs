@@ -162,12 +162,19 @@ namespace RoseCalc
             ZedGraphControl zgc = zedGraphControl1;
             GraphPane myPane = zgc.GraphPane;        
 
-            //Adiciona série
+            //Adiciona série 
             zgc.GraphPane.CurveList.Clear(); //Apaga a série do gráfico
             LineItem myCurve = myPane.AddCurve("",list1, Color.Black, SymbolType.XCross);
             myCurve.Line.Fill = new Fill (Color.White, Color.Blue, 45F);
             myCurve.Line.Width = 3;
             zgc.AxisChange();
+
+            //Atualiza títulos
+            myPane.Title.Text = perfilTitulo.Text;
+            myPane.XAxis.Title.Text = perfilEixoX.Text;
+            myPane.YAxis.Title.Text = perfilEixoY.Text;
+
+            //Atualiza o gráfico
             zedGraphControl1.Refresh();
             
         }
@@ -203,6 +210,8 @@ namespace RoseCalc
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
+
+
 
 
 
