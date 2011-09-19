@@ -96,14 +96,14 @@
             this.unidadesTab = new System.Windows.Forms.TabPage();
             this.ventosTab = new System.Windows.Forms.TabPage();
             this.sobreTab = new System.Windows.Forms.TabPage();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.escalasTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -767,6 +767,11 @@
             // 
             this.perfilElev.DecimalPlaces = 2;
             this.perfilElev.Location = new System.Drawing.Point(71, 395);
+            this.perfilElev.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.perfilElev.Name = "perfilElev";
             this.perfilElev.Size = new System.Drawing.Size(58, 20);
             this.perfilElev.TabIndex = 5;
@@ -793,6 +798,11 @@
             // 
             this.perfilDist.DecimalPlaces = 2;
             this.perfilDist.Location = new System.Drawing.Point(9, 395);
+            this.perfilDist.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.perfilDist.Name = "perfilDist";
             this.perfilDist.Size = new System.Drawing.Size(58, 20);
             this.perfilDist.TabIndex = 2;
@@ -881,6 +891,68 @@
             this.sobreTab.Text = "Sobre";
             this.sobreTab.UseVisualStyleBackColor = true;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(325, 328);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(225, 17);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "http://code.google.com/p/rosecalc/";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(307, 205);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(59, 17);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Label23";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(307, 122);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(277, 17);
+            this.label22.TabIndex = 5;
+            this.label22.Text = "Software livre para cálculos de cartografia.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::RoseCalc.Properties.Resources.logo;
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.Location = new System.Drawing.Point(154, 75);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(146, 147);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(306, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Rosecalc";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(645, 458);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(192, 17);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Raphael de Freitas Saldanha";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -901,68 +973,6 @@
             this.label1.Size = new System.Drawing.Size(83, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "RoseCalc";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(645, 458);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(192, 17);
-            this.label21.TabIndex = 2;
-            this.label21.Text = "Raphael de Freitas Saldanha";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(306, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Rosecalc";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::RoseCalc.Properties.Resources.logo;
-            this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(154, 75);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 147);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(307, 122);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(277, 17);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "Software livre para cálculos de cartografia.";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(307, 205);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(59, 17);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "Label23";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(325, 328);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(225, 17);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "http://code.google.com/p/rosecalc/";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Form1
             // 

@@ -41,3 +41,5 @@ C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\De
 C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\zh-cn\ZedGraph.resources.dll
 C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\zh-tw\ZedGraph.resources.dll
 C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\GenerateResource.write.795.tlog
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc - SVN\RoseCalc\obj\x86\Debug\RoseCalc.exe
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc - SVN\RoseCalc\obj\x86\Debug\RoseCalc.pdb
