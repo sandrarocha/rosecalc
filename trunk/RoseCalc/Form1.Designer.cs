@@ -110,6 +110,25 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.ventoN = new System.Windows.Forms.NumericUpDown();
+            this.ventoNE = new System.Windows.Forms.NumericUpDown();
+            this.label28 = new System.Windows.Forms.Label();
+            this.ventoE = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.ventoSE = new System.Windows.Forms.NumericUpDown();
+            this.label30 = new System.Windows.Forms.Label();
+            this.ventoS = new System.Windows.Forms.NumericUpDown();
+            this.label31 = new System.Windows.Forms.Label();
+            this.ventoSO = new System.Windows.Forms.NumericUpDown();
+            this.label32 = new System.Windows.Forms.Label();
+            this.ventoO = new System.Windows.Forms.NumericUpDown();
+            this.label33 = new System.Windows.Forms.Label();
+            this.ventoNO = new System.Windows.Forms.NumericUpDown();
+            this.label34 = new System.Windows.Forms.Label();
+            this.zedGraphControl2 = new ZedGraph.ZedGraphControl();
+            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.escalasTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -130,8 +149,18 @@
             this.perfilTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.perfilElev)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.perfilDist)).BeginInit();
+            this.ventosTab.SuspendLayout();
             this.sobreTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoNE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoSE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoSO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoNO)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -758,7 +787,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(616, 10);
+            this.label26.Location = new System.Drawing.Point(616, 11);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(37, 13);
             this.label26.TabIndex = 13;
@@ -775,7 +804,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(375, 9);
+            this.label25.Location = new System.Drawing.Point(375, 12);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(37, 13);
             this.label25.TabIndex = 11;
@@ -931,6 +960,9 @@
             // 
             // ventosTab
             // 
+            this.ventosTab.Controls.Add(this.button8);
+            this.ventosTab.Controls.Add(this.zedGraphControl2);
+            this.ventosTab.Controls.Add(this.groupBox5);
             this.ventosTab.Location = new System.Drawing.Point(4, 22);
             this.ventosTab.Name = "ventosTab";
             this.ventosTab.Size = new System.Drawing.Size(852, 487);
@@ -1037,6 +1069,231 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "RoseCalc";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.ventoNO);
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Controls.Add(this.ventoO);
+            this.groupBox5.Controls.Add(this.label33);
+            this.groupBox5.Controls.Add(this.ventoSO);
+            this.groupBox5.Controls.Add(this.label32);
+            this.groupBox5.Controls.Add(this.ventoS);
+            this.groupBox5.Controls.Add(this.label31);
+            this.groupBox5.Controls.Add(this.ventoSE);
+            this.groupBox5.Controls.Add(this.label30);
+            this.groupBox5.Controls.Add(this.ventoE);
+            this.groupBox5.Controls.Add(this.label29);
+            this.groupBox5.Controls.Add(this.ventoNE);
+            this.groupBox5.Controls.Add(this.label28);
+            this.groupBox5.Controls.Add(this.ventoN);
+            this.groupBox5.Controls.Add(this.label27);
+            this.groupBox5.Location = new System.Drawing.Point(3, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(200, 234);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Ventos e Velocidade";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(11, 21);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(33, 13);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Norte";
+            // 
+            // ventoN
+            // 
+            this.ventoN.DecimalPlaces = 2;
+            this.ventoN.Location = new System.Drawing.Point(67, 19);
+            this.ventoN.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ventoN.Name = "ventoN";
+            this.ventoN.Size = new System.Drawing.Size(120, 20);
+            this.ventoN.TabIndex = 1;
+            // 
+            // ventoNE
+            // 
+            this.ventoNE.DecimalPlaces = 2;
+            this.ventoNE.Location = new System.Drawing.Point(67, 45);
+            this.ventoNE.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ventoNE.Name = "ventoNE";
+            this.ventoNE.Size = new System.Drawing.Size(120, 20);
+            this.ventoNE.TabIndex = 3;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(11, 47);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(50, 13);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "Nordeste";
+            // 
+            // ventoE
+            // 
+            this.ventoE.DecimalPlaces = 2;
+            this.ventoE.Location = new System.Drawing.Point(67, 71);
+            this.ventoE.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ventoE.Name = "ventoE";
+            this.ventoE.Size = new System.Drawing.Size(120, 20);
+            this.ventoE.TabIndex = 5;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(11, 73);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(33, 13);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "Leste";
+            // 
+            // ventoSE
+            // 
+            this.ventoSE.DecimalPlaces = 2;
+            this.ventoSE.Location = new System.Drawing.Point(67, 97);
+            this.ventoSE.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ventoSE.Name = "ventoSE";
+            this.ventoSE.Size = new System.Drawing.Size(120, 20);
+            this.ventoSE.TabIndex = 7;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(11, 99);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(46, 13);
+            this.label30.TabIndex = 6;
+            this.label30.Text = "Sudeste";
+            // 
+            // ventoS
+            // 
+            this.ventoS.DecimalPlaces = 2;
+            this.ventoS.Location = new System.Drawing.Point(67, 123);
+            this.ventoS.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ventoS.Name = "ventoS";
+            this.ventoS.Size = new System.Drawing.Size(120, 20);
+            this.ventoS.TabIndex = 9;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(11, 125);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(22, 13);
+            this.label31.TabIndex = 8;
+            this.label31.Text = "Sul";
+            // 
+            // ventoSO
+            // 
+            this.ventoSO.DecimalPlaces = 2;
+            this.ventoSO.Location = new System.Drawing.Point(67, 149);
+            this.ventoSO.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ventoSO.Name = "ventoSO";
+            this.ventoSO.Size = new System.Drawing.Size(120, 20);
+            this.ventoSO.TabIndex = 11;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(11, 151);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(52, 13);
+            this.label32.TabIndex = 10;
+            this.label32.Text = "Sudoeste";
+            // 
+            // ventoO
+            // 
+            this.ventoO.DecimalPlaces = 2;
+            this.ventoO.Location = new System.Drawing.Point(67, 175);
+            this.ventoO.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ventoO.Name = "ventoO";
+            this.ventoO.Size = new System.Drawing.Size(120, 20);
+            this.ventoO.TabIndex = 13;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(11, 177);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(35, 13);
+            this.label33.TabIndex = 12;
+            this.label33.Text = "Oeste";
+            // 
+            // ventoNO
+            // 
+            this.ventoNO.DecimalPlaces = 2;
+            this.ventoNO.Location = new System.Drawing.Point(67, 201);
+            this.ventoNO.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ventoNO.Name = "ventoNO";
+            this.ventoNO.Size = new System.Drawing.Size(120, 20);
+            this.ventoNO.TabIndex = 15;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(11, 203);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(50, 13);
+            this.label34.TabIndex = 14;
+            this.label34.Text = "Noroeste";
+            // 
+            // zedGraphControl2
+            // 
+            this.zedGraphControl2.Location = new System.Drawing.Point(209, 3);
+            this.zedGraphControl2.Name = "zedGraphControl2";
+            this.zedGraphControl2.ScrollGrace = 0D;
+            this.zedGraphControl2.ScrollMaxX = 0D;
+            this.zedGraphControl2.ScrollMaxY = 0D;
+            this.zedGraphControl2.ScrollMaxY2 = 0D;
+            this.zedGraphControl2.ScrollMinX = 0D;
+            this.zedGraphControl2.ScrollMinY = 0D;
+            this.zedGraphControl2.ScrollMinY2 = 0D;
+            this.zedGraphControl2.Size = new System.Drawing.Size(640, 481);
+            this.zedGraphControl2.TabIndex = 1;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(72, 287);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 2;
+            this.button8.Text = "Desenhar";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1075,9 +1332,20 @@
             this.perfilTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.perfilElev)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.perfilDist)).EndInit();
+            this.ventosTab.ResumeLayout(false);
             this.sobreTab.ResumeLayout(false);
             this.sobreTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoNE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoSE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoSO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoNO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1166,6 +1434,25 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox perfilTitulo;
         private System.Windows.Forms.Label label24;
+        private ZedGraph.ZedGraphControl zedGraphControl2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.NumericUpDown ventoNO;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.NumericUpDown ventoO;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.NumericUpDown ventoSO;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.NumericUpDown ventoS;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.NumericUpDown ventoSE;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.NumericUpDown ventoE;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.NumericUpDown ventoNE;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.NumericUpDown ventoN;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button button8;
     }
 }
 

@@ -20,7 +20,7 @@ namespace RoseCalc
             tabControl1.TabPages.Remove(coordenadasTab);
             tabControl1.TabPages.Remove(declinacaoTab);
             tabControl1.TabPages.Remove(unidadesTab);
-            tabControl1.TabPages.Remove(ventosTab);
+            //tabControl1.TabPages.Remove(ventosTab);
 
             linkLabel1.Text = "http://code.google.com/p/rosecalc/";
             linkLabel1.Links.Add(0, 34, "http://code.google.com/p/rosecalc/");
@@ -210,6 +210,72 @@ namespace RoseCalc
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
+
+        private void GraficoVento(decimal n, decimal ne, decimal e, decimal se, decimal s, decimal so, decimal o, decimal no)
+        {
+            ZedGraphControl zgc = zedGraphControl2;
+            GraphPane myPane = zgc.GraphPane;
+
+            //Adiciona série 
+            zgc.GraphPane.CurveList.Clear(); //Apaga a série do gráfico
+
+            RadarPointList list1 = new RadarPointList();       
+            list1.Add(Convert.ToDouble(ventoN.Value),1);
+            list1.Add(Convert.ToDouble(ventoNE.Value),2);
+            list1.Add(Convert.ToDouble(ventoE.Value),3);
+            list1.Add(Convert.ToDouble(ventoSE.Value),4);
+            list1.Add(Convert.ToDouble(ventoS.Value),5);
+            list1.Add(Convert.ToDouble(ventoSO.Value),6);
+            list1.Add(Convert.ToDouble(ventoO.Value),7);
+            list1.Add(Convert.ToDouble(ventoNO.Value), 8);            
+
+            LineItem myCurve = myPane.AddCurve("", list1, Color.Blue, SymbolType.None);
+            
+            zgc.AxisChange();
+
+            //Atualiza títulos
+            myPane.Title.Text = perfilTitulo.Text;
+            myPane.XAxis.Title.Text = perfilEixoX.Text;
+            myPane.YAxis.Title.Text = perfilEixoY.Text;
+
+            //Atualiza o gráfico
+            zedGraphControl2.Refresh();
+        }
+
+
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ZedGraphControl zgc = zedGraphControl2;
+            GraphPane myPane = zgc.GraphPane;
+
+            //Adiciona série 
+            zgc.GraphPane.CurveList.Clear(); //Apaga a série do gráfico
+
+            RadarPointList list1 = new RadarPointList();
+            list1.Add(Convert.ToDouble(ventoN.Value), 1);
+            list1.Add(Convert.ToDouble(ventoNE.Value), 2);
+            list1.Add(Convert.ToDouble(ventoE.Value), 3);
+            list1.Add(Convert.ToDouble(ventoSE.Value), 4);
+            list1.Add(Convert.ToDouble(ventoS.Value), 5);
+            list1.Add(Convert.ToDouble(ventoSO.Value), 6);
+            list1.Add(Convert.ToDouble(ventoO.Value), 7);
+            list1.Add(Convert.ToDouble(ventoNO.Value), 8);
+
+            LineItem myCurve = myPane.AddCurve("", list1, Color.Blue, SymbolType.None);
+
+            zgc.AxisChange();
+
+            //Atualiza títulos
+            myPane.Title.Text = perfilTitulo.Text;
+            myPane.XAxis.Title.Text = perfilEixoX.Text;
+            myPane.YAxis.Title.Text = perfilEixoY.Text;
+
+            //Atualiza o gráfico
+            zedGraphControl2.Refresh();
+        }
+
+
 
 
 
