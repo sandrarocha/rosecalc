@@ -1,0 +1,43 @@
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\bin\Debug\RoseCalc.exe
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\bin\Debug\RoseCalc.pdb
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\obj\x86\Debug\RoseCalc.Form1.resources
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\obj\x86\Debug\RoseCalc.Properties.Resources.resources
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\obj\x86\Debug\RoseCalc.exe
+C:\Users\PLANGEO\AppData\Local\Temporary Projects\RoseCalc\obj\x86\Debug\RoseCalc.pdb
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\RoseCalc.exe
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\RoseCalc.pdb
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\RoseCalc.exe
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\RoseCalc.pdb
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\RoseCalc.Form1.resources
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\RoseCalc.Properties.Resources.resources
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\PLANGEO\documents\visual studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\RoseCalc.exe
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\RoseCalc.pdb
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\RoseCalc.exe
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\RoseCalc.pdb
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\RoseCalc.Form1.resources
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\RoseCalc.Properties.Resources.resources
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\ZedGraph.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\ZedGraph.xml
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc\RoseCalc\obj\x86\Debug\GenerateResource.write.795.tlog
