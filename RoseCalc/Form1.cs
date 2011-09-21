@@ -189,6 +189,9 @@ namespace RoseCalc
             myPane.XAxis.Title.Text = perfilEixoX.Text;
             myPane.YAxis.Title.Text = perfilEixoY.Text;
 
+            //Cores do fundo do gráfico
+            myPane.Chart.Fill = new Fill(Color.White, (perfilFundoCor.SelectedColor), 90F);
+
             //Atualiza o gráfico
             zedGraphControl1.Refresh();
         }
@@ -218,6 +221,7 @@ namespace RoseCalc
             myPane.Title.Text = "Perfil de relevo";
             myPane.XAxis.Title.Text = "Distância";
             myPane.YAxis.Title.Text = "Elevação";
+            myPane.Chart.Fill = new Fill(Color.White, (perfilFundoCor.SelectedColor), 90F);
             zedGraphControl1.Refresh();
 
             ZedGraphControl zgc2 = zedGraphControl2;
@@ -331,6 +335,11 @@ namespace RoseCalc
         }
 
         private void perfilEixoY_TextChanged(object sender, EventArgs e)
+        {
+            graficoPerfil();
+        }
+
+        private void perfilFundoCor_ColorChanged(object sender, ColorComboTestApp.ColorChangeArgs e)
         {
             graficoPerfil();
         }
