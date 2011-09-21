@@ -133,6 +133,11 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.perfilFundoCor = new ColorComboTestApp.ColorComboBox();
             this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
             this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
             this.tabControl1.SuspendLayout();
@@ -762,6 +767,8 @@
             // 
             // perfilTab
             // 
+            this.perfilTab.Controls.Add(this.perfilFundoCor);
+            this.perfilTab.Controls.Add(this.label40);
             this.perfilTab.Controls.Add(this.perfilLinhaCor);
             this.perfilTab.Controls.Add(this.perfilGraficoCor);
             this.perfilTab.Controls.Add(this.label36);
@@ -1256,6 +1263,9 @@
             // 
             // sobreTab
             // 
+            this.sobreTab.Controls.Add(this.label39);
+            this.sobreTab.Controls.Add(this.label38);
+            this.sobreTab.Controls.Add(this.label37);
             this.sobreTab.Controls.Add(this.linkLabel1);
             this.sobreTab.Controls.Add(this.label23);
             this.sobreTab.Controls.Add(this.label22);
@@ -1274,7 +1284,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(325, 328);
+            this.linkLabel1.Location = new System.Drawing.Point(317, 268);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(225, 17);
             this.linkLabel1.TabIndex = 7;
@@ -1286,7 +1296,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(307, 205);
+            this.label23.Location = new System.Drawing.Point(306, 193);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(59, 17);
             this.label23.TabIndex = 6;
@@ -1298,9 +1308,9 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(307, 122);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(277, 17);
+            this.label22.Size = new System.Drawing.Size(353, 17);
             this.label22.TabIndex = 5;
-            this.label22.Text = "Software livre para cálculos de cartografia.";
+            this.label22.Text = "Software livre para cálculos de cartografia e topografia";
             // 
             // pictureBox1
             // 
@@ -1352,6 +1362,55 @@
             this.label1.Size = new System.Drawing.Size(83, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "RoseCalc";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(21, 401);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(110, 17);
+            this.label37.TabIndex = 8;
+            this.label37.Text = "Agradecimentos";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(41, 418);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(138, 17);
+            this.label38.TabIndex = 9;
+            this.label38.Text = "Biblioteca ZedGraph";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(41, 435);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(114, 17);
+            this.label39.TabIndex = 10;
+            this.label39.Text = "The CodeProject";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(475, 451);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(68, 13);
+            this.label40.TabIndex = 25;
+            this.label40.Text = "Cor do fundo";
+            // 
+            // perfilFundoCor
+            // 
+            this.perfilFundoCor.Extended = false;
+            this.perfilFundoCor.Location = new System.Drawing.Point(561, 446);
+            this.perfilFundoCor.Name = "perfilFundoCor";
+            this.perfilFundoCor.SelectedColor = System.Drawing.Color.PapayaWhip;
+            this.perfilFundoCor.Size = new System.Drawing.Size(86, 23);
+            this.perfilFundoCor.TabIndex = 26;
+            this.perfilFundoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilFundoCor_ColorChanged);
             // 
             // perfilLinhaCor
             // 
@@ -1538,6 +1597,11 @@
         private System.Windows.Forms.Label label35;
         private ColorComboTestApp.ColorComboBox perfilGraficoCor;
         private ColorComboTestApp.ColorComboBox perfilLinhaCor;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private ColorComboTestApp.ColorComboBox perfilFundoCor;
+        private System.Windows.Forms.Label label40;
     }
 }
 
