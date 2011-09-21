@@ -131,6 +131,14 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.escalasTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -182,7 +190,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(860, 513);
+            this.tabControl1.Size = new System.Drawing.Size(860, 519);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Enter += new System.EventHandler(this.tabControl1_Enter);
             // 
@@ -195,7 +203,7 @@
             this.escalasTab.Location = new System.Drawing.Point(4, 40);
             this.escalasTab.Name = "escalasTab";
             this.escalasTab.Padding = new System.Windows.Forms.Padding(3);
-            this.escalasTab.Size = new System.Drawing.Size(852, 469);
+            this.escalasTab.Size = new System.Drawing.Size(852, 475);
             this.escalasTab.TabIndex = 0;
             this.escalasTab.Text = "Escalas";
             this.escalasTab.UseVisualStyleBackColor = true;
@@ -758,6 +766,14 @@
             // 
             // perfilTab
             // 
+            this.perfilTab.Controls.Add(this.comboBox4);
+            this.perfilTab.Controls.Add(this.label38);
+            this.perfilTab.Controls.Add(this.comboBox3);
+            this.perfilTab.Controls.Add(this.label37);
+            this.perfilTab.Controls.Add(this.comboBox2);
+            this.perfilTab.Controls.Add(this.label36);
+            this.perfilTab.Controls.Add(this.label35);
+            this.perfilTab.Controls.Add(this.comboBox1);
             this.perfilTab.Controls.Add(this.perfilEixoY);
             this.perfilTab.Controls.Add(this.label26);
             this.perfilTab.Controls.Add(this.perfilEixoX);
@@ -775,23 +791,23 @@
             this.perfilTab.Controls.Add(this.zedGraphControl1);
             this.perfilTab.Location = new System.Drawing.Point(4, 40);
             this.perfilTab.Name = "perfilTab";
-            this.perfilTab.Size = new System.Drawing.Size(852, 469);
+            this.perfilTab.Size = new System.Drawing.Size(852, 475);
             this.perfilTab.TabIndex = 4;
             this.perfilTab.Text = "Perfil de Relevo";
             this.perfilTab.UseVisualStyleBackColor = true;
             // 
             // perfilEixoY
             // 
-            this.perfilEixoY.Location = new System.Drawing.Point(659, 8);
+            this.perfilEixoY.Location = new System.Drawing.Point(714, 421);
             this.perfilEixoY.Name = "perfilEixoY";
-            this.perfilEixoY.Size = new System.Drawing.Size(180, 20);
+            this.perfilEixoY.Size = new System.Drawing.Size(125, 20);
             this.perfilEixoY.TabIndex = 14;
             this.perfilEixoY.Text = "Elevação";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(616, 11);
+            this.label26.Location = new System.Drawing.Point(671, 424);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(37, 13);
             this.label26.TabIndex = 13;
@@ -799,16 +815,16 @@
             // 
             // perfilEixoX
             // 
-            this.perfilEixoX.Location = new System.Drawing.Point(418, 9);
+            this.perfilEixoX.Location = new System.Drawing.Point(522, 422);
             this.perfilEixoX.Name = "perfilEixoX";
-            this.perfilEixoX.Size = new System.Drawing.Size(180, 20);
+            this.perfilEixoX.Size = new System.Drawing.Size(125, 20);
             this.perfilEixoX.TabIndex = 12;
             this.perfilEixoX.Text = "Distância";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(375, 12);
+            this.label25.Location = new System.Drawing.Point(475, 425);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(37, 13);
             this.label25.TabIndex = 11;
@@ -816,16 +832,16 @@
             // 
             // perfilTitulo
             // 
-            this.perfilTitulo.Location = new System.Drawing.Point(173, 8);
+            this.perfilTitulo.Location = new System.Drawing.Point(176, 421);
             this.perfilTitulo.Name = "perfilTitulo";
-            this.perfilTitulo.Size = new System.Drawing.Size(180, 20);
+            this.perfilTitulo.Size = new System.Drawing.Size(276, 20);
             this.perfilTitulo.TabIndex = 10;
             this.perfilTitulo.Text = "Perfil de relevo";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(132, 11);
+            this.label24.Location = new System.Drawing.Point(135, 424);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(35, 13);
             this.label24.TabIndex = 9;
@@ -833,7 +849,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(9, 450);
+            this.button7.Location = new System.Drawing.Point(9, 443);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(120, 23);
             this.button7.TabIndex = 8;
@@ -913,7 +929,7 @@
             // 
             // zedGraphControl1
             // 
-            this.zedGraphControl1.Location = new System.Drawing.Point(135, 34);
+            this.zedGraphControl1.Location = new System.Drawing.Point(135, 12);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.ScrollGrace = 0D;
             this.zedGraphControl1.ScrollMaxX = 0D;
@@ -922,7 +938,7 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(704, 439);
+            this.zedGraphControl1.Size = new System.Drawing.Size(704, 403);
             this.zedGraphControl1.TabIndex = 0;
             // 
             // ventosTab
@@ -931,7 +947,7 @@
             this.ventosTab.Controls.Add(this.groupBox5);
             this.ventosTab.Location = new System.Drawing.Point(4, 40);
             this.ventosTab.Name = "ventosTab";
-            this.ventosTab.Size = new System.Drawing.Size(852, 469);
+            this.ventosTab.Size = new System.Drawing.Size(852, 475);
             this.ventosTab.TabIndex = 9;
             this.ventosTab.Text = "Gráfico de ventos";
             this.ventosTab.UseVisualStyleBackColor = true;
@@ -1324,11 +1340,130 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "RoseCalc";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Azul",
+            "Azul claro",
+            "Vermelho",
+            "Vermelho claro",
+            "Verde",
+            "Verde claro",
+            "Laranja",
+            "Marron",
+            "Marron claro",
+            "Branco",
+            "Cinza",
+            "Cinza Claro",
+            "Preto"});
+            this.comboBox1.Location = new System.Drawing.Point(217, 448);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(80, 21);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(138, 451);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(73, 13);
+            this.label35.TabIndex = 16;
+            this.label35.Text = "Cor do gráfico";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(303, 451);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(63, 13);
+            this.label36.TabIndex = 17;
+            this.label36.Text = "Cor da linha";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Azul",
+            "Azul claro",
+            "Vermelho",
+            "Vermelho claro",
+            "Verde",
+            "Verde claro",
+            "Laranja",
+            "Marron",
+            "Marron claro",
+            "Branco",
+            "Cinza",
+            "Cinza Claro",
+            "Preto"});
+            this.comboBox2.Location = new System.Drawing.Point(372, 448);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(80, 21);
+            this.comboBox2.TabIndex = 18;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(475, 448);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(77, 13);
+            this.label37.TabIndex = 19;
+            this.label37.Text = "Estilo do ponto";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Cruz",
+            "Ponto",
+            "Círculo",
+            "Triangulo"});
+            this.comboBox3.Location = new System.Drawing.Point(558, 445);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(89, 21);
+            this.comboBox3.TabIndex = 20;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(671, 451);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(68, 13);
+            this.label38.TabIndex = 21;
+            this.label38.Text = "Cor do ponto";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Azul",
+            "Azul claro",
+            "Vermelho",
+            "Vermelho claro",
+            "Verde",
+            "Verde claro",
+            "Laranja",
+            "Marron",
+            "Marron claro",
+            "Branco",
+            "Cinza",
+            "Cinza Claro",
+            "Preto"});
+            this.comboBox4.Location = new System.Drawing.Point(745, 445);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(94, 21);
+            this.comboBox4.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 562);
+            this.ClientSize = new System.Drawing.Size(884, 568);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1485,6 +1620,14 @@
         private System.Windows.Forms.TabPage rumoTab;
         private System.Windows.Forms.TabPage transporteTab;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label37;
     }
 }
 
