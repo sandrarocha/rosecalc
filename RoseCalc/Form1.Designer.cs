@@ -81,6 +81,8 @@
             this.decElevUnit = new System.Windows.Forms.ComboBox();
             this.decElev = new System.Windows.Forms.NumericUpDown();
             this.perfilTab = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.perfilEixoY = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.perfilEixoX = new System.Windows.Forms.TextBox();
@@ -131,14 +133,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
+            this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
             this.tabControl1.SuspendLayout();
             this.escalasTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -654,7 +650,7 @@
             this.declividadeTab.Controls.Add(this.decElev);
             this.declividadeTab.Location = new System.Drawing.Point(4, 40);
             this.declividadeTab.Name = "declividadeTab";
-            this.declividadeTab.Size = new System.Drawing.Size(852, 469);
+            this.declividadeTab.Size = new System.Drawing.Size(852, 475);
             this.declividadeTab.TabIndex = 3;
             this.declividadeTab.Text = "Declividade";
             this.declividadeTab.UseVisualStyleBackColor = true;
@@ -766,14 +762,10 @@
             // 
             // perfilTab
             // 
-            this.perfilTab.Controls.Add(this.comboBox4);
-            this.perfilTab.Controls.Add(this.label38);
-            this.perfilTab.Controls.Add(this.comboBox3);
-            this.perfilTab.Controls.Add(this.label37);
-            this.perfilTab.Controls.Add(this.comboBox2);
+            this.perfilTab.Controls.Add(this.perfilLinhaCor);
+            this.perfilTab.Controls.Add(this.perfilGraficoCor);
             this.perfilTab.Controls.Add(this.label36);
             this.perfilTab.Controls.Add(this.label35);
-            this.perfilTab.Controls.Add(this.comboBox1);
             this.perfilTab.Controls.Add(this.perfilEixoY);
             this.perfilTab.Controls.Add(this.label26);
             this.perfilTab.Controls.Add(this.perfilEixoX);
@@ -796,6 +788,24 @@
             this.perfilTab.Text = "Perfil de Relevo";
             this.perfilTab.UseVisualStyleBackColor = true;
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(303, 451);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(63, 13);
+            this.label36.TabIndex = 17;
+            this.label36.Text = "Cor da linha";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(138, 451);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(73, 13);
+            this.label35.TabIndex = 16;
+            this.label35.Text = "Cor do gráfico";
+            // 
             // perfilEixoY
             // 
             this.perfilEixoY.Location = new System.Drawing.Point(714, 421);
@@ -803,6 +813,7 @@
             this.perfilEixoY.Size = new System.Drawing.Size(125, 20);
             this.perfilEixoY.TabIndex = 14;
             this.perfilEixoY.Text = "Elevação";
+            this.perfilEixoY.TextChanged += new System.EventHandler(this.perfilEixoY_TextChanged);
             // 
             // label26
             // 
@@ -820,6 +831,7 @@
             this.perfilEixoX.Size = new System.Drawing.Size(125, 20);
             this.perfilEixoX.TabIndex = 12;
             this.perfilEixoX.Text = "Distância";
+            this.perfilEixoX.TextChanged += new System.EventHandler(this.perfilEixoX_TextChanged);
             // 
             // label25
             // 
@@ -837,6 +849,7 @@
             this.perfilTitulo.Size = new System.Drawing.Size(276, 20);
             this.perfilTitulo.TabIndex = 10;
             this.perfilTitulo.Text = "Perfil de relevo";
+            this.perfilTitulo.TextChanged += new System.EventHandler(this.perfilTitulo_TextChanged);
             // 
             // label24
             // 
@@ -1190,7 +1203,7 @@
             // 
             this.cartasTab.Location = new System.Drawing.Point(4, 40);
             this.cartasTab.Name = "cartasTab";
-            this.cartasTab.Size = new System.Drawing.Size(852, 469);
+            this.cartasTab.Size = new System.Drawing.Size(852, 475);
             this.cartasTab.TabIndex = 5;
             this.cartasTab.Text = "Cartas Topográficas";
             this.cartasTab.UseVisualStyleBackColor = true;
@@ -1200,7 +1213,7 @@
             this.coordenadasTab.Location = new System.Drawing.Point(4, 40);
             this.coordenadasTab.Name = "coordenadasTab";
             this.coordenadasTab.Padding = new System.Windows.Forms.Padding(3);
-            this.coordenadasTab.Size = new System.Drawing.Size(852, 469);
+            this.coordenadasTab.Size = new System.Drawing.Size(852, 475);
             this.coordenadasTab.TabIndex = 1;
             this.coordenadasTab.Text = "Transformação de coordenadas";
             this.coordenadasTab.UseVisualStyleBackColor = true;
@@ -1209,7 +1222,7 @@
             // 
             this.transporteTab.Location = new System.Drawing.Point(4, 40);
             this.transporteTab.Name = "transporteTab";
-            this.transporteTab.Size = new System.Drawing.Size(852, 469);
+            this.transporteTab.Size = new System.Drawing.Size(852, 475);
             this.transporteTab.TabIndex = 11;
             this.transporteTab.Text = "Transporte de Coordenadas";
             this.transporteTab.UseVisualStyleBackColor = true;
@@ -1218,7 +1231,7 @@
             // 
             this.declinacaoTab.Location = new System.Drawing.Point(4, 40);
             this.declinacaoTab.Name = "declinacaoTab";
-            this.declinacaoTab.Size = new System.Drawing.Size(852, 469);
+            this.declinacaoTab.Size = new System.Drawing.Size(852, 475);
             this.declinacaoTab.TabIndex = 8;
             this.declinacaoTab.Text = "Declinação magnética";
             this.declinacaoTab.UseVisualStyleBackColor = true;
@@ -1227,7 +1240,7 @@
             // 
             this.rumoTab.Location = new System.Drawing.Point(4, 40);
             this.rumoTab.Name = "rumoTab";
-            this.rumoTab.Size = new System.Drawing.Size(852, 469);
+            this.rumoTab.Size = new System.Drawing.Size(852, 475);
             this.rumoTab.TabIndex = 10;
             this.rumoTab.Text = "Rumo e azimute";
             this.rumoTab.UseVisualStyleBackColor = true;
@@ -1236,7 +1249,7 @@
             // 
             this.unidadesTab.Location = new System.Drawing.Point(4, 40);
             this.unidadesTab.Name = "unidadesTab";
-            this.unidadesTab.Size = new System.Drawing.Size(852, 469);
+            this.unidadesTab.Size = new System.Drawing.Size(852, 475);
             this.unidadesTab.TabIndex = 6;
             this.unidadesTab.Text = "Conversão de unidades";
             this.unidadesTab.UseVisualStyleBackColor = true;
@@ -1252,7 +1265,7 @@
             this.sobreTab.Controls.Add(this.label2);
             this.sobreTab.Location = new System.Drawing.Point(4, 40);
             this.sobreTab.Name = "sobreTab";
-            this.sobreTab.Size = new System.Drawing.Size(852, 469);
+            this.sobreTab.Size = new System.Drawing.Size(852, 475);
             this.sobreTab.TabIndex = 2;
             this.sobreTab.Text = "Sobre";
             this.sobreTab.UseVisualStyleBackColor = true;
@@ -1340,124 +1353,25 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "RoseCalc";
             // 
-            // comboBox1
+            // perfilLinhaCor
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Azul",
-            "Azul claro",
-            "Vermelho",
-            "Vermelho claro",
-            "Verde",
-            "Verde claro",
-            "Laranja",
-            "Marron",
-            "Marron claro",
-            "Branco",
-            "Cinza",
-            "Cinza Claro",
-            "Preto"});
-            this.comboBox1.Location = new System.Drawing.Point(217, 448);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(80, 21);
-            this.comboBox1.TabIndex = 15;
+            this.perfilLinhaCor.Extended = false;
+            this.perfilLinhaCor.Location = new System.Drawing.Point(366, 446);
+            this.perfilLinhaCor.Name = "perfilLinhaCor";
+            this.perfilLinhaCor.SelectedColor = System.Drawing.Color.Black;
+            this.perfilLinhaCor.Size = new System.Drawing.Size(86, 23);
+            this.perfilLinhaCor.TabIndex = 24;
+            this.perfilLinhaCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilLinhaCor_ColorChanged);
             // 
-            // label35
+            // perfilGraficoCor
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(138, 451);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(73, 13);
-            this.label35.TabIndex = 16;
-            this.label35.Text = "Cor do gráfico";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(303, 451);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(63, 13);
-            this.label36.TabIndex = 17;
-            this.label36.Text = "Cor da linha";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Azul",
-            "Azul claro",
-            "Vermelho",
-            "Vermelho claro",
-            "Verde",
-            "Verde claro",
-            "Laranja",
-            "Marron",
-            "Marron claro",
-            "Branco",
-            "Cinza",
-            "Cinza Claro",
-            "Preto"});
-            this.comboBox2.Location = new System.Drawing.Point(372, 448);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(80, 21);
-            this.comboBox2.TabIndex = 18;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(475, 448);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(77, 13);
-            this.label37.TabIndex = 19;
-            this.label37.Text = "Estilo do ponto";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Cruz",
-            "Ponto",
-            "Círculo",
-            "Triangulo"});
-            this.comboBox3.Location = new System.Drawing.Point(558, 445);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(89, 21);
-            this.comboBox3.TabIndex = 20;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(671, 451);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(68, 13);
-            this.label38.TabIndex = 21;
-            this.label38.Text = "Cor do ponto";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Azul",
-            "Azul claro",
-            "Vermelho",
-            "Vermelho claro",
-            "Verde",
-            "Verde claro",
-            "Laranja",
-            "Marron",
-            "Marron claro",
-            "Branco",
-            "Cinza",
-            "Cinza Claro",
-            "Preto"});
-            this.comboBox4.Location = new System.Drawing.Point(745, 445);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(94, 21);
-            this.comboBox4.TabIndex = 22;
+            this.perfilGraficoCor.Extended = false;
+            this.perfilGraficoCor.Location = new System.Drawing.Point(217, 446);
+            this.perfilGraficoCor.Name = "perfilGraficoCor";
+            this.perfilGraficoCor.SelectedColor = System.Drawing.Color.Blue;
+            this.perfilGraficoCor.Size = new System.Drawing.Size(80, 23);
+            this.perfilGraficoCor.TabIndex = 23;
+            this.perfilGraficoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilGraficoCor_ColorChanged);
             // 
             // Form1
             // 
@@ -1620,14 +1534,10 @@
         private System.Windows.Forms.TabPage rumoTab;
         private System.Windows.Forms.TabPage transporteTab;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label37;
+        private ColorComboTestApp.ColorComboBox perfilGraficoCor;
+        private ColorComboTestApp.ColorComboBox perfilLinhaCor;
     }
 }
 
