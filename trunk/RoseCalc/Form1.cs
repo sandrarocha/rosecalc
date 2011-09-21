@@ -38,7 +38,8 @@ namespace RoseCalc
             escDistRealUnit.SelectedIndex = 2;
             escDistRealUnit.SelectedValueChanged += button4_Click;
             decDistUnit.SelectedIndex = 2;
-            decElevUnit.SelectedIndex = 2;
+            decElevUnit.SelectedIndex = 2;                    
+
         }
 
         public decimal ConverteMetro(decimal a, string aTipo)
@@ -135,12 +136,24 @@ namespace RoseCalc
             decPer.Text = Math.Round(decper,2).ToString()+" %";
         }
 
-
-        private void button6_Click(object sender, EventArgs e)
+        public string converteCor(string cor)
         {            
-            listBox1.Items.Add(float.Parse(perfilDist.Value.ToString()));            
-            listBox2.Items.Add(float.Parse(perfilElev.Value.ToString()));
+            string c = "0";
+            if (cor == "Branco")
+            {
+                c = Color.White.ToString();
+            }
+            if (cor == "Azul")
+            {
+                c = Color.Blue.ToString();
+            }
+            return c;
+        }
 
+
+
+        private void graficoPerfil()
+        {
             // Declaração dos dados e criação da lista de pares ordenados
 
             // Declaração dos arrays
@@ -162,14 +175,14 @@ namespace RoseCalc
 
             // Cria controle e referência ao gráfico
             ZedGraphControl zgc = zedGraphControl1;
-            GraphPane myPane = zgc.GraphPane;        
+            GraphPane myPane = zgc.GraphPane;
 
             //Adiciona série 
             zgc.GraphPane.CurveList.Clear(); //Apaga a série do gráfico
-            LineItem myCurve = myPane.AddCurve("",list1, Color.Black, SymbolType.XCross);
-            myCurve.Line.Fill = new Fill (Color.White, Color.Blue, 45F);
+            LineItem myCurve = myPane.AddCurve("", list1, perfilLinhaCor.SelectedColor, SymbolType.XCross);            
+            myCurve.Line.Fill = new Fill(Color.White, perfilGraficoCor.SelectedColor, 45F);            
             myCurve.Line.Width = 3;
-            zgc.AxisChange();
+            zgc.AxisChange();            
 
             //Atualiza títulos
             myPane.Title.Text = perfilTitulo.Text;
@@ -178,6 +191,13 @@ namespace RoseCalc
 
             //Atualiza o gráfico
             zedGraphControl1.Refresh();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {            
+            listBox1.Items.Add(float.Parse(perfilDist.Value.ToString()));            
+            listBox2.Items.Add(float.Parse(perfilElev.Value.ToString()));
+            graficoPerfil();
             
         }
 
@@ -289,6 +309,37 @@ namespace RoseCalc
             zgc2.AxisChange();
             zedGraphControl2.Refresh();
         }
+
+        private void perfilGraficoCor_ColorChanged(object sender, ColorComboTestApp.ColorChangeArgs e)
+        {
+            graficoPerfil();
+        }
+
+        private void perfilLinhaCor_ColorChanged(object sender, ColorComboTestApp.ColorChangeArgs e)
+        {
+            graficoPerfil();
+        }
+
+        private void perfilTitulo_TextChanged(object sender, EventArgs e)
+        {
+            graficoPerfil();
+        }
+
+        private void perfilEixoX_TextChanged(object sender, EventArgs e)
+        {
+            graficoPerfil();
+        }
+
+        private void perfilEixoY_TextChanged(object sender, EventArgs e)
+        {
+            graficoPerfil();
+        }
+
+
+
+
+
+
 
 
 
