@@ -270,6 +270,7 @@ namespace RoseCalc
             //Adiciona série 
             zgc2.GraphPane.CurveList.Clear(); //Apaga a série do gráfico
 
+            
             RadarPointList list1 = new RadarPointList();
             list1.Add(Convert.ToDouble(ventoN.Value), 1);
             list1.Add(Convert.ToDouble(ventoNE.Value), 2);
