@@ -28,7 +28,8 @@ namespace RoseCalc
             //Link para o projeto na aba 'Sobre'
             linkLabel1.Text = "http://code.google.com/p/rosecalc/";
             linkLabel1.Links.Add(0, 34, "http://code.google.com/p/rosecalc/");
-            label23.Text = "Versão "+System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            //label23.Text = "Versão "+System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            label23.Text = "Versão 1.0.0.3";
 
             //Valores iniciais das combobox da aba 'Perfil'
             escRegDistMapaUnid.SelectedIndex = 1;
@@ -212,6 +213,8 @@ namespace RoseCalc
         //Configuraração inicial do gráfico de perfil e gráfico de ventos
         private void tabControl1_Enter(object sender, EventArgs e)
         {
+
+            //Perfil de Relevo
             ZedGraphControl zgc = zedGraphControl1;
             GraphPane myPane = zgc.GraphPane;
             myPane.Title.FontSpec.Family = "Verdana";
@@ -228,6 +231,7 @@ namespace RoseCalc
             myPane.Chart.Fill = new Fill(Color.White, (perfilFundoCor.SelectedColor), 90F);
             zedGraphControl1.Refresh();
 
+            //Gráfico dos ventos
             ZedGraphControl zgc2 = zedGraphControl2;
             GraphPane myPane2 = zgc2.GraphPane;
             myPane2.Title.Text = "";
@@ -249,16 +253,72 @@ namespace RoseCalc
             myPane2.YAxis.Scale.IsSkipFirstLabel = true;
             myPane2.YAxis.Scale.IsSkipLastLabel = true;
             myPane2.YAxis.Scale.IsSkipCrossLabel = true;
-
+            myPane2.Title.Text = ventoTitulo.Text;
+            myPane2.XAxis.Title.Text = "";
+            myPane2.YAxis.Title.Text = "";
+            myPane2.XAxis.Scale.FontSpec.Size = 10;
+            myPane2.YAxis.Scale.FontSpec.Size = 10;
             myPane2.XAxis.Scale.Min = -1;
             myPane2.XAxis.Scale.Max = 1;
-
             myPane2.YAxis.Scale.Min = -1;
             myPane2.YAxis.Scale.Max = 1;
-            
-            zedGraphControl2.Refresh();
-            //graficoVento();
-            
+            TextObj noroeste = new TextObj("Noroeste", 0.0, 0.0);
+            noroeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            noroeste.Location.AlignH = AlignH.Left;
+            noroeste.Location.AlignV = AlignV.Bottom;
+            noroeste.FontSpec.Border.IsVisible = false;
+            noroeste.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(noroeste);
+            TextObj sudeste = new TextObj("Sudeste", 1.0, 1.0); 
+            sudeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            sudeste.Location.AlignH = AlignH.Right;     
+            sudeste.Location.AlignV = AlignV.Top;   
+            sudeste.FontSpec.Border.IsVisible = false; 
+            sudeste.FontSpec.Fill.IsVisible = false;   
+            zgc2.MasterPane[0].GraphObjList.Add(sudeste);
+            TextObj sudoeste = new TextObj("Sudoeste", 0.0, 1.0); 
+            sudoeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            sudoeste.Location.AlignH = AlignH.Left;     
+            sudoeste.Location.AlignV = AlignV.Top;   
+            sudoeste.FontSpec.Border.IsVisible = false; 
+            sudoeste.FontSpec.Fill.IsVisible = false;   
+            zgc2.MasterPane[0].GraphObjList.Add(sudoeste);
+            TextObj nordeste = new TextObj("Nordeste", 1.0, 0); 
+            nordeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            nordeste.Location.AlignH = AlignH.Right;     
+            nordeste.Location.AlignV = AlignV.Bottom;   
+            nordeste.FontSpec.Border.IsVisible = false; 
+            nordeste.FontSpec.Fill.IsVisible = false;   
+            zgc2.MasterPane[0].GraphObjList.Add(nordeste);
+            TextObj norte = new TextObj("Norte", .5, 0); 
+            norte.Location.CoordinateFrame = CoordType.ChartFraction;
+            norte.Location.AlignH = AlignH.Center;     
+            norte.Location.AlignV = AlignV.Bottom;   
+            norte.FontSpec.Border.IsVisible = false; 
+            norte.FontSpec.Fill.IsVisible = false;   
+            zgc2.MasterPane[0].GraphObjList.Add(norte);
+            TextObj oeste = new TextObj("Oeste", 0, .5); 
+            oeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            oeste.Location.AlignH = AlignH.Left;     
+            oeste.Location.AlignV = AlignV.Bottom;   
+            oeste.FontSpec.Border.IsVisible = false; 
+            oeste.FontSpec.Fill.IsVisible = false;   
+            zgc2.MasterPane[0].GraphObjList.Add(oeste);
+            TextObj leste = new TextObj("Leste", 1, .5); 
+            leste.Location.CoordinateFrame = CoordType.ChartFraction;
+            leste.Location.AlignH = AlignH.Right;     
+            leste.Location.AlignV = AlignV.Bottom;   
+            leste.FontSpec.Border.IsVisible = false; 
+            leste.FontSpec.Fill.IsVisible = false;   
+            zgc2.MasterPane[0].GraphObjList.Add(leste);
+            TextObj sul = new TextObj("Sul", .5, 1); 
+            sul.Location.CoordinateFrame = CoordType.ChartFraction;
+            sul.Location.AlignH = AlignH.Center;     
+            sul.Location.AlignV = AlignV.Top;   
+            sul.FontSpec.Border.IsVisible = false; 
+            sul.FontSpec.Fill.IsVisible = false;   
+            zgc2.MasterPane[0].GraphObjList.Add(sul);
+            zedGraphControl2.Refresh();          
         }
 
 
@@ -303,12 +363,30 @@ namespace RoseCalc
             list1.Add(Convert.ToDouble(ventoSO.Value), 6);
             list1.Add(Convert.ToDouble(ventoO.Value), 7);
             list1.Add(Convert.ToDouble(ventoNO.Value), 8);
-
+            
             LineItem myCurve = myPane2.AddCurve("", list1, ventoCorLinha.SelectedColor, SymbolType.None);
             myCurve.Line.Fill = new Fill(Color.White, ventoCorGraf.SelectedColor, 45F);            
-            myCurve.Line.Width = (float)ventoExpLinha.Value;            
+            myCurve.Line.Width = (float)ventoExpLinha.Value;
 
-            //Criar LineItem para simular os outros eixos??
+            //Criar LineItem para simular os outros eixos??            
+
+            PointPairList list2 = new PointPairList();
+            list2.Add(-1000, 1000);
+            list2.Add(1000, -1000);
+            
+            LineItem myAxis1 = myPane2.AddCurve("", list2, Color.Black, SymbolType.Circle);
+            zedGraphControl2.Refresh();
+
+            PointPairList list3 = new PointPairList();
+            list3.Add(1000, 1000);
+            list3.Add(-1000, -1000);
+
+            LineItem myAxis2 = myPane2.AddCurve("", list3, Color.Black, SymbolType.Circle);
+            zedGraphControl2.Refresh();
+
+            zgc2.GraphPane.CurveList[2] = myCurve;
+            zgc2.GraphPane.CurveList[1] = myAxis2;
+            zgc2.GraphPane.CurveList[0] = myAxis1;
 
             //Atualiza títulos
             myPane2.Title.Text = ventoTitulo.Text;
@@ -345,73 +423,73 @@ namespace RoseCalc
             myPane2.YAxis.Scale.IsSkipLastLabel = true;
             myPane2.YAxis.Scale.IsSkipCrossLabel = true;
 
-            TextObj noroeste = new TextObj("Noroeste", 0.0, 0.0); // I'm using \n to have additional line - this would give me some space, margin.
+            TextObj noroeste = new TextObj("Noroeste", 0.0, 0.0); 
             noroeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            noroeste.Location.AlignH = AlignH.Left;     // Left align - that's what you need
-            noroeste.Location.AlignV = AlignV.Bottom;   // Bottom - it means, that left bottom corner of your object would be located at the left top corner of the chart (point (0,0))
-            noroeste.FontSpec.Border.IsVisible = false; // Disable the border
-            noroeste.FontSpec.Fill.IsVisible = false;   // ... and the fill. You don't need it.
+            noroeste.Location.AlignH = AlignH.Left;     
+            noroeste.Location.AlignV = AlignV.Bottom;   
+            noroeste.FontSpec.Border.IsVisible = false; 
+            noroeste.FontSpec.Fill.IsVisible = false;   
             zgc2.MasterPane[0].GraphObjList.Add(noroeste);
 
-            TextObj sudeste = new TextObj("Sudeste", 1.0, 1.0); // I'm using \n to have additional line - this would give me some space, margin.
+            TextObj sudeste = new TextObj("Sudeste", 1.0, 1.0); 
             sudeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            sudeste.Location.AlignH = AlignH.Right;     // Left align - that's what you need
-            sudeste.Location.AlignV = AlignV.Top;   // Bottom - it means, that left bottom corner of your object would be located at the left top corner of the chart (point (0,0))
-            sudeste.FontSpec.Border.IsVisible = false; // Disable the border
-            sudeste.FontSpec.Fill.IsVisible = false;   // ... and the fill. You don't need it.
+            sudeste.Location.AlignH = AlignH.Right;     
+            sudeste.Location.AlignV = AlignV.Top;   
+            sudeste.FontSpec.Border.IsVisible = false; 
+            sudeste.FontSpec.Fill.IsVisible = false;   
             zgc2.MasterPane[0].GraphObjList.Add(sudeste);
 
-            TextObj sudoeste = new TextObj("Sudoeste", 0.0, 1.0); // I'm using \n to have additional line - this would give me some space, margin.
+            TextObj sudoeste = new TextObj("Sudoeste", 0.0, 1.0); 
             sudoeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            sudoeste.Location.AlignH = AlignH.Left;     // Left align - that's what you need
-            sudoeste.Location.AlignV = AlignV.Top;   // Bottom - it means, that left bottom corner of your object would be located at the left top corner of the chart (point (0,0))
-            sudoeste.FontSpec.Border.IsVisible = false; // Disable the border
-            sudoeste.FontSpec.Fill.IsVisible = false;   // ... and the fill. You don't need it.
+            sudoeste.Location.AlignH = AlignH.Left;     
+            sudoeste.Location.AlignV = AlignV.Top;   
+            sudoeste.FontSpec.Border.IsVisible = false; 
+            sudoeste.FontSpec.Fill.IsVisible = false;   
             zgc2.MasterPane[0].GraphObjList.Add(sudoeste);
 
-            TextObj nordeste = new TextObj("Nordeste", 1.0, 0); // I'm using \n to have additional line - this would give me some space, margin.
+            TextObj nordeste = new TextObj("Nordeste", 1.0, 0); 
             nordeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            nordeste.Location.AlignH = AlignH.Right;     // Left align - that's what you need
-            nordeste.Location.AlignV = AlignV.Bottom;   // Bottom - it means, that left bottom corner of your object would be located at the left top corner of the chart (point (0,0))
-            nordeste.FontSpec.Border.IsVisible = false; // Disable the border
-            nordeste.FontSpec.Fill.IsVisible = false;   // ... and the fill. You don't need it.
+            nordeste.Location.AlignH = AlignH.Right;     
+            nordeste.Location.AlignV = AlignV.Bottom;   
+            nordeste.FontSpec.Border.IsVisible = false; 
+            nordeste.FontSpec.Fill.IsVisible = false;   
             zgc2.MasterPane[0].GraphObjList.Add(nordeste);
 
-            TextObj norte = new TextObj("Norte", .5,0); // I'm using \n to have additional line - this would give me some space, margin.
+            TextObj norte = new TextObj("Norte", .5,0); 
             norte.Location.CoordinateFrame = CoordType.ChartFraction;
-            norte.Location.AlignH = AlignH.Center;     // Left align - that's what you need
-            norte.Location.AlignV = AlignV.Bottom;   // Bottom - it means, that left bottom corner of your object would be located at the left top corner of the chart (point (0,0))
-            norte.FontSpec.Border.IsVisible = false; // Disable the border
-            norte.FontSpec.Fill.IsVisible = false;   // ... and the fill. You don't need it.
+            norte.Location.AlignH = AlignH.Center;     
+            norte.Location.AlignV = AlignV.Bottom;   
+            norte.FontSpec.Border.IsVisible = false; 
+            norte.FontSpec.Fill.IsVisible = false;   
             zgc2.MasterPane[0].GraphObjList.Add(norte);
 
-            TextObj oeste = new TextObj("Oeste", 0, .5); // I'm using \n to have additional line - this would give me some space, margin.
+            TextObj oeste = new TextObj("Oeste", 0, .5); 
             oeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            oeste.Location.AlignH = AlignH.Left;     // Left align - that's what you need
-            oeste.Location.AlignV = AlignV.Bottom;   // Bottom - it means, that left bottom corner of your object would be located at the left top corner of the chart (point (0,0))
-            oeste.FontSpec.Border.IsVisible = false; // Disable the border
-            oeste.FontSpec.Fill.IsVisible = false;   // ... and the fill. You don't need it.
+            oeste.Location.AlignH = AlignH.Left;     
+            oeste.Location.AlignV = AlignV.Bottom;   
+            oeste.FontSpec.Border.IsVisible = false; 
+            oeste.FontSpec.Fill.IsVisible = false;   
             zgc2.MasterPane[0].GraphObjList.Add(oeste);
 
-            TextObj leste = new TextObj("Leste", 1, .5); // I'm using \n to have additional line - this would give me some space, margin.
+            TextObj leste = new TextObj("Leste", 1, .5); 
             leste.Location.CoordinateFrame = CoordType.ChartFraction;
-            leste.Location.AlignH = AlignH.Right;     // Left align - that's what you need
-            leste.Location.AlignV = AlignV.Bottom;   // Bottom - it means, that left bottom corner of your object would be located at the left top corner of the chart (point (0,0))
-            leste.FontSpec.Border.IsVisible = false; // Disable the border
-            leste.FontSpec.Fill.IsVisible = false;   // ... and the fill. You don't need it.
+            leste.Location.AlignH = AlignH.Right;     
+            leste.Location.AlignV = AlignV.Bottom;   
+            leste.FontSpec.Border.IsVisible = false; 
+            leste.FontSpec.Fill.IsVisible = false;   
             zgc2.MasterPane[0].GraphObjList.Add(leste);
 
-            TextObj sul = new TextObj("Sul", .5, 1); // I'm using \n to have additional line - this would give me some space, margin.
+            TextObj sul = new TextObj("Sul", .5, 1); 
             sul.Location.CoordinateFrame = CoordType.ChartFraction;
-            sul.Location.AlignH = AlignH.Center;     // Left align - that's what you need
-            sul.Location.AlignV = AlignV.Top;   // Bottom - it means, that left bottom corner of your object would be located at the left top corner of the chart (point (0,0))
-            sul.FontSpec.Border.IsVisible = false; // Disable the border
-            sul.FontSpec.Fill.IsVisible = false;   // ... and the fill. You don't need it.
+            sul.Location.AlignH = AlignH.Center;     
+            sul.Location.AlignV = AlignV.Top;   
+            sul.FontSpec.Border.IsVisible = false; 
+            sul.FontSpec.Fill.IsVisible = false;   
             zgc2.MasterPane[0].GraphObjList.Add(sul);
 
             //Atualiza o gráfico            
-            zgc2.AxisChange();            
-            zedGraphControl2.Refresh();
+            zgc2.AxisChange();
+            zgc2.Refresh();
         }
 
         //Gráfico dos ventos
