@@ -16,18 +16,21 @@ namespace RoseCalc
         {
             InitializeComponent();
 
+            //Elimina algumas tabs da compilação (que ainda não estão prontas)
             tabControl1.TabPages.Remove(cartasTab);
             tabControl1.TabPages.Remove(coordenadasTab);
             tabControl1.TabPages.Remove(declinacaoTab);
-            tabControl1.TabPages.Remove(unidadesTab);
-            //tabControl1.TabPages.Remove(ventosTab);
+            tabControl1.TabPages.Remove(unidadesTab);            
             tabControl1.TabPages.Remove(rumoTab);
             tabControl1.TabPages.Remove(transporteTab);
 
+
+            //Link para o projeto na aba 'Sobre'
             linkLabel1.Text = "http://code.google.com/p/rosecalc/";
             linkLabel1.Links.Add(0, 34, "http://code.google.com/p/rosecalc/");
             label23.Text = "Versão "+System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
+            //Valores iniciais das combobox da aba 'Perfil'
             escRegDistMapaUnid.SelectedIndex = 1;
             escRegDistRealUnid.SelectedIndex = 2;
             escCurvDistUnit.SelectedIndex = 2;
@@ -42,6 +45,8 @@ namespace RoseCalc
 
         }
 
+
+        //Converte de qualquer unidade para metro
         public decimal ConverteMetro(decimal a, string aTipo)
         {
             decimal c = 0;
@@ -64,6 +69,8 @@ namespace RoseCalc
             return c;                  
         }
 
+
+        //Converte de metro para qualquer unidade
         public decimal ConverteDeMetro(decimal a, string aTipo)
         {
             decimal c = 0;
@@ -85,7 +92,9 @@ namespace RoseCalc
             }
             return c;
         }
-             
+        
+     
+        //Determina a escala
         private void button1_Click(object sender, EventArgs e)
         {
             decimal d = ConverteMetro(escRegDistMapa.Value, escRegDistMapaUnid.SelectedItem.ToString());
@@ -97,6 +106,8 @@ namespace RoseCalc
             
         }
 
+
+        //Calcula distância real com medida a partir de curvímetro ou escalímetro
         private void button2_Click(object sender, EventArgs e)
         {
             decimal razao = (escCurvLeit.Value * escCurvEscMapa.Value) / (escCurvEscCurv.Value);
@@ -105,6 +116,8 @@ namespace RoseCalc
             escCurvDist.Text = Math.Round(valor,2).ToString();
         }
 
+
+        //Calcula precisão gráfica
         private void button3_Click(object sender, EventArgs e)
         {
             decimal razao = escPrecEsc.Value*2/10000;
@@ -113,6 +126,8 @@ namespace RoseCalc
             escPrecPrec.Text = Math.Round(valor, 2).ToString();
         }
 
+
+        //Calcula distância real com medida a partir da régua
         private void button4_Click(object sender, EventArgs e)
         {
             decimal distMapa = ConverteMetro(escDistMapa.Value, escDistMapaUnit.SelectedItem.ToString());
@@ -122,6 +137,8 @@ namespace RoseCalc
             escDistReal.Text = Math.Round(distReal, 2).ToString();
         }
 
+
+        //Calcula declividade
         private void button5_Click(object sender, EventArgs e)
         {
             decimal dist = ConverteMetro(decDist.Value, decDistUnit.SelectedItem.ToString());
@@ -136,22 +153,7 @@ namespace RoseCalc
             decPer.Text = Math.Round(decper,2).ToString()+" %";
         }
 
-        public string converteCor(string cor)
-        {            
-            string c = "0";
-            if (cor == "Branco")
-            {
-                c = Color.White.ToString();
-            }
-            if (cor == "Azul")
-            {
-                c = Color.Blue.ToString();
-            }
-            return c;
-        }
-
-
-
+        //Gráfico do perfil de relevo
         private void graficoPerfil()
         {
             // Declaração dos dados e criação da lista de pares ordenados
@@ -196,6 +198,8 @@ namespace RoseCalc
             zedGraphControl1.Refresh();
         }
 
+
+        //Adiciona valores nas listbox da aba 'Perfil'
         private void button6_Click(object sender, EventArgs e)
         {            
             listBox1.Items.Add(float.Parse(perfilDist.Value.ToString()));            
@@ -205,7 +209,7 @@ namespace RoseCalc
         }
 
 
-
+        //Configuraração inicial do gráfico de perfil
         private void tabControl1_Enter(object sender, EventArgs e)
         {
             ZedGraphControl zgc = zedGraphControl1;
@@ -249,6 +253,8 @@ namespace RoseCalc
             
         }
 
+
+        //Limpar as listbox da aba 'Perfil'
         private void button7_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -257,11 +263,15 @@ namespace RoseCalc
             zedGraphControl1.Refresh();
         }
 
+
+        //Link para o projeto no code.google, na aba 'Sobre'
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }   
 
+
+        //Gráfico dos ventos
         private void button8_Click(object sender, EventArgs e)
         {
             ZedGraphControl zgc2 = zedGraphControl2;
@@ -315,6 +325,8 @@ namespace RoseCalc
             zedGraphControl2.Refresh();
         }
 
+
+        //Atualiza gráfico do perfil
         private void perfilGraficoCor_ColorChanged(object sender, ColorComboTestApp.ColorChangeArgs e)
         {
             graficoPerfil();
