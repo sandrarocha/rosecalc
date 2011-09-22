@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.escalasTab = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.escEscMapa = new System.Windows.Forms.NumericUpDown();
             this.escDistReal = new System.Windows.Forms.TextBox();
@@ -81,6 +82,7 @@
             this.decElevUnit = new System.Windows.Forms.ComboBox();
             this.decElev = new System.Windows.Forms.NumericUpDown();
             this.perfilTab = new System.Windows.Forms.TabPage();
+            this.perfilFundoCor = new ColorComboTestApp.ColorComboBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -94,6 +96,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.perfilElev = new System.Windows.Forms.NumericUpDown();
+            this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
+            this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button6 = new System.Windows.Forms.Button();
             this.perfilDist = new System.Windows.Forms.NumericUpDown();
@@ -126,6 +130,7 @@
             this.rumoTab = new System.Windows.Forms.TabPage();
             this.unidadesTab = new System.Windows.Forms.TabPage();
             this.sobreTab = new System.Windows.Forms.TabPage();
+            this.label41 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -137,11 +142,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.perfilFundoCor = new ColorComboTestApp.ColorComboBox();
-            this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
-            this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.escalasTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -199,6 +201,7 @@
             // 
             // escalasTab
             // 
+            this.escalasTab.Controls.Add(this.button9);
             this.escalasTab.Controls.Add(this.groupBox3);
             this.escalasTab.Controls.Add(this.groupBox4);
             this.escalasTab.Controls.Add(this.groupBox2);
@@ -210,6 +213,16 @@
             this.escalasTab.TabIndex = 0;
             this.escalasTab.Text = "Escalas";
             this.escalasTab.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(727, 360);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(119, 23);
+            this.button9.TabIndex = 5;
+            this.button9.Text = "Limpar valores";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // groupBox3
             // 
@@ -245,8 +258,10 @@
             // 
             // escDistReal
             // 
+            this.escDistReal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.escDistReal.Location = new System.Drawing.Point(125, 103);
             this.escDistReal.Name = "escDistReal";
+            this.escDistReal.ReadOnly = true;
             this.escDistReal.Size = new System.Drawing.Size(120, 20);
             this.escDistReal.TabIndex = 20;
             // 
@@ -347,8 +362,10 @@
             // 
             // escCurvDist
             // 
+            this.escCurvDist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.escCurvDist.Location = new System.Drawing.Point(150, 135);
             this.escCurvDist.Name = "escCurvDist";
+            this.escCurvDist.ReadOnly = true;
             this.escCurvDist.Size = new System.Drawing.Size(120, 20);
             this.escCurvDist.TabIndex = 17;
             // 
@@ -478,8 +495,10 @@
             // 
             // escPrecPrec
             // 
+            this.escPrecPrec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.escPrecPrec.Location = new System.Drawing.Point(37, 103);
             this.escPrecPrec.Name = "escPrecPrec";
+            this.escPrecPrec.ReadOnly = true;
             this.escPrecPrec.Size = new System.Drawing.Size(120, 20);
             this.escPrecPrec.TabIndex = 19;
             // 
@@ -549,8 +568,10 @@
             // 
             // escRegEscala
             // 
+            this.escRegEscala.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.escRegEscala.Location = new System.Drawing.Point(125, 103);
             this.escRegEscala.Name = "escRegEscala";
+            this.escRegEscala.ReadOnly = true;
             this.escRegEscala.Size = new System.Drawing.Size(120, 20);
             this.escRegEscala.TabIndex = 8;
             // 
@@ -645,6 +666,7 @@
             // 
             // declividadeTab
             // 
+            this.declividadeTab.Controls.Add(this.button10);
             this.declividadeTab.Controls.Add(this.button5);
             this.declividadeTab.Controls.Add(this.decPer);
             this.declividadeTab.Controls.Add(this.decGraus);
@@ -674,15 +696,19 @@
             // 
             // decPer
             // 
+            this.decPer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.decPer.Location = new System.Drawing.Point(125, 148);
             this.decPer.Name = "decPer";
+            this.decPer.ReadOnly = true;
             this.decPer.Size = new System.Drawing.Size(120, 20);
             this.decPer.TabIndex = 23;
             // 
             // decGraus
             // 
+            this.decGraus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.decGraus.Location = new System.Drawing.Point(125, 122);
             this.decGraus.Name = "decGraus";
+            this.decGraus.ReadOnly = true;
             this.decGraus.Size = new System.Drawing.Size(120, 20);
             this.decGraus.TabIndex = 22;
             // 
@@ -796,6 +822,16 @@
             this.perfilTab.TabIndex = 4;
             this.perfilTab.Text = "Perfil de Relevo";
             this.perfilTab.UseVisualStyleBackColor = true;
+            // 
+            // perfilFundoCor
+            // 
+            this.perfilFundoCor.Extended = true;
+            this.perfilFundoCor.Location = new System.Drawing.Point(567, 446);
+            this.perfilFundoCor.Name = "perfilFundoCor";
+            this.perfilFundoCor.SelectedColor = System.Drawing.Color.PapayaWhip;
+            this.perfilFundoCor.Size = new System.Drawing.Size(80, 23);
+            this.perfilFundoCor.TabIndex = 26;
+            this.perfilFundoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilFundoCor_ColorChanged);
             // 
             // label40
             // 
@@ -918,6 +954,26 @@
             this.perfilElev.Name = "perfilElev";
             this.perfilElev.Size = new System.Drawing.Size(58, 20);
             this.perfilElev.TabIndex = 5;
+            // 
+            // perfilLinhaCor
+            // 
+            this.perfilLinhaCor.Extended = true;
+            this.perfilLinhaCor.Location = new System.Drawing.Point(372, 446);
+            this.perfilLinhaCor.Name = "perfilLinhaCor";
+            this.perfilLinhaCor.SelectedColor = System.Drawing.Color.Black;
+            this.perfilLinhaCor.Size = new System.Drawing.Size(80, 23);
+            this.perfilLinhaCor.TabIndex = 24;
+            this.perfilLinhaCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilLinhaCor_ColorChanged);
+            // 
+            // perfilGraficoCor
+            // 
+            this.perfilGraficoCor.Extended = true;
+            this.perfilGraficoCor.Location = new System.Drawing.Point(217, 447);
+            this.perfilGraficoCor.Name = "perfilGraficoCor";
+            this.perfilGraficoCor.SelectedColor = System.Drawing.Color.Blue;
+            this.perfilGraficoCor.Size = new System.Drawing.Size(80, 23);
+            this.perfilGraficoCor.TabIndex = 23;
+            this.perfilGraficoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilGraficoCor_ColorChanged);
             // 
             // listBox2
             // 
@@ -1292,6 +1348,16 @@
             this.sobreTab.Text = "Sobre";
             this.sobreTab.UseVisualStyleBackColor = true;
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(42, 396);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(323, 17);
+            this.label41.TabIndex = 11;
+            this.label41.Text = "Profª. Roselene Perlatto, Depto. Geografia - UFJF";
+            // 
             // label39
             // 
             this.label39.AutoSize = true;
@@ -1405,16 +1471,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "RoseCalc";
             // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(42, 396);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(323, 17);
-            this.label41.TabIndex = 11;
-            this.label41.Text = "Profª. Roselene Perlatto, Depto. Geografia - UFJF";
-            // 
             // label42
             // 
             this.label42.AutoSize = true;
@@ -1425,35 +1481,15 @@
             this.label42.TabIndex = 12;
             this.label42.Text = "Software livre para cálculos de cartografia e topografia";
             // 
-            // perfilFundoCor
+            // button10
             // 
-            this.perfilFundoCor.Extended = true;
-            this.perfilFundoCor.Location = new System.Drawing.Point(567, 446);
-            this.perfilFundoCor.Name = "perfilFundoCor";
-            this.perfilFundoCor.SelectedColor = System.Drawing.Color.PapayaWhip;
-            this.perfilFundoCor.Size = new System.Drawing.Size(80, 23);
-            this.perfilFundoCor.TabIndex = 26;
-            this.perfilFundoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilFundoCor_ColorChanged);
-            // 
-            // perfilLinhaCor
-            // 
-            this.perfilLinhaCor.Extended = true;
-            this.perfilLinhaCor.Location = new System.Drawing.Point(372, 446);
-            this.perfilLinhaCor.Name = "perfilLinhaCor";
-            this.perfilLinhaCor.SelectedColor = System.Drawing.Color.Black;
-            this.perfilLinhaCor.Size = new System.Drawing.Size(80, 23);
-            this.perfilLinhaCor.TabIndex = 24;
-            this.perfilLinhaCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilLinhaCor_ColorChanged);
-            // 
-            // perfilGraficoCor
-            // 
-            this.perfilGraficoCor.Extended = true;
-            this.perfilGraficoCor.Location = new System.Drawing.Point(217, 447);
-            this.perfilGraficoCor.Name = "perfilGraficoCor";
-            this.perfilGraficoCor.SelectedColor = System.Drawing.Color.Blue;
-            this.perfilGraficoCor.Size = new System.Drawing.Size(80, 23);
-            this.perfilGraficoCor.TabIndex = 23;
-            this.perfilGraficoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilGraficoCor_ColorChanged);
+            this.button10.Location = new System.Drawing.Point(27, 189);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(121, 23);
+            this.button10.TabIndex = 25;
+            this.button10.Text = "Limpar valores";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Form1
             // 
@@ -1628,6 +1664,8 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }
 

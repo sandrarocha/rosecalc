@@ -358,6 +358,34 @@ namespace RoseCalc
         }
 
 
+        //Limpar valores da aba 'Perfil'
+        private void button9_Click(object sender, EventArgs e)
+        {
+            escRegDistMapa.Value = 0;
+            escRegDistReal.Value = 0;
+            escRegEscala.Text = "";
+            escDistMapa.Value = 0;
+            escEscMapa.Value = 0;
+            escDistReal.Text = "";
+            escCurvLeit.Value = 0;
+            escCurvEscCurv.Value = 0;
+            escCurvEscMapa.Value = 0;
+            escCurvDist.Text = "";
+            escPrecEsc.Value = 0;
+            escPrecPrec.Text = "";
+
+        }
+
+        //Limpar valores da aba "Declividade"
+        private void button10_Click(object sender, EventArgs e)
+        {
+            decElev.Value = 0;
+            decDist.Value = 0;
+            decGraus.Text = "";
+            decPer.Text = "";
+        }
+
+
 
 
 
