@@ -1,8 +1,8 @@
 #summary Função da aba 'Perfil de relevo'.
 
-= Função da aba 'Perfil de relevo' =
-
 Versão: 1.0.03
+
+= Função da aba 'Perfil de relevo' =
 
 Desenha o gráfico de perfil de relevo, baseado nas distâncias e alturas.
 
