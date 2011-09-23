@@ -83,6 +83,7 @@
             this.decElevUnit = new System.Windows.Forms.ComboBox();
             this.decElev = new System.Windows.Forms.NumericUpDown();
             this.perfilTab = new System.Windows.Forms.TabPage();
+            this.perfilFundoCor = new ColorComboTestApp.ColorComboBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -96,12 +97,22 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.perfilElev = new System.Windows.Forms.NumericUpDown();
+            this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
+            this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button6 = new System.Windows.Forms.Button();
             this.perfilDist = new System.Windows.Forms.NumericUpDown();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.ventosTab = new System.Windows.Forms.TabPage();
+            this.ventoCorGraf = new ColorComboTestApp.ColorComboBox();
+            this.ventoExpLinha = new System.Windows.Forms.NumericUpDown();
+            this.ventoCorLinha = new ColorComboTestApp.ColorComboBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.ventoTitulo = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.zedGraphControl2 = new ZedGraph.ZedGraphControl();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
@@ -141,17 +152,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.ventoTitulo = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.ventoExpLinha = new System.Windows.Forms.NumericUpDown();
-            this.perfilFundoCor = new ColorComboTestApp.ColorComboBox();
-            this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
-            this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
-            this.ventoCorGraf = new ColorComboTestApp.ColorComboBox();
-            this.ventoCorLinha = new ColorComboTestApp.ColorComboBox();
+            this.topografiaTab = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.escalasTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -173,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.perfilElev)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.perfilDist)).BeginInit();
             this.ventosTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoExpLinha)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventoNO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventoO)).BeginInit();
@@ -184,7 +186,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ventoN)).BeginInit();
             this.sobreTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ventoExpLinha)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -198,6 +199,7 @@
             this.tabControl1.Controls.Add(this.transporteTab);
             this.tabControl1.Controls.Add(this.declinacaoTab);
             this.tabControl1.Controls.Add(this.rumoTab);
+            this.tabControl1.Controls.Add(this.topografiaTab);
             this.tabControl1.Controls.Add(this.unidadesTab);
             this.tabControl1.Controls.Add(this.sobreTab);
             this.tabControl1.Location = new System.Drawing.Point(12, 37);
@@ -206,7 +208,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(860, 519);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.Enter += new System.EventHandler(this.tabControl1_Enter);
             // 
             // escalasTab
             // 
@@ -686,9 +687,9 @@
             this.declividadeTab.Controls.Add(this.label16);
             this.declividadeTab.Controls.Add(this.decElevUnit);
             this.declividadeTab.Controls.Add(this.decElev);
-            this.declividadeTab.Location = new System.Drawing.Point(4, 40);
+            this.declividadeTab.Location = new System.Drawing.Point(4, 22);
             this.declividadeTab.Name = "declividadeTab";
-            this.declividadeTab.Size = new System.Drawing.Size(852, 475);
+            this.declividadeTab.Size = new System.Drawing.Size(852, 493);
             this.declividadeTab.TabIndex = 3;
             this.declividadeTab.Text = "Declividade";
             this.declividadeTab.UseVisualStyleBackColor = true;
@@ -835,12 +836,22 @@
             this.perfilTab.Controls.Add(this.perfilDist);
             this.perfilTab.Controls.Add(this.listBox1);
             this.perfilTab.Controls.Add(this.zedGraphControl1);
-            this.perfilTab.Location = new System.Drawing.Point(4, 40);
+            this.perfilTab.Location = new System.Drawing.Point(4, 22);
             this.perfilTab.Name = "perfilTab";
-            this.perfilTab.Size = new System.Drawing.Size(852, 475);
+            this.perfilTab.Size = new System.Drawing.Size(852, 493);
             this.perfilTab.TabIndex = 4;
             this.perfilTab.Text = "Perfil de Relevo";
             this.perfilTab.UseVisualStyleBackColor = true;
+            // 
+            // perfilFundoCor
+            // 
+            this.perfilFundoCor.Extended = true;
+            this.perfilFundoCor.Location = new System.Drawing.Point(567, 446);
+            this.perfilFundoCor.Name = "perfilFundoCor";
+            this.perfilFundoCor.SelectedColor = System.Drawing.Color.PapayaWhip;
+            this.perfilFundoCor.Size = new System.Drawing.Size(80, 23);
+            this.perfilFundoCor.TabIndex = 26;
+            this.perfilFundoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilFundoCor_ColorChanged);
             // 
             // label40
             // 
@@ -964,6 +975,26 @@
             this.perfilElev.Size = new System.Drawing.Size(58, 20);
             this.perfilElev.TabIndex = 5;
             // 
+            // perfilLinhaCor
+            // 
+            this.perfilLinhaCor.Extended = true;
+            this.perfilLinhaCor.Location = new System.Drawing.Point(372, 446);
+            this.perfilLinhaCor.Name = "perfilLinhaCor";
+            this.perfilLinhaCor.SelectedColor = System.Drawing.Color.Black;
+            this.perfilLinhaCor.Size = new System.Drawing.Size(80, 23);
+            this.perfilLinhaCor.TabIndex = 24;
+            this.perfilLinhaCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilLinhaCor_ColorChanged);
+            // 
+            // perfilGraficoCor
+            // 
+            this.perfilGraficoCor.Extended = true;
+            this.perfilGraficoCor.Location = new System.Drawing.Point(217, 447);
+            this.perfilGraficoCor.Name = "perfilGraficoCor";
+            this.perfilGraficoCor.SelectedColor = System.Drawing.Color.Blue;
+            this.perfilGraficoCor.Size = new System.Drawing.Size(80, 23);
+            this.perfilGraficoCor.TabIndex = 23;
+            this.perfilGraficoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilGraficoCor_ColorChanged);
+            // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
@@ -1029,12 +1060,90 @@
             this.ventosTab.Controls.Add(this.label43);
             this.ventosTab.Controls.Add(this.zedGraphControl2);
             this.ventosTab.Controls.Add(this.groupBox5);
-            this.ventosTab.Location = new System.Drawing.Point(4, 40);
+            this.ventosTab.Location = new System.Drawing.Point(4, 22);
             this.ventosTab.Name = "ventosTab";
-            this.ventosTab.Size = new System.Drawing.Size(852, 475);
+            this.ventosTab.Size = new System.Drawing.Size(852, 493);
             this.ventosTab.TabIndex = 9;
             this.ventosTab.Text = "Gráfico de ventos";
             this.ventosTab.UseVisualStyleBackColor = true;
+            // 
+            // ventoCorGraf
+            // 
+            this.ventoCorGraf.Extended = true;
+            this.ventoCorGraf.Location = new System.Drawing.Point(87, 361);
+            this.ventoCorGraf.Name = "ventoCorGraf";
+            this.ventoCorGraf.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.ventoCorGraf.Size = new System.Drawing.Size(116, 23);
+            this.ventoCorGraf.TabIndex = 18;
+            this.ventoCorGraf.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.ventoCorGraf_ColorChanged);
+            // 
+            // ventoExpLinha
+            // 
+            this.ventoExpLinha.Location = new System.Drawing.Point(111, 335);
+            this.ventoExpLinha.Name = "ventoExpLinha";
+            this.ventoExpLinha.Size = new System.Drawing.Size(92, 20);
+            this.ventoExpLinha.TabIndex = 17;
+            this.ventoExpLinha.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.ventoExpLinha.ValueChanged += new System.EventHandler(this.ventoExpLinha_ValueChanged);
+            // 
+            // ventoCorLinha
+            // 
+            this.ventoCorLinha.Extended = true;
+            this.ventoCorLinha.Location = new System.Drawing.Point(87, 306);
+            this.ventoCorLinha.Name = "ventoCorLinha";
+            this.ventoCorLinha.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.ventoCorLinha.Size = new System.Drawing.Size(116, 23);
+            this.ventoCorLinha.TabIndex = 16;
+            this.ventoCorLinha.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.ventoCorLinha_ColorChanged);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(9, 337);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(96, 13);
+            this.label46.TabIndex = 15;
+            this.label46.Text = "Expessura da linha";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(9, 366);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(73, 13);
+            this.label45.TabIndex = 14;
+            this.label45.Text = "Cor do gráfico";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(9, 310);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(63, 13);
+            this.label44.TabIndex = 13;
+            this.label44.Text = "Cor da linha";
+            // 
+            // ventoTitulo
+            // 
+            this.ventoTitulo.Location = new System.Drawing.Point(50, 280);
+            this.ventoTitulo.Name = "ventoTitulo";
+            this.ventoTitulo.Size = new System.Drawing.Size(153, 20);
+            this.ventoTitulo.TabIndex = 12;
+            this.ventoTitulo.Text = "Gráfico de ventos";
+            this.ventoTitulo.TextChanged += new System.EventHandler(this.ventoTitulo_TextChanged);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(9, 283);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(35, 13);
+            this.label43.TabIndex = 11;
+            this.label43.Text = "Título";
             // 
             // zedGraphControl2
             // 
@@ -1272,37 +1381,37 @@
             // 
             // cartasTab
             // 
-            this.cartasTab.Location = new System.Drawing.Point(4, 40);
+            this.cartasTab.Location = new System.Drawing.Point(4, 22);
             this.cartasTab.Name = "cartasTab";
-            this.cartasTab.Size = new System.Drawing.Size(852, 475);
+            this.cartasTab.Size = new System.Drawing.Size(852, 493);
             this.cartasTab.TabIndex = 5;
             this.cartasTab.Text = "Cartas Topográficas";
             this.cartasTab.UseVisualStyleBackColor = true;
             // 
             // coordenadasTab
             // 
-            this.coordenadasTab.Location = new System.Drawing.Point(4, 40);
+            this.coordenadasTab.Location = new System.Drawing.Point(4, 22);
             this.coordenadasTab.Name = "coordenadasTab";
             this.coordenadasTab.Padding = new System.Windows.Forms.Padding(3);
-            this.coordenadasTab.Size = new System.Drawing.Size(852, 475);
+            this.coordenadasTab.Size = new System.Drawing.Size(852, 493);
             this.coordenadasTab.TabIndex = 1;
             this.coordenadasTab.Text = "Transformação de coordenadas";
             this.coordenadasTab.UseVisualStyleBackColor = true;
             // 
             // transporteTab
             // 
-            this.transporteTab.Location = new System.Drawing.Point(4, 40);
+            this.transporteTab.Location = new System.Drawing.Point(4, 22);
             this.transporteTab.Name = "transporteTab";
-            this.transporteTab.Size = new System.Drawing.Size(852, 475);
+            this.transporteTab.Size = new System.Drawing.Size(852, 493);
             this.transporteTab.TabIndex = 11;
             this.transporteTab.Text = "Transporte de Coordenadas";
             this.transporteTab.UseVisualStyleBackColor = true;
             // 
             // declinacaoTab
             // 
-            this.declinacaoTab.Location = new System.Drawing.Point(4, 40);
+            this.declinacaoTab.Location = new System.Drawing.Point(4, 22);
             this.declinacaoTab.Name = "declinacaoTab";
-            this.declinacaoTab.Size = new System.Drawing.Size(852, 475);
+            this.declinacaoTab.Size = new System.Drawing.Size(852, 493);
             this.declinacaoTab.TabIndex = 8;
             this.declinacaoTab.Text = "Declinação magnética";
             this.declinacaoTab.UseVisualStyleBackColor = true;
@@ -1478,113 +1587,14 @@
             this.label42.TabIndex = 12;
             this.label42.Text = "Software livre para cálculos de cartografia e topografia";
             // 
-            // ventoTitulo
+            // topografiaTab
             // 
-            this.ventoTitulo.Location = new System.Drawing.Point(50, 280);
-            this.ventoTitulo.Name = "ventoTitulo";
-            this.ventoTitulo.Size = new System.Drawing.Size(153, 20);
-            this.ventoTitulo.TabIndex = 12;
-            this.ventoTitulo.Text = "Gráfico de ventos";
-            this.ventoTitulo.TextChanged += new System.EventHandler(this.ventoTitulo_TextChanged);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(9, 283);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(35, 13);
-            this.label43.TabIndex = 11;
-            this.label43.Text = "Título";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(9, 310);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(63, 13);
-            this.label44.TabIndex = 13;
-            this.label44.Text = "Cor da linha";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(9, 366);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(73, 13);
-            this.label45.TabIndex = 14;
-            this.label45.Text = "Cor do gráfico";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(9, 337);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(96, 13);
-            this.label46.TabIndex = 15;
-            this.label46.Text = "Expessura da linha";
-            // 
-            // ventoExpLinha
-            // 
-            this.ventoExpLinha.Location = new System.Drawing.Point(111, 335);
-            this.ventoExpLinha.Name = "ventoExpLinha";
-            this.ventoExpLinha.Size = new System.Drawing.Size(92, 20);
-            this.ventoExpLinha.TabIndex = 17;
-            this.ventoExpLinha.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.ventoExpLinha.ValueChanged += new System.EventHandler(this.ventoExpLinha_ValueChanged);
-            // 
-            // perfilFundoCor
-            // 
-            this.perfilFundoCor.Extended = true;
-            this.perfilFundoCor.Location = new System.Drawing.Point(567, 446);
-            this.perfilFundoCor.Name = "perfilFundoCor";
-            this.perfilFundoCor.SelectedColor = System.Drawing.Color.PapayaWhip;
-            this.perfilFundoCor.Size = new System.Drawing.Size(80, 23);
-            this.perfilFundoCor.TabIndex = 26;
-            this.perfilFundoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilFundoCor_ColorChanged);
-            // 
-            // perfilLinhaCor
-            // 
-            this.perfilLinhaCor.Extended = true;
-            this.perfilLinhaCor.Location = new System.Drawing.Point(372, 446);
-            this.perfilLinhaCor.Name = "perfilLinhaCor";
-            this.perfilLinhaCor.SelectedColor = System.Drawing.Color.Black;
-            this.perfilLinhaCor.Size = new System.Drawing.Size(80, 23);
-            this.perfilLinhaCor.TabIndex = 24;
-            this.perfilLinhaCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilLinhaCor_ColorChanged);
-            // 
-            // perfilGraficoCor
-            // 
-            this.perfilGraficoCor.Extended = true;
-            this.perfilGraficoCor.Location = new System.Drawing.Point(217, 447);
-            this.perfilGraficoCor.Name = "perfilGraficoCor";
-            this.perfilGraficoCor.SelectedColor = System.Drawing.Color.Blue;
-            this.perfilGraficoCor.Size = new System.Drawing.Size(80, 23);
-            this.perfilGraficoCor.TabIndex = 23;
-            this.perfilGraficoCor.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.perfilGraficoCor_ColorChanged);
-            // 
-            // ventoCorGraf
-            // 
-            this.ventoCorGraf.Extended = true;
-            this.ventoCorGraf.Location = new System.Drawing.Point(87, 361);
-            this.ventoCorGraf.Name = "ventoCorGraf";
-            this.ventoCorGraf.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.ventoCorGraf.Size = new System.Drawing.Size(116, 23);
-            this.ventoCorGraf.TabIndex = 18;
-            this.ventoCorGraf.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.ventoCorGraf_ColorChanged);
-            // 
-            // ventoCorLinha
-            // 
-            this.ventoCorLinha.Extended = true;
-            this.ventoCorLinha.Location = new System.Drawing.Point(87, 306);
-            this.ventoCorLinha.Name = "ventoCorLinha";
-            this.ventoCorLinha.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.ventoCorLinha.Size = new System.Drawing.Size(116, 23);
-            this.ventoCorLinha.TabIndex = 16;
-            this.ventoCorLinha.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.ventoCorLinha_ColorChanged);
+            this.topografiaTab.Location = new System.Drawing.Point(4, 40);
+            this.topografiaTab.Name = "topografiaTab";
+            this.topografiaTab.Size = new System.Drawing.Size(852, 475);
+            this.topografiaTab.TabIndex = 12;
+            this.topografiaTab.Text = "Topografia";
+            this.topografiaTab.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1627,6 +1637,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.perfilDist)).EndInit();
             this.ventosTab.ResumeLayout(false);
             this.ventosTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ventoExpLinha)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventoNO)).EndInit();
@@ -1640,7 +1651,6 @@
             this.sobreTab.ResumeLayout(false);
             this.sobreTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ventoExpLinha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1771,6 +1781,7 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TabPage topografiaTab;
     }
 }
 

@@ -16,6 +16,8 @@ namespace RoseCalc
         {
             InitializeComponent();
 
+            // CONFIGURAÇÕES INICIAIS DAS ABAS
+
             //Elimina algumas tabs da compilação (que ainda não estão prontas)
             tabControl1.TabPages.Remove(cartasTab);
             tabControl1.TabPages.Remove(coordenadasTab);
@@ -24,6 +26,7 @@ namespace RoseCalc
             tabControl1.TabPages.Remove(rumoTab);
             tabControl1.TabPages.Remove(transporteTab);
 
+            //Aba 'Sobre'
 
             //Link para o projeto na aba 'Sobre'
             linkLabel1.Text = "http://code.google.com/p/rosecalc/";
@@ -31,7 +34,9 @@ namespace RoseCalc
             //label23.Text = "Versão "+System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             label23.Text = "Versão 1.0.0.3";
 
-            //Valores iniciais das combobox da aba 'Perfil'
+            //Aba 'Perfil de relevo'
+
+            //Valores iniciais das combobox da aba 'Perfil de relevo'
             escRegDistMapaUnid.SelectedIndex = 1;
             escRegDistRealUnid.SelectedIndex = 2;
             escCurvDistUnit.SelectedIndex = 2;
@@ -42,12 +47,120 @@ namespace RoseCalc
             escDistRealUnit.SelectedIndex = 2;
             escDistRealUnit.SelectedValueChanged += button4_Click;
             decDistUnit.SelectedIndex = 2;
-            decElevUnit.SelectedIndex = 2;                    
+            decElevUnit.SelectedIndex = 2;
+
+            //Perfil de Relevo
+            ZedGraphControl zgc = zedGraphControl1;
+            GraphPane myPane = zgc.GraphPane;
+            myPane.Title.FontSpec.Family = "Verdana";
+            myPane.Title.FontSpec.Size = 11;
+            myPane.YAxis.Title.FontSpec.Family = "Verdana";
+            myPane.YAxis.Title.FontSpec.Size = 9;
+            myPane.XAxis.Title.FontSpec.Family = "Verdana";
+            myPane.XAxis.Title.FontSpec.Size = 9;
+            myPane.YAxis.Scale.FontSpec.Size = 9;
+            myPane.XAxis.Scale.FontSpec.Size = 9;
+            myPane.Title.Text = "Perfil de relevo";
+            myPane.XAxis.Title.Text = "Distância";
+            myPane.YAxis.Title.Text = "Elevação";
+            myPane.Chart.Fill = new Fill(Color.White, (perfilFundoCor.SelectedColor), 90F);
+            zedGraphControl1.Refresh();
+
+            //Aba gráfico dos ventos
+
+            //Gráfico dos ventos
+            ZedGraphControl zgc2 = zedGraphControl2;
+            GraphPane myPane2 = zgc2.GraphPane;
+            myPane2.Title.Text = "";
+            myPane2.XAxis.Title.Text = "";
+            myPane2.YAxis.Title.Text = "";
+            myPane2.XAxis.Scale.FontSpec.Size = 10;
+            myPane2.YAxis.Scale.FontSpec.Size = 10;
+            myPane2.XAxis.MajorTic.IsAllTics = true;
+            myPane2.XAxis.MinorTic.IsAllTics = true;
+            myPane2.XAxis.Title.IsTitleAtCross = false;
+            myPane2.XAxis.Cross = 0;
+            myPane2.XAxis.Scale.IsSkipFirstLabel = true;
+            myPane2.XAxis.Scale.IsSkipLastLabel = true;
+            myPane2.XAxis.Scale.IsSkipCrossLabel = true;
+            myPane2.YAxis.MajorTic.IsAllTics = true;
+            myPane2.YAxis.MinorTic.IsAllTics = true;
+            myPane2.YAxis.Title.IsTitleAtCross = false;
+            myPane2.YAxis.Cross = 0;
+            myPane2.YAxis.Scale.IsSkipFirstLabel = true;
+            myPane2.YAxis.Scale.IsSkipLastLabel = true;
+            myPane2.YAxis.Scale.IsSkipCrossLabel = true;
+            myPane2.Title.Text = ventoTitulo.Text;
+            myPane2.XAxis.Title.Text = "";
+            myPane2.YAxis.Title.Text = "";
+            myPane2.XAxis.Scale.FontSpec.Size = 10;
+            myPane2.YAxis.Scale.FontSpec.Size = 10;
+            myPane2.XAxis.Scale.Min = -1;
+            myPane2.XAxis.Scale.Max = 1;
+            myPane2.YAxis.Scale.Min = -1;
+            myPane2.YAxis.Scale.Max = 1;
+            TextObj noroeste = new TextObj("Noroeste", 0.0, 0.0);
+            noroeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            noroeste.Location.AlignH = AlignH.Left;
+            noroeste.Location.AlignV = AlignV.Bottom;
+            noroeste.FontSpec.Border.IsVisible = false;
+            noroeste.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(noroeste);
+            TextObj sudeste = new TextObj("Sudeste", 1.0, 1.0);
+            sudeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            sudeste.Location.AlignH = AlignH.Right;
+            sudeste.Location.AlignV = AlignV.Top;
+            sudeste.FontSpec.Border.IsVisible = false;
+            sudeste.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(sudeste);
+            TextObj sudoeste = new TextObj("Sudoeste", 0.0, 1.0);
+            sudoeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            sudoeste.Location.AlignH = AlignH.Left;
+            sudoeste.Location.AlignV = AlignV.Top;
+            sudoeste.FontSpec.Border.IsVisible = false;
+            sudoeste.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(sudoeste);
+            TextObj nordeste = new TextObj("Nordeste", 1.0, 0);
+            nordeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            nordeste.Location.AlignH = AlignH.Right;
+            nordeste.Location.AlignV = AlignV.Bottom;
+            nordeste.FontSpec.Border.IsVisible = false;
+            nordeste.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(nordeste);
+            TextObj norte = new TextObj("Norte", .5, 0);
+            norte.Location.CoordinateFrame = CoordType.ChartFraction;
+            norte.Location.AlignH = AlignH.Center;
+            norte.Location.AlignV = AlignV.Bottom;
+            norte.FontSpec.Border.IsVisible = false;
+            norte.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(norte);
+            TextObj oeste = new TextObj("Oeste", 0, .5);
+            oeste.Location.CoordinateFrame = CoordType.ChartFraction;
+            oeste.Location.AlignH = AlignH.Left;
+            oeste.Location.AlignV = AlignV.Bottom;
+            oeste.FontSpec.Border.IsVisible = false;
+            oeste.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(oeste);
+            TextObj leste = new TextObj("Leste", 1, .5);
+            leste.Location.CoordinateFrame = CoordType.ChartFraction;
+            leste.Location.AlignH = AlignH.Right;
+            leste.Location.AlignV = AlignV.Bottom;
+            leste.FontSpec.Border.IsVisible = false;
+            leste.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(leste);
+            TextObj sul = new TextObj("Sul", .5, 1);
+            sul.Location.CoordinateFrame = CoordType.ChartFraction;
+            sul.Location.AlignH = AlignH.Center;
+            sul.Location.AlignV = AlignV.Top;
+            sul.FontSpec.Border.IsVisible = false;
+            sul.FontSpec.Fill.IsVisible = false;
+            zgc2.MasterPane[0].GraphObjList.Add(sul);
+            zedGraphControl2.Refresh();  
 
         }
 
 
-        //Converte de qualquer unidade para metro
+        //Função: Converte de qualquer unidade para metro
         public decimal ConverteMetro(decimal a, string aTipo)
         {
             decimal c = 0;
@@ -71,7 +184,7 @@ namespace RoseCalc
         }
 
 
-        //Converte de metro para qualquer unidade
+        //Função: Converte de metro para qualquer unidade
         public decimal ConverteDeMetro(decimal a, string aTipo)
         {
             decimal c = 0;
@@ -94,8 +207,9 @@ namespace RoseCalc
             return c;
         }
         
+        //Aba 'Escalas'
      
-        //Determina a escala
+        //Função: Determina a escala
         private void button1_Click(object sender, EventArgs e)
         {
             decimal d = ConverteMetro(escRegDistMapa.Value, escRegDistMapaUnid.SelectedItem.ToString());
@@ -108,7 +222,7 @@ namespace RoseCalc
         }
 
 
-        //Calcula distância real com medida a partir de curvímetro ou escalímetro
+        //Botão: Calcula distância real com medida a partir de curvímetro ou escalímetro
         private void button2_Click(object sender, EventArgs e)
         {
             decimal razao = (escCurvLeit.Value * escCurvEscMapa.Value) / (escCurvEscCurv.Value);
@@ -118,7 +232,7 @@ namespace RoseCalc
         }
 
 
-        //Calcula precisão gráfica
+        //Botão: Calcula precisão gráfica
         private void button3_Click(object sender, EventArgs e)
         {
             decimal razao = escPrecEsc.Value*2/10000;
@@ -128,7 +242,7 @@ namespace RoseCalc
         }
 
 
-        //Calcula distância real com medida a partir da régua
+        //Botão: Calcula distância real com medida a partir da régua
         private void button4_Click(object sender, EventArgs e)
         {
             decimal distMapa = ConverteMetro(escDistMapa.Value, escDistMapaUnit.SelectedItem.ToString());
@@ -139,7 +253,9 @@ namespace RoseCalc
         }
 
 
-        //Calcula declividade
+        //Aba 'Declividade'
+
+        //Botão:  Calcula declividade
         private void button5_Click(object sender, EventArgs e)
         {
             decimal dist = ConverteMetro(decDist.Value, decDistUnit.SelectedItem.ToString());
@@ -154,7 +270,9 @@ namespace RoseCalc
             decPer.Text = Math.Round(decper,2).ToString()+" %";
         }
 
-        //Gráfico do perfil de relevo
+        //Aba 'Perfil de relevo'
+
+        //Função: Gráfico do perfil de relevo
         private void graficoPerfil()
         {
             // Declaração dos dados e criação da lista de pares ordenados
@@ -200,7 +318,7 @@ namespace RoseCalc
         }
 
 
-        //Adiciona valores nas listbox da aba 'Perfil'
+        //Botão: Adiciona valores nas listbox da aba 'Perfil'
         private void button6_Click(object sender, EventArgs e)
         {            
             listBox1.Items.Add(float.Parse(perfilDist.Value.ToString()));            
@@ -210,119 +328,7 @@ namespace RoseCalc
         }
 
 
-        //Configuraração inicial do gráfico de perfil e gráfico de ventos
-        private void tabControl1_Enter(object sender, EventArgs e)
-        {
-
-            //Perfil de Relevo
-            ZedGraphControl zgc = zedGraphControl1;
-            GraphPane myPane = zgc.GraphPane;
-            myPane.Title.FontSpec.Family = "Verdana";
-            myPane.Title.FontSpec.Size = 11;
-            myPane.YAxis.Title.FontSpec.Family = "Verdana";
-            myPane.YAxis.Title.FontSpec.Size = 9;
-            myPane.XAxis.Title.FontSpec.Family = "Verdana";
-            myPane.XAxis.Title.FontSpec.Size = 9;
-            myPane.YAxis.Scale.FontSpec.Size = 9;
-            myPane.XAxis.Scale.FontSpec.Size = 9;
-            myPane.Title.Text = "Perfil de relevo";
-            myPane.XAxis.Title.Text = "Distância";
-            myPane.YAxis.Title.Text = "Elevação";
-            myPane.Chart.Fill = new Fill(Color.White, (perfilFundoCor.SelectedColor), 90F);
-            zedGraphControl1.Refresh();
-
-            //Gráfico dos ventos
-            ZedGraphControl zgc2 = zedGraphControl2;
-            GraphPane myPane2 = zgc2.GraphPane;
-            myPane2.Title.Text = "";
-            myPane2.XAxis.Title.Text = "";
-            myPane2.YAxis.Title.Text = "";
-            myPane2.XAxis.Scale.FontSpec.Size = 10;
-            myPane2.YAxis.Scale.FontSpec.Size = 10;
-            myPane2.XAxis.MajorTic.IsAllTics = true;
-            myPane2.XAxis.MinorTic.IsAllTics = true;
-            myPane2.XAxis.Title.IsTitleAtCross = false;
-            myPane2.XAxis.Cross = 0;
-            myPane2.XAxis.Scale.IsSkipFirstLabel = true;
-            myPane2.XAxis.Scale.IsSkipLastLabel = true;
-            myPane2.XAxis.Scale.IsSkipCrossLabel = true;
-            myPane2.YAxis.MajorTic.IsAllTics = true;
-            myPane2.YAxis.MinorTic.IsAllTics = true;
-            myPane2.YAxis.Title.IsTitleAtCross = false;
-            myPane2.YAxis.Cross = 0;
-            myPane2.YAxis.Scale.IsSkipFirstLabel = true;
-            myPane2.YAxis.Scale.IsSkipLastLabel = true;
-            myPane2.YAxis.Scale.IsSkipCrossLabel = true;
-            myPane2.Title.Text = ventoTitulo.Text;
-            myPane2.XAxis.Title.Text = "";
-            myPane2.YAxis.Title.Text = "";
-            myPane2.XAxis.Scale.FontSpec.Size = 10;
-            myPane2.YAxis.Scale.FontSpec.Size = 10;
-            myPane2.XAxis.Scale.Min = -1;
-            myPane2.XAxis.Scale.Max = 1;
-            myPane2.YAxis.Scale.Min = -1;
-            myPane2.YAxis.Scale.Max = 1;
-            TextObj noroeste = new TextObj("Noroeste", 0.0, 0.0);
-            noroeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            noroeste.Location.AlignH = AlignH.Left;
-            noroeste.Location.AlignV = AlignV.Bottom;
-            noroeste.FontSpec.Border.IsVisible = false;
-            noroeste.FontSpec.Fill.IsVisible = false;
-            zgc2.MasterPane[0].GraphObjList.Add(noroeste);
-            TextObj sudeste = new TextObj("Sudeste", 1.0, 1.0); 
-            sudeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            sudeste.Location.AlignH = AlignH.Right;     
-            sudeste.Location.AlignV = AlignV.Top;   
-            sudeste.FontSpec.Border.IsVisible = false; 
-            sudeste.FontSpec.Fill.IsVisible = false;   
-            zgc2.MasterPane[0].GraphObjList.Add(sudeste);
-            TextObj sudoeste = new TextObj("Sudoeste", 0.0, 1.0); 
-            sudoeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            sudoeste.Location.AlignH = AlignH.Left;     
-            sudoeste.Location.AlignV = AlignV.Top;   
-            sudoeste.FontSpec.Border.IsVisible = false; 
-            sudoeste.FontSpec.Fill.IsVisible = false;   
-            zgc2.MasterPane[0].GraphObjList.Add(sudoeste);
-            TextObj nordeste = new TextObj("Nordeste", 1.0, 0); 
-            nordeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            nordeste.Location.AlignH = AlignH.Right;     
-            nordeste.Location.AlignV = AlignV.Bottom;   
-            nordeste.FontSpec.Border.IsVisible = false; 
-            nordeste.FontSpec.Fill.IsVisible = false;   
-            zgc2.MasterPane[0].GraphObjList.Add(nordeste);
-            TextObj norte = new TextObj("Norte", .5, 0); 
-            norte.Location.CoordinateFrame = CoordType.ChartFraction;
-            norte.Location.AlignH = AlignH.Center;     
-            norte.Location.AlignV = AlignV.Bottom;   
-            norte.FontSpec.Border.IsVisible = false; 
-            norte.FontSpec.Fill.IsVisible = false;   
-            zgc2.MasterPane[0].GraphObjList.Add(norte);
-            TextObj oeste = new TextObj("Oeste", 0, .5); 
-            oeste.Location.CoordinateFrame = CoordType.ChartFraction;
-            oeste.Location.AlignH = AlignH.Left;     
-            oeste.Location.AlignV = AlignV.Bottom;   
-            oeste.FontSpec.Border.IsVisible = false; 
-            oeste.FontSpec.Fill.IsVisible = false;   
-            zgc2.MasterPane[0].GraphObjList.Add(oeste);
-            TextObj leste = new TextObj("Leste", 1, .5); 
-            leste.Location.CoordinateFrame = CoordType.ChartFraction;
-            leste.Location.AlignH = AlignH.Right;     
-            leste.Location.AlignV = AlignV.Bottom;   
-            leste.FontSpec.Border.IsVisible = false; 
-            leste.FontSpec.Fill.IsVisible = false;   
-            zgc2.MasterPane[0].GraphObjList.Add(leste);
-            TextObj sul = new TextObj("Sul", .5, 1); 
-            sul.Location.CoordinateFrame = CoordType.ChartFraction;
-            sul.Location.AlignH = AlignH.Center;     
-            sul.Location.AlignV = AlignV.Top;   
-            sul.FontSpec.Border.IsVisible = false; 
-            sul.FontSpec.Fill.IsVisible = false;   
-            zgc2.MasterPane[0].GraphObjList.Add(sul);
-            zedGraphControl2.Refresh();          
-        }
-
-
-        //Limpar as listbox da aba 'Perfil'
+        //Botão: Limpar as listbox da aba 'Perfil'
         private void button7_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -332,11 +338,15 @@ namespace RoseCalc
         }
 
 
+        //Aba 'Sobre'
+
         //Link para o projeto no code.google, na aba 'Sobre'
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
+
+        //Aba 'Gráfico dos ventos'
 
         public decimal graficoVentoMax(decimal N, decimal NE, decimal E, decimal SE, decimal S, decimal SO, decimal O, decimal NO)
         {
