@@ -1,5 +1,7 @@
 #summary Funções da aba 'Escalas'
 
+Versão: 1.0.03
+
 = Funções da aba 'Escalas' =
 
 == Determinação da escala ==
