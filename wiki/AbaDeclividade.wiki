@@ -1,8 +1,8 @@
 #summary Função da aba 'Declividade'
 
-Versão: 1.0.03
-
 = Função da aba 'Declividade =
+
+Versão: 1.0.03
 
 Calcula a declividade de uma rampa, tomando-se a distância horizontal e a distância vertical. Retorna a declividade em graus decimais e porcentagem.
 
