@@ -20,7 +20,7 @@ namespace RoseCalc
 
             //Elimina algumas tabs da compilação (que ainda não estão prontas)
             tabControl1.TabPages.Remove(cartasTab);
-            tabControl1.TabPages.Remove(coordenadasTab);
+            //tabControl1.TabPages.Remove(coordenadasTab);
             tabControl1.TabPages.Remove(declinacaoTab);
             tabControl1.TabPages.Remove(unidadesTab);            
             tabControl1.TabPages.Remove(rumoTab);
@@ -587,6 +587,11 @@ namespace RoseCalc
         private void ventoCorGraf_ColorChanged(object sender, ColorComboTestApp.ColorChangeArgs e)
         {
             graficoVento();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
         }
 
 
