@@ -587,12 +587,48 @@ namespace RoseCalc
         private void ventoCorGraf_ColorChanged(object sender, ColorComboTestApp.ColorChangeArgs e)
         {
             graficoVento();
-        }
+        }        
 
         private void button11_Click(object sender, EventArgs e)
         {
+            if (radioButton1.Checked == true)
+            {
+                decimal vdecimal = numericUpDown1.Value + (numericUpDown2.Value * 1 / 60) + (numericUpDown3.Value * 1 / 3600);
+                numericUpDown4.Value = vdecimal;
+            }
+            if (radioButton2.Checked == true)
+            {
+                decimal vgraus = Math.Truncate(numericUpDown4.Value);
+                numericUpDown1.Value = vgraus;
 
+                decimal vresto = numericUpDown4.Value - vgraus;
+
+                decimal vminutos = Math.Truncate(vresto * 60);
+                numericUpDown2.Value = vminutos;
+
+                decimal vsegundos = ((vresto*60)-vminutos)*60;
+                numericUpDown3.Value = vsegundos;                
+            }
         }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            //numericUpDown1.BackColor = Color.FromArgb(255,255,92);
+            numericUpDown1.ReadOnly = true;            
+            numericUpDown2.ReadOnly = true;
+            numericUpDown3.ReadOnly = true;
+            numericUpDown4.ReadOnly = false;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown1.ReadOnly = false;
+            numericUpDown2.ReadOnly = false;
+            numericUpDown3.ReadOnly = false;
+            numericUpDown4.ReadOnly = true;
+        }
+
+
 
 
 
