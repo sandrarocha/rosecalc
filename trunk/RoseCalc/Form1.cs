@@ -636,14 +636,21 @@ namespace RoseCalc
             numericUpDown4.ReadOnly = true;
         }
 
+        // Conversão de coordenadas geodésicas para UTM. Duas funções foram usadas, iguais no conteúdo, mudando
+        // apenas o final, uma retornando N e outra E
+
         public double GeogParaUTMNorte(double dtheta, double dgama)
         {
+            //Conversão das coordenadas de graus decimais para radianos
             double gama = Math.PI / 180 * dgama;
             double theta = Math.PI / 180 * dtheta;
 
-            double a = 0;
-            double b = 0;
+            //Fator de escala da projeção (UTM)
             double k0 = 0.9996;
+
+            //Variáveis do datum
+            double a = 0; //Raio equatorial
+            double b = 0; //Raio polar            
 
             if (comboBox1.Text == "WGS-1984")
             {
@@ -671,26 +678,24 @@ namespace RoseCalc
                 b = 6356752.314140356100000000;                
             }
 
-            //double a = 6378137;
-            //double b = 6356752.314;
-            double f = (a - b) / a;
-            double invf = 1 / f;
-            double rm = Math.Pow(a * b, 0.5);
-            //double k0 = 0.9996;
-            double e = Math.Sqrt(1 - Math.Pow(b / a, 2));
-            double e2 = e * e / (1 - e * e);
+            double f = (a - b) / a; //Achatamento
+            double invf = 1 / f;    //Achatamento inverso
+            double rm = Math.Pow(a * b, 0.5);  //Raio médio            
+            double e = Math.Sqrt(1 - Math.Pow(b / a, 2));  //Excentricidade
+            double e2 = e * e / (1 - e * e);  //
             double n = (a - b) / (a + b);
-            double rho = a * (1 - e * e) / (Math.Pow(1 - (e * Math.Pow(Math.Sin(theta), 2)), 1.5));
-            double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));
+            double rho = a * (1 - e * e) / (Math.Pow(1 - (e * Math.Pow(Math.Sin(theta), 2)), 1.5)); //Raio de curvatura 1
+            double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));  //Raio de curvatura 2
 
-            double A0 = a * (1 - n + (5 * n * n / 4) * (1 - n) + (81 * Math.Pow(n, 4) / 64) * (1 - n));
+            //Cálculo do arco meridional
+            double A0 = a * (1 - n + (5 * n * n / 4) * (1 - n) + (81 * Math.Pow(n, 4) / 64) * (1 - n));  
             double B0 = (3 * a * n / 2) * (1 - n - (7 * n * n / 8) * (1 - n) + 55 * Math.Pow(n, 4) / 64);
             double C0 = (15 * a * n * n / 16) * (1 - n + (3 * n * n / 4) * (1 - n));
             double D0 = (35 * a * Math.Pow(n, 3) / 48) * (1 - n + 11 * n * n / 16);
             double E0 = (315 * a * Math.Pow(n, 4) / 51) * (1 - n);
-            double S = A0 * theta - B0 * Math.Sin(2 * theta) + C0 * Math.Sin(4 * theta) - D0 * Math.Sin(6 * theta) + E0 * Math.Sin(8 * theta);
+            double S = A0 * theta - B0 * Math.Sin(2 * theta) + C0 * Math.Sin(4 * theta) - D0 * Math.Sin(6 * theta) + E0 * Math.Sin(8 * theta);  //Arco meridional
 
-
+            //Constante de cálculo (em radianos)
             double prad = 0;
             if (comboBox3.Text == "Oeste")            
             {
@@ -699,10 +704,9 @@ namespace RoseCalc
             if (comboBox3.Text == "Leste")  
             {
                 prad = (dgama - (6 * (Math.Floor((dgama) / 6) + 31) - 183)) * (Math.PI / 180); //Leste
-            }
-
-            //double prad = (dgama - (6 * (Math.Floor((180 + dgama)/6)+1) - 183)) * (Math.PI / 180); //Sempre West
+            }            
             
+            //Coeficientes para as coordenadas UTM
             double Ki = S * k0;
             double Kii = nu * Math.Sin(theta) * Math.Cos(theta) * k0 / 2;
             double Kiii = ((nu * Math.Sin(theta) * Math.Pow(Math.Cos(theta), 3)) / 24) * (5 - Math.Pow(Math.Tan(theta), 2) + 9 * e2 * Math.Pow(Math.Cos(theta), 2) + 4 * Math.Pow(e2, 2) * Math.Pow(Math.Cos(theta), 4)) * k0;
@@ -711,6 +715,8 @@ namespace RoseCalc
             //double A6 = (Math.Pow(prad * 0, 2) * nu * Math.Sin(theta) * Math.Pow(Math.Cos(theta), 5) / 720) * (61 - 58 * Math.Pow(Math.Tan(theta), 2) + Math.Pow(Math.Tan(theta), 4) + 270 * e2 * Math.Pow(Math.Sin(theta), 2)) * k0;
             //double A6 = 0;
 
+
+            //Cálculo de N
             double N = 0;
             if (comboBox2.Text == "Norte")
             {
@@ -722,10 +728,13 @@ namespace RoseCalc
                 return N;
             }
             
-            //double N = (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
-            double E = 500000 + (Kiv * prad + Kv * Math.Pow(prad, 3));
+            //Cálculo de E
+            ////double E = 500000 + (Kiv * prad + Kv * Math.Pow(prad, 3));
             
-            return N;
+            return N; //Função retorna N
+
+            //Fonte dos cálculos: http://www.uwgb.edu/dutchs/UsefulData/UTMFormulas.HTM e http://www.uwgb.edu/dutchs/UsefulData/UTMConversions1.xls
+            //Fonte das constantes dos data: ESRI. Documentação do ArcGIS 10.
             
         }
 
@@ -763,13 +772,10 @@ namespace RoseCalc
                 a = 6378137;
                 b = 6356752.314140356100000000;
             }
-
-            //double a = 6378137;
-            //double b = 6356752.314;
+          
             double f = (a - b) / a;
             double invf = 1 / f;
             double rm = Math.Pow(a * b, 0.5);
-            //double k0 = 0.9996;
             double e = Math.Sqrt(1 - Math.Pow(b / a, 2));
             double e2 = e * e / (1 - e * e);
             double n = (a - b) / (a + b);
@@ -793,30 +799,28 @@ namespace RoseCalc
             {
                 prad = (dgama - (6 * (Math.Floor((dgama) / 6) + 31) - 183)) * (Math.PI / 180); //Leste
             }
-
-            //double prad = (dgama - (6 * (Math.Floor((180 + dgama)/6)+1) - 183)) * (Math.PI / 180); //Sempre West
-
+                        
             double Ki = S * k0;
             double Kii = nu * Math.Sin(theta) * Math.Cos(theta) * k0 / 2;
             double Kiii = ((nu * Math.Sin(theta) * Math.Pow(Math.Cos(theta), 3)) / 24) * (5 - Math.Pow(Math.Tan(theta), 2) + 9 * e2 * Math.Pow(Math.Cos(theta), 2) + 4 * Math.Pow(e2, 2) * Math.Pow(Math.Cos(theta), 4)) * k0;
             double Kiv = nu * Math.Cos(theta) * k0;
             double Kv = Math.Pow(Math.Cos(theta), 3) * (nu / 6) * (1 - Math.Pow(Math.Tan(theta), 2) + e2 * Math.Pow(Math.Cos(theta), 2)) * k0;
-            //double A6 = (Math.Pow(prad * 0, 2) * nu * Math.Sin(theta) * Math.Pow(Math.Cos(theta), 5) / 720) * (61 - 58 * Math.Pow(Math.Tan(theta), 2) + Math.Pow(Math.Tan(theta), 4) + 270 * e2 * Math.Pow(Math.Sin(theta), 2)) * k0;
-            //double A6 = 0;
 
-            double N = 0;
-            if (comboBox2.Text == "Norte")
-            {
-                N = (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
-            }
-            if (comboBox2.Text == "Sul")
-            {
-                N = 10000000 + (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
-            }
+            //Calcula N
+            ////double N = 0;
+            ////if (comboBox2.Text == "Norte")
+            ////{
+            ////    N = (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
+            ////}
+            ////if (comboBox2.Text == "Sul")
+            ////{
+            ////    N = 10000000 + (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
+            ////}
 
-            //double N = (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
+            //Calcula E
             double E = 500000 + (Kiv * prad + Kv * Math.Pow(prad, 3));
-            return E;
+            
+            return E; //Função retorna E
         }
 
 

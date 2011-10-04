@@ -55,3 +55,11 @@ C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc - SVN\RoseCalc\
 C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc - SVN\RoseCalc\obj\x86\Release\RoseCalc.exe
 C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc - SVN\RoseCalc\obj\x86\Release\RoseCalc.pdb
 C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc - SVN\RoseCalc\obj\x86\Release\ColorComboTestApp.ColorComboBox.resources
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Release\ColorComboTestApp.ColorComboBox.resources
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Release\RoseCalc.Form1.resources
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Release\RoseCalc.Properties.Resources.resources
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Release\RoseCalc.exe
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Release\RoseCalc.pdb
