@@ -641,10 +641,31 @@ namespace RoseCalc
 
         public double GeogParaUTMNorte(double dtheta, double dgama)
         {
-            //Conversão das coordenadas de graus decimais para radianos
-            double gama = Math.PI / 180 * dgama;
-            double theta = Math.PI / 180 * dtheta;
-
+            //Conversão das coordenadas de graus decimais para radianos e tratamento Sul/Norte, Leste/Oeste
+                        
+            //Latitude
+            double theta = 0;
+            if (comboBox2.Text == "Norte")
+            {
+                theta = Math.PI / 180 * dtheta; //Coordenada positiva
+            }
+            if (comboBox2.Text == "Sul")
+            {
+                theta = -1 * (Math.PI / 180 * dtheta); //Coordenada negativa             
+            }
+            
+            //Longitude    
+            double gama = 0;
+            if (comboBox3.Text == "Leste")
+            {
+                gama = Math.PI / 180 * dgama; //Coordenada positiva
+            }
+            if (comboBox3.Text == "Oeste")
+            {
+                gama = -1 * Math.PI / 180 * -dgama; //Coordenada negativa             
+            }           
+            
+            
             //Fator de escala da projeção (UTM)
             double k0 = 0.9996;
 
@@ -655,27 +676,52 @@ namespace RoseCalc
             if (comboBox1.Text == "WGS-1984")
             {
                 a = 6378137;
-                b = 6356752.314245179300000000;                
+                b = 6356752.314245179300000000;
+            }
+            if (comboBox1.Text == "SIRGAS-2000")
+            {
+                a = 6378137;
+                b = 6356752.314140356100000000;
             }
             if (comboBox1.Text == "SAD-1969")
             {
                 a = 6378160;
-                b = 6356774.719195305400000000;               
+                b = 6356774.719195305400000000;
             }
             if (comboBox1.Text == "Córrego Alegre")
             {
                 a = 6378388;
-                b = 6356911.946127946500000000;               
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "Lisboa (Hayford)")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "Lisboa (Bessel)")
+            {
+                a = 6377397.155000000300000000;
+                b = 6356078.962818188600000000;
+            }
+            if (comboBox1.Text == "Datum 1973")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "ED-1950")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
             }
             if (comboBox1.Text == "WGS-1972")
             {
                 a = 6378135;
-                b = 6356750.520016093700000000;                
+                b = 6356750.520016093700000000;
             }
             if (comboBox1.Text == "NAD-1983")
             {
                 a = 6378137;
-                b = 6356752.314140356100000000;                
+                b = 6356752.314140356100000000;
             }
 
             double f = (a - b) / a; //Achatamento
@@ -699,7 +745,7 @@ namespace RoseCalc
             double prad = 0;
             if (comboBox3.Text == "Oeste")            
             {
-                prad = (dgama - (6 * (Math.Floor((180 + dgama) / 6) + 1) - 183)) * (Math.PI / 180); //Oeste
+                prad = (-dgama - (6 * (Math.Floor((180 - dgama) / 6) + 1) - 183)) * (Math.PI / 180); //Oeste
             }
             if (comboBox3.Text == "Leste")  
             {
@@ -740,8 +786,26 @@ namespace RoseCalc
 
         public double GeogParaUTMEste(double dtheta, double dgama)
         {
-            double gama = Math.PI / 180 * dgama;
-            double theta = Math.PI / 180 * dtheta;
+            //Latitude
+            double theta = 0;
+            if (comboBox2.Text == "Norte")
+            {
+                theta = Math.PI / 180 * dtheta; //Coordenada positiva
+            }
+            if (comboBox2.Text == "Sul")
+            {
+                theta = -1 * (Math.PI / 180 * dtheta); //Coordenada negativa             
+            }
+            //Longitude    
+            double gama = 0;
+            if (comboBox3.Text == "Leste")
+            {                
+                gama = Math.PI / 180 * dgama; //Coordenada positiva
+            }
+            if (comboBox3.Text == "Oeste")
+            {
+                gama = -1 * Math.PI / 180 * dgama; //Coordenada negativa             
+            }
 
             double a = 0;
             double b = 0;
@@ -752,12 +816,37 @@ namespace RoseCalc
                 a = 6378137;
                 b = 6356752.314245179300000000;
             }
+            if (comboBox1.Text == "SIRGAS-2000")
+            {
+                a = 6378137;
+                b = 6356752.314140356100000000;
+            }
             if (comboBox1.Text == "SAD-1969")
             {
                 a = 6378160;
                 b = 6356774.719195305400000000;
             }
             if (comboBox1.Text == "Córrego Alegre")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }            
+            if (comboBox1.Text == "Lisboa (Hayford)")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "Lisboa (Bessel)")
+            {
+                a = 6377397.155000000300000000;
+                b = 6356078.962818188600000000;
+            }
+            if (comboBox1.Text == "Datum 1973")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "ED-1950")
             {
                 a = 6378388;
                 b = 6356911.946127946500000000;
@@ -793,7 +882,7 @@ namespace RoseCalc
             double prad = 0;
             if (comboBox3.Text == "Oeste")
             {
-                prad = (dgama - (6 * (Math.Floor((180 + dgama) / 6) + 1) - 183)) * (Math.PI / 180); //Oeste
+                prad = (-dgama - (6 * (Math.Floor((180 - dgama) / 6) + 1) - 183)) * (Math.PI / 180); //Oeste
             }
             if (comboBox3.Text == "Leste")
             {
@@ -826,12 +915,8 @@ namespace RoseCalc
 
         private void button12_Click(object sender, EventArgs e)
         {
-            //Convert.ToDouble(numericUpDown5.Value);
-            //Convert.ToDouble(numericUpDown6.Value);
-
             numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
             numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
-
         }
 
 
