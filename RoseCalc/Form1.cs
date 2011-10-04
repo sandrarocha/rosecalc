@@ -630,54 +630,162 @@ namespace RoseCalc
 
 
         //Função: Coordenada geográfica para UTM
-        public double GeogParaUTM(double grau, double minuto, double segundo)
-        {
+
+        //public double GeogParaUTMNorte(double theta, double gama)
+        //{
             
-            //Variáveis
-            double a;      //Semi-major axis of reference ellipsoid
-            double f;      //Ellipsoidal flattening
-            double otheta; //Origin latitude
-            double ogama;  //Origin longitude
-            double fN;     //False Northing
-            double fE;     //False Easting
-            double fk;      //Central meridian scale factor
-            double theta;  //Latitude of computation point
-            double gama;   //Longitude of computation point                
+        //    //Variáveis
+        //    double a = 6378137;      //Semi-major axis of reference ellipsoid
+        //    double f = 1/298.257223563;      //Ellipsoidal flattening
+        //    double otheta = 0; //Origin latitude
+        //    double ogama = -45;  //Origin longitude
+        //    double fN = 10000000;     //False Northing
+        //    double fE = 500000;     //False Easting
+        //    double fk = 0.9996;      //Central meridian scale factor               
 
-            //Constantes
-            double b = a*(1-f);
-            double e2 = 2*f-Math.Pow(f,2);
-            double A0 = 1-(e2/4)-((3*Math.Pow(e2,2))/64)-((5*Math.Pow(e2,3))/256);
-            double A2 = (3/8)*(e2+(Math.Pow(e2,2)/4)+((15*Math.Pow(e2,3))/128));
-            double A4 = (15/256)*(Math.Pow(e2,2)+((3*Math.Pow(e2,3))/4));
-            double A6 = (35*Math.Pow(e2,3)/(3072);
-            double m = a*((A0*theta)-(A2*Math.Sin(2*theta))+(A4*Math.Sin(4*theta))-(A6*Math.Sin(6*theta));
-            double m0 = a*((A0*otheta)-(A2*Math.Sin(2*otheta))+(A4*Math.Sin(4*otheta))-(A6*Math.Sin(6*otheta));
+        //    //Constantes
+        //    double b = a*(1-f);
+        //    double e2 = 2*f-Math.Pow(f,2);
+        //    double A0 = 1-(e2/4)-((3*Math.Pow(e2,2))/64)-((5*Math.Pow(e2,3))/256);
+        //    double A2 = (3/8)*(e2+(Math.Pow(e2,2)/4)+((15*Math.Pow(e2,3))/128));
+        //    double A4 = (15/256)*(Math.Pow(e2,2)+((3*Math.Pow(e2,3))/4));
+        //    double A6 = (35*Math.Pow(e2,3))/(3072);
+        //    double m = a*((A0*theta)-(A2*Math.Sin(2*theta)))+(A4*Math.Sin(4*theta))-(A6*Math.Sin(6*theta));
+        //    double m0 = a*((A0*otheta)-(A2*Math.Sin(2*otheta)))+(A4*Math.Sin(4*otheta))-(A6*Math.Sin(6*otheta));
 
-            //Cálculos
-            double rho = (a*(1-e2))/(Math.Pow(1-e2*Math.Pow(Math.Sin(theta),2),3/2));
-            double v = a/Math.Sqrt(1-e2*Math.Pow(Math.Sin(theta),2));
-            double w = v/rho;
-            double t = Math.Tan(theta);
-            double ome = gama - ogama;
+        //    //Cálculos
+        //    double rho = (a*(1-e2))/(Math.Pow(1-e2*Math.Pow(Math.Sin(theta),2),3/2));
+        //    double v = a/Math.Sqrt(1-e2*Math.Pow(Math.Sin(theta),2));
+        //    double w = v/rho;
+        //    double t = Math.Tan(theta);
+        //    double ome = gama - ogama;
             
-            //Cálculo do Norte
-            double term11 = ((Math.Pow(ome,2))/2)*v*Math.Sin(theta)*Math.Cos(theta);
-            double term12 = ((Math.Pow(ome,4))/24)*v*Math.Sin(theta)*Math.Pow(Math.Sin(theta),3)*(4*Math.Pow(w,2)+w+Math.Pow(t,2));
-            double term13 = ((Math.Pow(ome,6))/720)*v*Math.Sin(theta)*Math.Pow(Math.Cos(theta),5)*theta*(8*Math.Pow(w,4)*(11-24*Math.Pow(t,2))-28*Math.Pow(w,3)*(1-6*Math.Pow(t,2))+Math.Pow(w,2)*(1-32*Math.Pow(t,2)-w*(2*Math.Pow(t,2))+Math.Pow(t,4))); 
-            double term14 = ((Math.Pow(ome,4))/40320)*v*Math.Sin(theta)*Math.Pow(Math.Cos(theta),7)*theta*(1385-3111*Math.Pow(7,2)+543*Math.Pow(t,4)-Math.Pow(t,6));
-            double N = fN+fk*(m-m0+term11+term12+term13+term14);
+        //    //Cálculo do Norte
+        //    double term11 = ((Math.Pow(ome,2))/2)*v*Math.Sin(theta)*Math.Cos(theta);
+        //    double term12 = ((Math.Pow(ome,4))/24)*v*Math.Sin(theta)*Math.Pow(Math.Sin(theta),3)*(4*Math.Pow(w,2)+w+Math.Pow(t,2));
+        //    double term13 = ((Math.Pow(ome,6))/720)*v*Math.Sin(theta)*Math.Pow(Math.Cos(theta),5)*theta*(8*Math.Pow(w,4)*(11-24*Math.Pow(t,2))-28*Math.Pow(w,3)*(1-6*Math.Pow(t,2))+Math.Pow(w,2)*(1-32*Math.Pow(t,2)-w*(2*Math.Pow(t,2))+Math.Pow(t,4))); 
+        //    double term14 = ((Math.Pow(ome,4))/40320)*v*Math.Sin(theta)*Math.Pow(Math.Cos(theta),7)*theta*(1385-3111*Math.Pow(7,2)+543*Math.Pow(t,4)-Math.Pow(t,6));
+        //    double N = fN+fk*(m-m0+term11+term12+term13+term14);
 
-            //Cálculo no Este
-            double term21 = ((Math.Pow(ome,2))/6)*Math.Pow(Math.Cos(theta),2)*(w-Math.Pow(t,2));
-            double term22 = ((Math.Pow(ome,4))/120)*Math.Pow(Math.Cos(theta),4)*(4*Math.Pow(w,3)*(1-6*Math.Pow(t,2))+Math.Pow(w,2)*(1+8*Math.Pow(t,2))-w*2*Math.Pow(t,2)+Math.Pow(t,4)); 
-            double term23 = ((Math.Pow(w,6))/5040)*Math.Pow(Math.Cos(theta),6)*(61-479*Math.Pow(t,2)+179*Math.Pow(t,4)-Math.Pow(t,6));
-            double E = fE+fk*v*ome*Math.Cos(theta)*(1+term21+term22+term23);
+        //    return N;
 
+        //    ////Cálculo no Este
+        //    //double term21 = ((Math.Pow(ome,2))/6)*Math.Pow(Math.Cos(theta),2)*(w-Math.Pow(t,2));
+        //    //double term22 = ((Math.Pow(ome,4))/120)*Math.Pow(Math.Cos(theta),4)*(4*Math.Pow(w,3)*(1-6*Math.Pow(t,2))+Math.Pow(w,2)*(1+8*Math.Pow(t,2))-w*2*Math.Pow(t,2)+Math.Pow(t,4)); 
+        //    //double term23 = ((Math.Pow(w,6))/5040)*Math.Pow(Math.Cos(theta),6)*(61-479*Math.Pow(t,2)+179*Math.Pow(t,4)-Math.Pow(t,6));
+        //    //double E = fE+fk*v*ome*Math.Cos(theta)*(1+term21+term22+term23);
+        //}
 
+        //public double GeogParaUTMNorte(double dtheta, double dgama)
+        //{
+        //    double gama = Math.PI / 180 * dgama;
+        //    double theta = Math.PI / 180 * dtheta;
+            
+        //    double e = 0.0818192;
+        //    double ogama = -45;
 
+        //    double v = 1 / (Math.Sqrt(1 - Math.Pow(e, 2) * Math.Pow(Math.Sin(theta), 2)));
+        //    double A = (gama - ogama);
+        //    double s = (1 - (Math.Pow(e, 2) / 4) - ((3 * Math.Pow(e, 4)) / 64) - ((5 * Math.Pow(e, 6)) / 256) * theta - (((3 * Math.Pow(e, 2)) / 8) + ((3 * Math.Pow(e, 4)) / 32) + ((45 * Math.Pow(e, 6)) / 1024)) * Math.Sin(2 * theta) + (((15 * Math.Pow(e, 4)) / 256) + ((45 * Math.Pow(e, 6)) / 1024))) * Math.Sin(4 * theta) - ((35 * Math.Pow(e, 6)) / 3072) * Math.Sin(6 * theta);
+        //    double T = Math.Pow(Math.Tan(theta), 2);
+        //    double C = (Math.Pow(e, 2) / (1 - Math.Pow(e, 2))) * Math.Pow(Math.Cos(theta), 2);
 
+        //    double a = 6378137;
+        //    double N0 = 10000000;
+        //    double k0 = 0.996;
+        //    double E0 = 500000;
+
+        //    double E = E0 + k0 * a * v * (A + (1 - T + C) * (Math.Pow(A, 3) / 6) + (5 - 18 * T + Math.Pow(T, 2)) * (Math.Pow(A, 5) / 120));
+        //    double N = N0 + k0 * a * (s + v * Math.Tan(theta) * ((Math.Pow(A, 2) / 2) + (5 - T + 9 * C + 4 * Math.Pow(C, 2)) * ((Math.Pow(A, 4)) / 24) + (61 - 58 * T + Math.Pow(T, 2)) * Math.Pow(A, 6) / 720));
+        //    return N;
+        //}
+
+        public double GeogParaUTMNorte(double dtheta, double dgama)
         {
+            double gama = Math.PI / 180 * dgama;
+            double theta = Math.PI / 180 * dtheta;
+
+            double a = 6378137;
+            double b = 6356752.314;
+            double f = (a - b) / a;
+            double invf = 1 / f;
+            double rm = Math.Pow(a * b, 0.5);
+            double k0 = 0.9996;
+            double e = Math.Sqrt(1 - Math.Pow(b / a, 2));
+            double e2 = e * e / (1 - e * e);
+            double n = (a - b) / (a + b);
+            double rho = a * (1 - e * e) / (Math.Pow(1 - (e * Math.Pow(Math.Sin(theta), 2)), 1.5));
+            double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));
+
+            double A0 = a * (1 - n + (5 * n * n / 4) * (1 - n) + (81 * Math.Pow(n, 4) / 64) * (1 - n));
+            double B0 = (3 * a * n / 2) * (1 - n - (7 * n * n / 8) * (1 - n) + 55 * Math.Pow(n, 4) / 64);
+            double C0 = (15 * a * n * n / 16) * (1 - n + (3 * n * n / 4) * (1 - n));
+            double D0 = (35 * a * Math.Pow(n, 3) / 48) * (1 - n + 11 * n * n / 16);
+            double E0 = (315 * a * Math.Pow(n, 4) / 51) * (1 - n);
+            double S = A0 * theta - B0 * Math.Sin(2 * theta) + C0 * Math.Sin(4 * theta) - D0 * Math.Sin(6 * theta) + E0 * Math.Sin(8 * theta);
+            double prad = (dgama - (6 * (Math.Floor((180 + dgama)/6)+1) - 183)) * (Math.PI / 180); //Sempre West
+            double Ki = S * k0;
+            double Kii = nu * Math.Sin(theta) * Math.Cos(theta) * k0 / 2;
+            double Kiii = ((nu * Math.Sin(theta) * Math.Pow(Math.Cos(theta), 3)) / 24) * (5 - Math.Pow(Math.Tan(theta), 2) + 9 * e2 * Math.Pow(Math.Cos(theta), 2) + 4 * Math.Pow(e2, 2) * Math.Pow(Math.Cos(theta), 4)) * k0;
+            double Kiv = nu * Math.Cos(theta) * k0;
+            double Kv = Math.Pow(Math.Cos(theta), 3) * (nu / 6) * (1 - Math.Pow(Math.Tan(theta), 2) + e2 * Math.Pow(Math.Cos(theta), 2)) * k0;
+            //double A6 = (Math.Pow(prad * 0, 2) * nu * Math.Sin(theta) * Math.Pow(Math.Cos(theta), 5) / 720) * (61 - 58 * Math.Pow(Math.Tan(theta), 2) + Math.Pow(Math.Tan(theta), 4) + 270 * e2 * Math.Pow(Math.Sin(theta), 2)) * k0;
+            //double A6 = 0;
+
+            double N = (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
+            double E = 500000 + (Kiv * prad + Kv * Math.Pow(prad, 3));
+
+            return N;
+        }
+
+        public double GeogParaUTMEste(double dtheta, double dgama)
+        {
+            double gama = Math.PI / 180 * dgama;
+            double theta = Math.PI / 180 * dtheta;
+
+            double a = 6378137;
+            double b = 6356752.314;
+            double f = (a - b) / a;
+            double invf = 1 / f;
+            double rm = Math.Pow(a * b, 0.5);
+            double k0 = 0.9996;
+            double e = Math.Sqrt(1 - Math.Pow(b / a, 2));
+            double e2 = e * e / (1 - e * e);
+            double n = (a - b) / (a + b);
+            double rho = a * (1 - e * e) / (Math.Pow(1 - (e * Math.Pow(Math.Sin(theta), 2)), 1.5));
+            double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));
+
+            double A0 = a * (1 - n + (5 * n * n / 4) * (1 - n) + (81 * Math.Pow(n, 4) / 64) * (1 - n));
+            double B0 = (3 * a * n / 2) * (1 - n - (7 * n * n / 8) * (1 - n) + 55 * Math.Pow(n, 4) / 64);
+            double C0 = (15 * a * n * n / 16) * (1 - n + (3 * n * n / 4) * (1 - n));
+            double D0 = (35 * a * Math.Pow(n, 3) / 48) * (1 - n + 11 * n * n / 16);
+            double E0 = (315 * a * Math.Pow(n, 4) / 51) * (1 - n);
+            double S = A0 * theta - B0 * Math.Sin(2 * theta) + C0 * Math.Sin(4 * theta) - D0 * Math.Sin(6 * theta) + E0 * Math.Sin(8 * theta);
+            double prad = (dgama - (6 * (Math.Floor((180 + dgama) / 6) + 1) - 183)) * (Math.PI / 180); //Sempre West
+            double Ki = S * k0;
+            double Kii = nu * Math.Sin(theta) * Math.Cos(theta) * k0 / 2;
+            double Kiii = ((nu * Math.Sin(theta) * Math.Pow(Math.Cos(theta), 3)) / 24) * (5 - Math.Pow(Math.Tan(theta), 2) + 9 * e2 * Math.Pow(Math.Cos(theta), 2) + 4 * Math.Pow(e2, 2) * Math.Pow(Math.Cos(theta), 4)) * k0;
+            double Kiv = nu * Math.Cos(theta) * k0;
+            double Kv = Math.Pow(Math.Cos(theta), 3) * (nu / 6) * (1 - Math.Pow(Math.Tan(theta), 2) + e2 * Math.Pow(Math.Cos(theta), 2)) * k0;
+            //double A6 = (Math.Pow(prad * 0, 2) * nu * Math.Sin(theta) * Math.Pow(Math.Cos(theta), 5) / 720) * (61 - 58 * Math.Pow(Math.Tan(theta), 2) + Math.Pow(Math.Tan(theta), 4) + 270 * e2 * Math.Pow(Math.Sin(theta), 2)) * k0;
+            //double A6 = 0;
+
+            double N = (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
+            double E = 500000 + (Kiv * prad + Kv * Math.Pow(prad, 3));
+
+            return E;
+        }
+
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Convert.ToDouble(numericUpDown5.Value);
+            Convert.ToDouble(numericUpDown6.Value);
+
+            numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
+            numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
+
+        }
 
 
 
