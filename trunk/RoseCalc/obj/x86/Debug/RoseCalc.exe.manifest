@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RoseCalc.exe" size="253952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RoseCalc.exe" size="256000">
       <assemblyIdentity name="RoseCalc" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>2B0075LAP1zytk+1OfNvSwHU7/s=</dsig:DigestValue>
+        <dsig:DigestValue>64rR3AymI8sBSjhcIAirga2Mvj0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

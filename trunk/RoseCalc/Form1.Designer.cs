@@ -129,6 +129,18 @@
             this.label27 = new System.Windows.Forms.Label();
             this.cartasTab = new System.Windows.Forms.TabPage();
             this.coordenadasTab = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
@@ -162,14 +174,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
             this.perfilFundoCor = new ColorComboTestApp.ColorComboBox();
             this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
             this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
@@ -207,6 +211,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.ventoNE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventoN)).BeginInit();
             this.coordenadasTab.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
@@ -217,11 +226,6 @@
             this.groupBox7.SuspendLayout();
             this.sobreTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1386,6 +1390,166 @@
             this.coordenadasTab.Text = "Transformação de coordenadas";
             this.coordenadasTab.UseVisualStyleBackColor = true;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.label52);
+            this.groupBox10.Controls.Add(this.comboBox3);
+            this.groupBox10.Controls.Add(this.comboBox2);
+            this.groupBox10.Controls.Add(this.comboBox1);
+            this.groupBox10.Controls.Add(this.button12);
+            this.groupBox10.Controls.Add(this.label51);
+            this.groupBox10.Controls.Add(this.label50);
+            this.groupBox10.Controls.Add(this.numericUpDown7);
+            this.groupBox10.Controls.Add(this.numericUpDown8);
+            this.groupBox10.Controls.Add(this.numericUpDown6);
+            this.groupBox10.Controls.Add(this.numericUpDown5);
+            this.groupBox10.Location = new System.Drawing.Point(330, 11);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(516, 186);
+            this.groupBox10.TabIndex = 1;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Geodésica para UTM";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(25, 33);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(38, 13);
+            this.label52.TabIndex = 10;
+            this.label52.Text = "Datum";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Leste",
+            "Oeste"});
+            this.comboBox3.Location = new System.Drawing.Point(196, 83);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(57, 21);
+            this.comboBox3.TabIndex = 9;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Norte",
+            "Sul"});
+            this.comboBox2.Location = new System.Drawing.Point(196, 56);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(57, 21);
+            this.comboBox2.TabIndex = 8;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "WGS-1984",
+            "SAD-1969",
+            "Córrego Alegre",
+            "WGS-1972",
+            "NAD-1983"});
+            this.comboBox1.Location = new System.Drawing.Point(69, 30);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(259, 57);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 46);
+            this.button12.TabIndex = 6;
+            this.button12.Text = "Converter";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(10, 86);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(54, 13);
+            this.label51.TabIndex = 5;
+            this.label51.Text = "Longitude";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(19, 59);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(45, 13);
+            this.label50.TabIndex = 4;
+            this.label50.Text = "Latitude";
+            // 
+            // numericUpDown7
+            // 
+            this.numericUpDown7.DecimalPlaces = 9;
+            this.numericUpDown7.Location = new System.Drawing.Point(340, 84);
+            this.numericUpDown7.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
+            this.numericUpDown7.Minimum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            -2147483648});
+            this.numericUpDown7.Name = "numericUpDown7";
+            this.numericUpDown7.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown7.TabIndex = 3;
+            this.numericUpDown7.ThousandsSeparator = true;
+            // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.DecimalPlaces = 9;
+            this.numericUpDown8.Location = new System.Drawing.Point(340, 57);
+            this.numericUpDown8.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
+            this.numericUpDown8.Minimum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            -2147483648});
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown8.TabIndex = 2;
+            this.numericUpDown8.ThousandsSeparator = true;
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.DecimalPlaces = 9;
+            this.numericUpDown6.Location = new System.Drawing.Point(70, 83);
+            this.numericUpDown6.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown6.TabIndex = 1;
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.DecimalPlaces = 9;
+            this.numericUpDown5.Location = new System.Drawing.Point(70, 57);
+            this.numericUpDown5.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown5.TabIndex = 0;
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.groupBox9);
@@ -1496,7 +1660,7 @@
             // 
             this.button11.Location = new System.Drawing.Point(163, 30);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(135, 25);
+            this.button11.Size = new System.Drawing.Size(143, 25);
             this.button11.TabIndex = 12;
             this.button11.Text = "Calcular";
             this.button11.UseVisualStyleBackColor = true;
@@ -1735,114 +1899,6 @@
             this.label42.TabIndex = 12;
             this.label42.Text = "Software livre para cálculos de cartografia e topografia";
             // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.button12);
-            this.groupBox10.Controls.Add(this.label51);
-            this.groupBox10.Controls.Add(this.label50);
-            this.groupBox10.Controls.Add(this.numericUpDown7);
-            this.groupBox10.Controls.Add(this.numericUpDown8);
-            this.groupBox10.Controls.Add(this.numericUpDown6);
-            this.groupBox10.Controls.Add(this.numericUpDown5);
-            this.groupBox10.Location = new System.Drawing.Point(330, 11);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(516, 186);
-            this.groupBox10.TabIndex = 1;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Geodésica para UTM";
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.DecimalPlaces = 10;
-            this.numericUpDown5.Location = new System.Drawing.Point(54, 25);
-            this.numericUpDown5.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown5.TabIndex = 0;
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.DecimalPlaces = 10;
-            this.numericUpDown6.Location = new System.Drawing.Point(54, 51);
-            this.numericUpDown6.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown6.TabIndex = 1;
-            // 
-            // numericUpDown7
-            // 
-            this.numericUpDown7.DecimalPlaces = 10;
-            this.numericUpDown7.Location = new System.Drawing.Point(261, 51);
-            this.numericUpDown7.Maximum = new decimal(new int[] {
-            1874919424,
-            2328306,
-            0,
-            0});
-            this.numericUpDown7.Minimum = new decimal(new int[] {
-            1874919424,
-            2328306,
-            0,
-            -2147483648});
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown7.TabIndex = 3;
-            this.numericUpDown7.ThousandsSeparator = true;
-            // 
-            // numericUpDown8
-            // 
-            this.numericUpDown8.DecimalPlaces = 10;
-            this.numericUpDown8.Location = new System.Drawing.Point(261, 25);
-            this.numericUpDown8.Maximum = new decimal(new int[] {
-            1874919424,
-            2328306,
-            0,
-            0});
-            this.numericUpDown8.Minimum = new decimal(new int[] {
-            1874919424,
-            2328306,
-            0,
-            -2147483648});
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown8.TabIndex = 2;
-            this.numericUpDown8.ThousandsSeparator = true;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(15, 27);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(33, 13);
-            this.label50.TabIndex = 4;
-            this.label50.Text = "Norte";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(20, 53);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(28, 13);
-            this.label51.TabIndex = 5;
-            this.label51.Text = "Este";
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(180, 25);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 46);
-            this.button12.TabIndex = 6;
-            this.button12.Text = "Converter";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
             // perfilFundoCor
             // 
             this.perfilFundoCor.Extended = true;
@@ -1946,6 +2002,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ventoNE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventoN)).EndInit();
             this.coordenadasTab.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
@@ -1959,12 +2021,6 @@
             this.sobreTab.ResumeLayout(false);
             this.sobreTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2118,6 +2174,10 @@
         private System.Windows.Forms.NumericUpDown numericUpDown8;
         private System.Windows.Forms.NumericUpDown numericUpDown6;
         private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label52;
     }
 }
 
