@@ -782,7 +782,7 @@ namespace RoseCalc
             //Fonte dos cálculos: http://www.uwgb.edu/dutchs/UsefulData/UTMFormulas.HTM e http://www.uwgb.edu/dutchs/UsefulData/UTMConversions1.xls
             //Fonte das constantes dos data: ESRI. Documentação do ArcGIS 10.
             
-        }
+        }    
 
         public double GeogParaUTMEste(double dtheta, double dgama)
         {
@@ -912,11 +912,275 @@ namespace RoseCalc
             return E; //Função retorna E
         }
 
+        public double UTMZona(string leste, double longi)
+        {
+            double zona;
+            if (leste == "Oeste")
+            {
+                zona = Math.Floor(180 + longi) / 6;
+            }
+            else
+            {
+                zona = Math.Floor(longi / 6) + 31;
+            }
+
+            return Math.Round(zona,0);
+                
+        }
+
+
+        public double UTMParaGeogNorte(double x, double y)
+        {
+            //Fator de escala da projeção (UTM)
+            double k0 = 0.9996;
+
+            //Variáveis do datum
+            double a = 0; //Raio equatorial
+            double b = 0; //Raio polar            
+
+            if (comboBox1.Text == "WGS-1984")
+            {
+                a = 6378137;
+                b = 6356752.314245179300000000;
+            }
+            if (comboBox1.Text == "SIRGAS-2000")
+            {
+                a = 6378137;
+                b = 6356752.314140356100000000;
+            }
+            if (comboBox1.Text == "SAD-1969")
+            {
+                a = 6378160;
+                b = 6356774.719195305400000000;
+            }
+            if (comboBox1.Text == "Córrego Alegre")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "Lisboa (Hayford)")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "Lisboa (Bessel)")
+            {
+                a = 6377397.155000000300000000;
+                b = 6356078.962818188600000000;
+            }
+            if (comboBox1.Text == "Datum 1973")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "ED-1950")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "WGS-1972")
+            {
+                a = 6378135;
+                b = 6356750.520016093700000000;
+            }
+            if (comboBox1.Text == "NAD-1983")
+            {
+                a = 6378137;
+                b = 6356752.314140356100000000;
+            }
+
+            //double f = (a - b) / a; //Achatamento
+            //double invf = 1 / f;    //Achatamento inverso
+            double rm = Math.Pow(a * b, 0.5);  //Raio médio            
+            double ec = Math.Sqrt(1 - Math.Pow(b / a, 2));  //Excentricidade
+            double  eisq = ec * ec / (1 - ec * ec);  //
+            //double n = (a - b) / (a + b);
+            //double rho = a * (1 - e * e) / (Math.Pow(1 - (e * Math.Pow(Math.Sin(theta), 2)), 1.5)); //Raio de curvatura 1
+            //double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));  //Raio de curvatura 2
+
+            double arc = y / k0;
+            double mu = arc / (a * (1 - Math.Pow(ec, 2) / 4 - 3 * Math.Pow(ec, 4) / 64 - 5 * Math.Pow(ec, 6) / 256));
+            double ei = (1 - Math.Pow(1 - ec * ec, 0.5)) / (1 + Math.Pow(1 - ec * ec, 0.5));
+            double ca = 3 * ei / 2 - 27 * Math.Pow(ei, 3) / 32;
+            double cb = 21 * Math.Pow(ei, 2) / 16 - 55 * Math.Pow(ei, 4) / 32;
+            double ccc = 151 * Math.Pow(ei, 3) / 96;
+            double cd = 1097 * Math.Pow(ei, 4) / 512;
+            double phi1 = mu + ca * Math.Sin(2 * mu) + cb * Math.Sin(4 * mu) + ccc * Math.Sin(6 * mu) + cd * Math.Sin(8 * mu);
+            double Sin1 = 0;
+            double Q0 = eisq * Math.Pow(Math.Cos(phi1), 2);
+            double t0 = Math.Pow(Math.Tan(phi1), 2);
+            double n0 = a / Math.Pow(1 - (Math.Pow(ec * Math.Sin(phi1), 2)), 0.5);
+            double r0 = a * (1 - ec * ec) / Math.Pow(1 - (Math.Pow(ec * Math.Sin(phi1), 2)), 1.5);
+            double elinha = 500000 - x;
+            double dd0 = elinha / (n0 * k0);
+
+            double fact1 = n0 * Math.Tan(phi1) / r0;
+            double fact2 = dd0 * dd0 / 2;
+            double fact3 = (5 + 3 * t0 + 10 * Q0 - 4 * Q0 * Q0 - 9 * eisq) * Math.Pow(dd0, 4) / 24;
+            double fact4 = (61 + 90 * t0 + 298 * Q0 + 45 * t0 * t0 - 252 * eisq - 3 * Q0 * Q0) * Math.Pow(dd0, 6) / 720;
+
+            double lof1 = dd0;
+            double lof2 = (1 + 2 * t0 + Q0) * Math.Pow(dd0, 3) / 6;
+            double lof3 = (5 - 2 * Q0 + 28 * t0 - 3 * Math.Pow(Q0, 2) + 8 * eisq + 24 * Math.Pow(t0, 2)) * Math.Pow(dd0, 5) / 120;
+
+            
+            
+            //double h20 = (lof1-lof2+lof3)/Math.Cos(phi1);
+            //double longi = h20 * 180 / Math.PI;
+
+            double lat = 180 * (phi1 - fact1 * (fact2 + fact3 + fact4)) / Math.PI;
+            if (comboBox4.SelectedText == "Norte")
+            {
+                lat = 180 * (phi1 - fact1 * (fact2 + fact3 + fact4)) / Math.PI;
+            }
+            if (comboBox4.SelectedText == "Sul")
+            {
+                lat = -1* 180 * (phi1 - fact1 * (fact2 + fact3 + fact4)) / Math.PI;
+            }
+            
+            return lat;
+
+
+            //Fonte dos cálculos: http://www.uwgb.edu/dutchs/UsefulData/UTMFormulas.HTM e http://www.uwgb.edu/dutchs/UsefulData/UTMConversions1.xls
+            //Fonte das constantes dos data: ESRI. Documentação do ArcGIS 10.
+
+        }
+
+        public double UTMParaGeogEste(double x, double y)
+        {
+            //Fator de escala da projeção (UTM)
+            double k0 = 0.9996;
+
+            //Variáveis do datum
+            double a = 0; //Raio equatorial
+            double b = 0; //Raio polar            
+
+            if (comboBox1.Text == "WGS-1984")
+            {
+                a = 6378137;
+                b = 6356752.314245179300000000;
+            }
+            if (comboBox1.Text == "SIRGAS-2000")
+            {
+                a = 6378137;
+                b = 6356752.314140356100000000;
+            }
+            if (comboBox1.Text == "SAD-1969")
+            {
+                a = 6378160;
+                b = 6356774.719195305400000000;
+            }
+            if (comboBox1.Text == "Córrego Alegre")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "Lisboa (Hayford)")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "Lisboa (Bessel)")
+            {
+                a = 6377397.155000000300000000;
+                b = 6356078.962818188600000000;
+            }
+            if (comboBox1.Text == "Datum 1973")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "ED-1950")
+            {
+                a = 6378388;
+                b = 6356911.946127946500000000;
+            }
+            if (comboBox1.Text == "WGS-1972")
+            {
+                a = 6378135;
+                b = 6356750.520016093700000000;
+            }
+            if (comboBox1.Text == "NAD-1983")
+            {
+                a = 6378137;
+                b = 6356752.314140356100000000;
+            }
+
+            //double f = (a - b) / a; //Achatamento
+            //double invf = 1 / f;    //Achatamento inverso
+            double rm = Math.Pow(a * b, 0.5);  //Raio médio            
+            double ec = Math.Sqrt(1 - Math.Pow(b / a, 2));  //Excentricidade
+            double eisq = ec * ec / (1 - ec * ec);  //
+            //double n = (a - b) / (a + b);
+            //double rho = a * (1 - e * e) / (Math.Pow(1 - (e * Math.Pow(Math.Sin(theta), 2)), 1.5)); //Raio de curvatura 1
+            //double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));  //Raio de curvatura 2
+
+            double arc = y / k0;
+            double mu = arc / (a * (1 - Math.Pow(ec, 2) / 4 - 3 * Math.Pow(ec, 4) / 64 - 5 * Math.Pow(ec, 6) / 256));
+            double ei = (1 - Math.Pow(1 - ec * ec, 0.5)) / (1 + Math.Pow(1 - ec * ec, 0.5));
+            double ca = 3 * ei / 2 - 27 * Math.Pow(ei, 3) / 32;
+            double cb = 21 * Math.Pow(ei, 2) / 16 - 55 * Math.Pow(ei, 4) / 32;
+            double ccc = 151 * Math.Pow(ei, 3) / 96;
+            double cd = 1097 * Math.Pow(ei, 4) / 512;
+            double phi1 = mu + ca * Math.Sin(2 * mu) + cb * Math.Sin(4 * mu) + ccc * Math.Sin(6 * mu) + cd * Math.Sin(8 * mu);
+            double Sin1 = 0;
+            double Q0 = eisq * Math.Pow(Math.Cos(phi1), 2);
+            double t0 = Math.Pow(Math.Tan(phi1), 2);
+            double n0 = a / Math.Pow(1 - (Math.Pow(ec * Math.Sin(phi1), 2)), 0.5);
+            double r0 = a * (1 - ec * ec) / Math.Pow(1 - (Math.Pow(ec * Math.Sin(phi1), 2)), 1.5);
+            double elinha = 500000 - x;
+            double dd0 = elinha / (n0 * k0);
+
+            double fact1 = n0 * Math.Tan(phi1) / r0;
+            double fact2 = dd0 * dd0 / 2;
+            double fact3 = (5 + 3 * t0 + 10 * Q0 - 4 * Q0 * Q0 - 9 * eisq) * Math.Pow(dd0, 4) / 24;                           
+            double fact4 = (61 + 90 * t0 + 298 * Q0 + 45 * t0 * t0 - 252 * eisq - 3 * Q0 * Q0) * Math.Pow(dd0, 6) / 720;
+
+            double lof1 = dd0;
+            double lof2 = (1 + 2 * t0 + Q0) * Math.Pow(dd0, 3)/6;
+            double lof3 = (5 - 2 * Q0 + 28 * t0 - 3 * Math.Pow(Q0, 2) + 8 * eisq + 24 * Math.Pow(t0, 2)) * Math.Pow(dd0, 5)/120;
+
+            //double lat = phi1 * 180 / Math.PI;
+
+            double h20 = (lof1 - lof2 + lof3) / Math.Cos(phi1);
+                        
+            double e19 = Convert.ToDouble(numericUpDown9.Value);
+            double h19 = 0;
+            if (e19 > 0)
+            {
+                h19 = 6*e19-183;
+            }
+            if (e19<=0)
+            {
+                h19 = 3;
+            }
+
+
+            double longi = h19 - (h20 * 180 / Math.PI);
+
+            return longi;
+
+
+            //Fonte dos cálculos: http://www.uwgb.edu/dutchs/UsefulData/UTMFormulas.HTM e http://www.uwgb.edu/dutchs/UsefulData/UTMConversions1.xls
+            //Fonte das constantes dos data: ESRI. Documentação do ArcGIS 10.
+
+        }
+
 
         private void button12_Click(object sender, EventArgs e)
         {
-            numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
-            numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
+            if (radioButton4.Checked == true)
+            {
+                numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
+                numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
+                numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text,Convert.ToDouble(numericUpDown6.Value)));
+                comboBox4.Text = comboBox2.Text;
+            }
+            if (radioButton3.Checked == true)
+            {               
+                numericUpDown5.Value = Convert.ToDecimal(UTMParaGeogNorte(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value)));
+                numericUpDown6.Value = Convert.ToDecimal(UTMParaGeogEste(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value)));
+            }
         }
 
 
