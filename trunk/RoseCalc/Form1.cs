@@ -25,6 +25,7 @@ namespace RoseCalc
             tabControl1.TabPages.Remove(unidadesTab);            
             tabControl1.TabPages.Remove(rumoTab);
             tabControl1.TabPages.Remove(transporteTab);
+            tabControl1.TabPages.Remove(topografiaTab);
 
             //Aba 'Sobre'
 
@@ -32,7 +33,7 @@ namespace RoseCalc
             linkLabel1.Text = "http://code.google.com/p/rosecalc/";
             linkLabel1.Links.Add(0, 34, "http://code.google.com/p/rosecalc/");
             //label23.Text = "Versão "+System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            label23.Text = "Versão 1.0.0.3";
+            label23.Text = "Versão 1.0.0.6";
 
             //Aba 'Perfil de relevo'
 
@@ -621,19 +622,36 @@ namespace RoseCalc
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            //numericUpDown1.BackColor = Color.FromArgb(255,255,92);
-            numericUpDown1.ReadOnly = true;            
+            numericUpDown1.ReadOnly = true;
+            numericUpDown1.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown1.Increment = 0;
             numericUpDown2.ReadOnly = true;
+            numericUpDown2.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown2.Increment = 0;
             numericUpDown3.ReadOnly = true;
+            numericUpDown3.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown3.Increment = 0;            
             numericUpDown4.ReadOnly = false;
+            numericUpDown4.Increment = 1;
+            numericUpDown4.BackColor = Color.FromArgb(255,255,255);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown1.ReadOnly = false;
+            numericUpDown1.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown1.Increment = 1;
             numericUpDown2.ReadOnly = false;
+            numericUpDown2.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown2.Increment = 1;
             numericUpDown3.ReadOnly = false;
+            numericUpDown3.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown3.Increment = 1;
             numericUpDown4.ReadOnly = true;
+            numericUpDown4.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown4.Increment = 0;
+            
+            
         }
 
         // Conversão de coordenadas geodésicas para UTM. Duas funções foram usadas, iguais no conteúdo, mudando
@@ -1212,6 +1230,56 @@ namespace RoseCalc
                 }
                 comboBox2.Text = comboBox4.Text;                
             }
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown7.ReadOnly = true;
+            numericUpDown7.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown7.Increment = 0;
+            numericUpDown8.ReadOnly = true;
+            numericUpDown8.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown8.Increment = 0;
+            numericUpDown9.ReadOnly = true;
+            numericUpDown9.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown9.Increment = 0;
+
+            numericUpDown5.ReadOnly = false;
+            numericUpDown5.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown5.Increment = 1;
+            numericUpDown6.ReadOnly = false;
+            numericUpDown6.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown6.Increment = 1;
+
+            comboBox4.Enabled = false;
+            comboBox2.Enabled = true;
+            comboBox3.Enabled = true;
+                
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown7.ReadOnly = false;
+            numericUpDown7.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown7.Increment = 1;
+            numericUpDown8.ReadOnly = false;
+            numericUpDown8.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown8.Increment = 1;
+            numericUpDown9.ReadOnly = false;
+            numericUpDown9.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown9.Increment = 1;
+
+            numericUpDown5.ReadOnly = true;
+            numericUpDown5.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown5.Increment = 0;
+            numericUpDown6.ReadOnly = true;
+            numericUpDown6.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown6.Increment = 0;
+
+            comboBox4.Enabled = true;
+            comboBox2.Enabled = false;
+            comboBox3.Enabled = false;
+
         }
 
 

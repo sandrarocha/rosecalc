@@ -104,3 +104,4 @@ C:\Users\Saldanha\Documents\Visual Studio 2010\Projects\RoseCalc - SVN\RoseCalc\
 C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Debug\ColorComboTestApp.ColorComboBox.resources
 C:\Users\Beraldo\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Debug\RoseCalc.exe
 C:\Users\Beraldo\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\obj\x86\Debug\RoseCalc.pdb
+C:\Users\PLANGEO\Documents\Visual Studio 2010\Projects\Rosecalc - SVN\trunk\RoseCalc\bin\Debug\ZedGraph.dll

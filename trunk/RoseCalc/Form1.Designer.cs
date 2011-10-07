@@ -131,6 +131,10 @@
             this.coordenadasTab = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
@@ -181,15 +185,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.perfilFundoCor = new ColorComboTestApp.ColorComboBox();
             this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
             this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
             this.ventoCorGraf = new ColorComboTestApp.ColorComboBox();
             this.ventoCorLinha = new ColorComboTestApp.ColorComboBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.escalasTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -224,6 +224,7 @@
             this.coordenadasTab.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             this.groupBox12.SuspendLayout();
@@ -240,7 +241,6 @@
             this.groupBox7.SuspendLayout();
             this.sobreTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1415,7 +1415,7 @@
             this.groupBox10.Controls.Add(this.button12);
             this.groupBox10.Location = new System.Drawing.Point(378, 11);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(468, 322);
+            this.groupBox10.Size = new System.Drawing.Size(468, 310);
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Geodésica <-> UTM";
@@ -1432,32 +1432,95 @@
             this.groupBox13.Controls.Add(this.numericUpDown8);
             this.groupBox13.Location = new System.Drawing.Point(6, 175);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(274, 128);
+            this.groupBox13.Size = new System.Drawing.Size(321, 128);
             this.groupBox13.TabIndex = 14;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "UTM";
             // 
+            // comboBox4
+            // 
+            this.comboBox4.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.Enabled = false;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Norte",
+            "Sul"});
+            this.comboBox4.Location = new System.Drawing.Point(70, 98);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(198, 21);
+            this.comboBox4.TabIndex = 12;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(10, 101);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(56, 13);
+            this.label56.TabIndex = 14;
+            this.label56.Text = "Hemisfério";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(32, 74);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(32, 13);
+            this.label55.TabIndex = 13;
+            this.label55.Text = "Zona";
+            // 
+            // numericUpDown9
+            // 
+            this.numericUpDown9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.numericUpDown9.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numericUpDown9.Location = new System.Drawing.Point(70, 72);
+            this.numericUpDown9.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
+            this.numericUpDown9.Minimum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            -2147483648});
+            this.numericUpDown9.Name = "numericUpDown9";
+            this.numericUpDown9.ReadOnly = true;
+            this.numericUpDown9.Size = new System.Drawing.Size(198, 20);
+            this.numericUpDown9.TabIndex = 12;
+            this.numericUpDown9.ThousandsSeparator = true;
+            // 
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(10, 48);
+            this.label53.Location = new System.Drawing.Point(22, 48);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(54, 13);
+            this.label53.Size = new System.Drawing.Size(44, 13);
             this.label53.TabIndex = 11;
-            this.label53.Text = "Longitude";
+            this.label53.Text = "Este (X)";
             // 
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(19, 21);
+            this.label54.Location = new System.Drawing.Point(17, 21);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(45, 13);
+            this.label54.Size = new System.Drawing.Size(49, 13);
             this.label54.TabIndex = 10;
-            this.label54.Text = "Latitude";
+            this.label54.Text = "Norte (Y)";
             // 
             // numericUpDown7
             // 
+            this.numericUpDown7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.numericUpDown7.DecimalPlaces = 9;
+            this.numericUpDown7.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.numericUpDown7.Location = new System.Drawing.Point(70, 46);
             this.numericUpDown7.Maximum = new decimal(new int[] {
             1874919424,
@@ -1470,13 +1533,20 @@
             0,
             -2147483648});
             this.numericUpDown7.Name = "numericUpDown7";
+            this.numericUpDown7.ReadOnly = true;
             this.numericUpDown7.Size = new System.Drawing.Size(198, 20);
             this.numericUpDown7.TabIndex = 5;
             this.numericUpDown7.ThousandsSeparator = true;
             // 
             // numericUpDown8
             // 
+            this.numericUpDown8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.numericUpDown8.DecimalPlaces = 9;
+            this.numericUpDown8.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.numericUpDown8.Location = new System.Drawing.Point(70, 19);
             this.numericUpDown8.Maximum = new decimal(new int[] {
             1874919424,
@@ -1489,6 +1559,7 @@
             0,
             -2147483648});
             this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.ReadOnly = true;
             this.numericUpDown8.Size = new System.Drawing.Size(198, 20);
             this.numericUpDown8.TabIndex = 4;
             this.numericUpDown8.ThousandsSeparator = true;
@@ -1503,7 +1574,7 @@
             this.groupBox12.Controls.Add(this.numericUpDown5);
             this.groupBox12.Location = new System.Drawing.Point(6, 69);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(274, 100);
+            this.groupBox12.Size = new System.Drawing.Size(321, 100);
             this.groupBox12.TabIndex = 13;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Geodésico";
@@ -1596,6 +1667,7 @@
             this.radioButton3.TabIndex = 12;
             this.radioButton3.Text = "UTM";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton4
             // 
@@ -1608,11 +1680,12 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Geodésica";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(273, 31);
+            this.label52.Location = new System.Drawing.Point(162, 40);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(38, 13);
             this.label52.TabIndex = 10;
@@ -1633,16 +1706,16 @@
             "ED-1950",
             "WGS-1972",
             "NAD-1983"});
-            this.comboBox1.Location = new System.Drawing.Point(317, 28);
+            this.comboBox1.Location = new System.Drawing.Point(206, 37);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 7;
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(305, 161);
+            this.button12.Location = new System.Drawing.Point(335, 161);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(143, 25);
+            this.button12.Size = new System.Drawing.Size(127, 25);
             this.button12.TabIndex = 6;
             this.button12.Text = "Converter";
             this.button12.UseVisualStyleBackColor = true;
@@ -1673,7 +1746,13 @@
             // 
             // numericUpDown4
             // 
+            this.numericUpDown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.numericUpDown4.DecimalPlaces = 10;
+            this.numericUpDown4.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.numericUpDown4.Location = new System.Drawing.Point(6, 19);
             this.numericUpDown4.Minimum = new decimal(new int[] {
             100,
@@ -1997,33 +2076,6 @@
             this.label42.TabIndex = 12;
             this.label42.Text = "Software livre para cálculos de cartografia e topografia";
             // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(10, 74);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(32, 13);
-            this.label55.TabIndex = 13;
-            this.label55.Text = "Zona";
-            // 
-            // numericUpDown9
-            // 
-            this.numericUpDown9.Location = new System.Drawing.Point(70, 72);
-            this.numericUpDown9.Maximum = new decimal(new int[] {
-            1874919424,
-            2328306,
-            0,
-            0});
-            this.numericUpDown9.Minimum = new decimal(new int[] {
-            1874919424,
-            2328306,
-            0,
-            -2147483648});
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(198, 20);
-            this.numericUpDown9.TabIndex = 12;
-            this.numericUpDown9.ThousandsSeparator = true;
-            // 
             // perfilFundoCor
             // 
             this.perfilFundoCor.Extended = true;
@@ -2073,27 +2125,6 @@
             this.ventoCorLinha.Size = new System.Drawing.Size(116, 23);
             this.ventoCorLinha.TabIndex = 16;
             this.ventoCorLinha.ColorChanged += new ColorComboTestApp.ColorChangedHandler(this.ventoCorLinha_ColorChanged);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(10, 101);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(56, 13);
-            this.label56.TabIndex = 14;
-            this.label56.Text = "Hemisfério";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Norte",
-            "Sul"});
-            this.comboBox4.Location = new System.Drawing.Point(70, 98);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(198, 21);
-            this.comboBox4.TabIndex = 12;
             // 
             // Form1
             // 
@@ -2152,6 +2183,7 @@
             this.groupBox10.PerformLayout();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             this.groupBox12.ResumeLayout(false);
@@ -2173,7 +2205,6 @@
             this.sobreTab.ResumeLayout(false);
             this.sobreTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
