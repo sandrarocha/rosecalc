@@ -770,8 +770,7 @@ namespace RoseCalc
             }
             if (comboBox2.Text == "Sul")
             {
-                N = 10000000 + (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));
-                return N;
+                N = 10000000 + (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));               
             }
             
             //Cálculo de E
@@ -913,18 +912,18 @@ namespace RoseCalc
         }
 
         public double UTMZona(string leste, double longi)
-        {
+        {            
             double zona;
             if (leste == "Oeste")
             {
-                zona = Math.Floor(180 + longi) / 6;
+                zona = Math.Floor((180 + -longi)/6)+1;
             }
             else
             {
                 zona = Math.Floor(longi / 6) + 31;
             }
 
-            return Math.Round(zona,0);
+            return zona;
                 
         }
 
@@ -998,7 +997,16 @@ namespace RoseCalc
             //double rho = a * (1 - e * e) / (Math.Pow(1 - (e * Math.Pow(Math.Sin(theta), 2)), 1.5)); //Raio de curvatura 1
             //double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));  //Raio de curvatura 2
 
-            double arc = y / k0;
+            double arc = 0;
+            if (comboBox4.Text == "Norte")
+            {
+                arc = y / k0;
+            }
+            if (comboBox4.Text == "Sul")
+            {
+                arc = (10000000-y) / k0;
+            }
+
             double mu = arc / (a * (1 - Math.Pow(ec, 2) / 4 - 3 * Math.Pow(ec, 4) / 64 - 5 * Math.Pow(ec, 6) / 256));
             double ei = (1 - Math.Pow(1 - ec * ec, 0.5)) / (1 + Math.Pow(1 - ec * ec, 0.5));
             double ca = 3 * ei / 2 - 27 * Math.Pow(ei, 3) / 32;
@@ -1006,7 +1014,7 @@ namespace RoseCalc
             double ccc = 151 * Math.Pow(ei, 3) / 96;
             double cd = 1097 * Math.Pow(ei, 4) / 512;
             double phi1 = mu + ca * Math.Sin(2 * mu) + cb * Math.Sin(4 * mu) + ccc * Math.Sin(6 * mu) + cd * Math.Sin(8 * mu);
-            double Sin1 = 0;
+            //double Sin1 = 0;
             double Q0 = eisq * Math.Pow(Math.Cos(phi1), 2);
             double t0 = Math.Pow(Math.Tan(phi1), 2);
             double n0 = a / Math.Pow(1 - (Math.Pow(ec * Math.Sin(phi1), 2)), 0.5);
@@ -1028,16 +1036,7 @@ namespace RoseCalc
             //double h20 = (lof1-lof2+lof3)/Math.Cos(phi1);
             //double longi = h20 * 180 / Math.PI;
 
-            double lat = 180 * (phi1 - fact1 * (fact2 + fact3 + fact4)) / Math.PI;
-            if (comboBox4.SelectedText == "Norte")
-            {
-                lat = 180 * (phi1 - fact1 * (fact2 + fact3 + fact4)) / Math.PI;
-            }
-            if (comboBox4.SelectedText == "Sul")
-            {
-                lat = -1* 180 * (phi1 - fact1 * (fact2 + fact3 + fact4)) / Math.PI;
-            }
-            
+            double lat = 180 * (phi1 - fact1 * (fact2 + fact3 + fact4)) / Math.PI;            
             return lat;
 
 
@@ -1110,12 +1109,21 @@ namespace RoseCalc
             //double invf = 1 / f;    //Achatamento inverso
             double rm = Math.Pow(a * b, 0.5);  //Raio médio            
             double ec = Math.Sqrt(1 - Math.Pow(b / a, 2));  //Excentricidade
-            double eisq = ec * ec / (1 - ec * ec);  //
+            double eisq = ec * ec / (1 - ec * ec);
             //double n = (a - b) / (a + b);
             //double rho = a * (1 - e * e) / (Math.Pow(1 - (e * Math.Pow(Math.Sin(theta), 2)), 1.5)); //Raio de curvatura 1
             //double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));  //Raio de curvatura 2
 
-            double arc = y / k0;
+            double arc = 0;
+            if (comboBox4.Text == "Norte")
+            {
+                arc = y / k0;
+            }
+            if (comboBox4.Text == "Sul")
+            {
+                arc = (10000000 - y) / k0;
+            }
+
             double mu = arc / (a * (1 - Math.Pow(ec, 2) / 4 - 3 * Math.Pow(ec, 4) / 64 - 5 * Math.Pow(ec, 6) / 256));
             double ei = (1 - Math.Pow(1 - ec * ec, 0.5)) / (1 + Math.Pow(1 - ec * ec, 0.5));
             double ca = 3 * ei / 2 - 27 * Math.Pow(ei, 3) / 32;
@@ -1123,7 +1131,7 @@ namespace RoseCalc
             double ccc = 151 * Math.Pow(ei, 3) / 96;
             double cd = 1097 * Math.Pow(ei, 4) / 512;
             double phi1 = mu + ca * Math.Sin(2 * mu) + cb * Math.Sin(4 * mu) + ccc * Math.Sin(6 * mu) + cd * Math.Sin(8 * mu);
-            double Sin1 = 0;
+            //double Sin1 = 0;
             double Q0 = eisq * Math.Pow(Math.Cos(phi1), 2);
             double t0 = Math.Pow(Math.Tan(phi1), 2);
             double n0 = a / Math.Pow(1 - (Math.Pow(ec * Math.Sin(phi1), 2)), 0.5);
@@ -1137,8 +1145,8 @@ namespace RoseCalc
             double fact4 = (61 + 90 * t0 + 298 * Q0 + 45 * t0 * t0 - 252 * eisq - 3 * Q0 * Q0) * Math.Pow(dd0, 6) / 720;
 
             double lof1 = dd0;
-            double lof2 = (1 + 2 * t0 + Q0) * Math.Pow(dd0, 3)/6;
-            double lof3 = (5 - 2 * Q0 + 28 * t0 - 3 * Math.Pow(Q0, 2) + 8 * eisq + 24 * Math.Pow(t0, 2)) * Math.Pow(dd0, 5)/120;
+            double lof2 = (1 + 2 * t0 + Q0) * Math.Pow(dd0, 3) / 6;
+            double lof3 = (5 - 2 * Q0 + 28 * t0 - 3 * Math.Pow(Q0, 2) + 8 * eisq + 24 * Math.Pow(t0, 2)) * Math.Pow(dd0, 5) / 120;
 
             //double lat = phi1 * 180 / Math.PI;
 
@@ -1150,13 +1158,22 @@ namespace RoseCalc
             {
                 h19 = 6*e19-183;
             }
-            if (e19<=0)
+            if (e19 <= 0)
             {
                 h19 = 3;
-            }
-
+            }            
 
             double longi = h19 - (h20 * 180 / Math.PI);
+
+            //double longi2=0;
+            //if (longi < 0)
+            //{
+            //    longi2 =  longi * -1;
+            //}
+            //if (longi >= 0)
+            //{
+            //    longi2 = longi;
+            //}
 
             return longi;
 
@@ -1165,6 +1182,8 @@ namespace RoseCalc
             //Fonte das constantes dos data: ESRI. Documentação do ArcGIS 10.
 
         }
+
+
 
 
         private void button12_Click(object sender, EventArgs e)
@@ -1179,7 +1198,19 @@ namespace RoseCalc
             if (radioButton3.Checked == true)
             {               
                 numericUpDown5.Value = Convert.ToDecimal(UTMParaGeogNorte(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value)));
-                numericUpDown6.Value = Convert.ToDecimal(UTMParaGeogEste(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value)));
+
+                double este = UTMParaGeogEste(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value));
+                if (este < 0)
+                {
+                    numericUpDown6.Value = Convert.ToDecimal(este * -1);
+                    comboBox3.Text = "Oeste";
+                }
+                if (este >= 0)
+                {
+                    numericUpDown6.Value = Convert.ToDecimal(este);
+                    comboBox3.Text = "Leste";
+                }
+                comboBox2.Text = comboBox4.Text;                
             }
         }
 
