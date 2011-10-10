@@ -10,7 +10,7 @@ Converte coordenadas na notação Grau (º), Minuto (') e segundo ('') para grau
 
 == Geodésica `<->` UTM ==
 
-Converte um par de coordenadas geodésicas (entrada em graus decimais) para UTM, e vice versa, com a possibilidade de escolha dos seguintes _data_ (incluindo alguns usandos em Portugal, na Europa e América do Norte):
+Converte um par de coordenadas geodésicas (entrada em graus decimais) para UTM, e vice versa, com a possibilidade de escolha dos seguintes _data_ (incluindo alguns usados em Portugal, Europa e América do Norte):
   * WGS-1984
   * SIRGAS-2000
   * SAD-1969
