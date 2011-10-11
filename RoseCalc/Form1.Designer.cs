@@ -185,6 +185,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.perfilFundoCor = new ColorComboTestApp.ColorComboBox();
             this.perfilLinhaCor = new ColorComboTestApp.ColorComboBox();
             this.perfilGraficoCor = new ColorComboTestApp.ColorComboBox();
@@ -1407,6 +1409,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.button14);
             this.groupBox10.Controls.Add(this.groupBox13);
             this.groupBox10.Controls.Add(this.groupBox12);
             this.groupBox10.Controls.Add(this.groupBox11);
@@ -1628,11 +1631,6 @@
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown6.TabIndex = 7;
-            this.numericUpDown6.Value = new decimal(new int[] {
-            -1194169999,
-            127,
-            0,
-            655360});
             // 
             // numericUpDown5
             // 
@@ -1641,11 +1639,6 @@
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown5.TabIndex = 6;
-            this.numericUpDown5.Value = new decimal(new int[] {
-            710007752,
-            38,
-            0,
-            655360});
             // 
             // groupBox11
             // 
@@ -1713,7 +1706,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(335, 161);
+            this.button12.Location = new System.Drawing.Point(333, 144);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(127, 25);
             this.button12.TabIndex = 6;
@@ -1723,6 +1716,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button13);
             this.groupBox6.Controls.Add(this.groupBox9);
             this.groupBox6.Controls.Add(this.groupBox8);
             this.groupBox6.Controls.Add(this.button11);
@@ -1835,7 +1829,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(186, 146);
+            this.button11.Location = new System.Drawing.Point(186, 131);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(143, 25);
             this.button11.TabIndex = 12;
@@ -2075,6 +2069,26 @@
             this.label42.Size = new System.Drawing.Size(353, 17);
             this.label42.TabIndex = 12;
             this.label42.Text = "Software livre para cálculos de cartografia e topografia";
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(186, 159);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(143, 25);
+            this.button13.TabIndex = 15;
+            this.button13.Text = "Limpar valores";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(333, 175);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(127, 25);
+            this.button14.TabIndex = 15;
+            this.button14.Text = "Limpar valores";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // perfilFundoCor
             // 
@@ -2373,6 +2387,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDown9;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button13;
     }
 }
 
