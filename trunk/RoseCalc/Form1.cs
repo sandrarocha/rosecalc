@@ -1282,6 +1282,29 @@ namespace RoseCalc
 
         }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
+            radioButton1.Checked = true;
+            numericUpDown1.Value = 0;
+            numericUpDown2.Value = 0;
+            numericUpDown3.Value = 0;
+            numericUpDown4.Value = 0;
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            radioButton4.Checked = true;
+            comboBox1.Text = "WGS-1984";
+            numericUpDown5.Value = 0;
+            comboBox2.Text = "Sul";
+            numericUpDown6.Value = 0;
+            comboBox3.Text = "Oeste";
+            numericUpDown7.Value = 0;
+            numericUpDown8.Value = 0;
+            numericUpDown9.Value = 0;
+            comboBox4.ResetText();
+        }
+
 
 
 
