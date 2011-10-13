@@ -163,6 +163,8 @@ namespace RoseCalc
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 1;
             comboBox3.SelectedIndex = 1;
+            comboBox5.SelectedIndex = 1;
+            comboBox6.SelectedIndex = 1;
   
             
 
@@ -684,28 +686,28 @@ namespace RoseCalc
         // Conversão de coordenadas geodésicas para UTM. Duas funções foram usadas, iguais no conteúdo, mudando
         // apenas o final, uma retornando N e outra E
 
-        public double GeogParaUTMNorte(double dtheta, double dgama)
+        public double GeogParaUTMNorte(double dtheta, double dgama, string hemis, string dir)
         {
             //Conversão das coordenadas de graus decimais para radianos e tratamento Sul/Norte, Leste/Oeste
                         
             //Latitude
             double theta = 0;
-            if (comboBox2.Text == "Norte")
+            if (hemis == "Norte")
             {
                 theta = Math.PI / 180 * dtheta; //Coordenada positiva
             }
-            if (comboBox2.Text == "Sul")
+            if (hemis == "Sul")
             {
                 theta = -1 * (Math.PI / 180 * dtheta); //Coordenada negativa             
             }
             
             //Longitude    
             double gama = 0;
-            if (comboBox3.Text == "Leste")
+            if (dir == "Leste")
             {
                 gama = Math.PI / 180 * dgama; //Coordenada positiva
             }
-            if (comboBox3.Text == "Oeste")
+            if (dir == "Oeste")
             {
                 gama = -1 * Math.PI / 180 * -dgama; //Coordenada negativa             
             }           
@@ -788,11 +790,11 @@ namespace RoseCalc
 
             //Constante de cálculo (em radianos)
             double prad = 0;
-            if (comboBox3.Text == "Oeste")            
+            if (dir == "Oeste")            
             {
                 prad = (-dgama - (6 * (Math.Floor((180 - dgama) / 6) + 1) - 183)) * (Math.PI / 180); //Oeste
             }
-            if (comboBox3.Text == "Leste")  
+            if (dir == "Leste")  
             {
                 prad = (dgama - (6 * (Math.Floor((dgama) / 6) + 31) - 183)) * (Math.PI / 180); //Leste
             }            
@@ -809,11 +811,11 @@ namespace RoseCalc
 
             //Cálculo de N
             double N = 0;
-            if (comboBox2.Text == "Norte")
+            if (hemis == "Norte")
             {
                 N = (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));                
             }
-            if (comboBox2.Text == "Sul")
+            if (hemis == "Sul")
             {
                 N = 10000000 + (Ki + Kii * prad * prad + Kiii * Math.Pow(prad, 4));               
             }
@@ -828,25 +830,25 @@ namespace RoseCalc
             
         }    
 
-        public double GeogParaUTMEste(double dtheta, double dgama)
+        public double GeogParaUTMEste(double dtheta, double dgama, string hemis, string dir)
         {
             //Latitude
             double theta = 0;
-            if (comboBox2.Text == "Norte")
+            if (hemis == "Norte")
             {
                 theta = Math.PI / 180 * dtheta; //Coordenada positiva
             }
-            if (comboBox2.Text == "Sul")
+            if (hemis == "Sul")
             {
                 theta = -1 * (Math.PI / 180 * dtheta); //Coordenada negativa             
             }
             //Longitude    
             double gama = 0;
-            if (comboBox3.Text == "Leste")
+            if (dir == "Leste")
             {                
                 gama = Math.PI / 180 * dgama; //Coordenada positiva
             }
-            if (comboBox3.Text == "Oeste")
+            if (dir == "Oeste")
             {
                 gama = -1 * Math.PI / 180 * dgama; //Coordenada negativa             
             }
@@ -924,11 +926,11 @@ namespace RoseCalc
 
 
             double prad = 0;
-            if (comboBox3.Text == "Oeste")
+            if (dir == "Oeste")
             {
                 prad = (-dgama - (6 * (Math.Floor((180 - dgama) / 6) + 1) - 183)) * (Math.PI / 180); //Oeste
             }
-            if (comboBox3.Text == "Leste")
+            if (dir == "Leste")
             {
                 prad = (dgama - (6 * (Math.Floor((dgama) / 6) + 31) - 183)) * (Math.PI / 180); //Leste
             }
@@ -973,7 +975,7 @@ namespace RoseCalc
         }
 
 
-        public double UTMParaGeogNorte(double x, double y)
+        public double UTMParaGeogNorte(double x, double y, string hemis)
         {
             //Fator de escala da projeção (UTM)
             double k0 = 0.9996;
@@ -1043,11 +1045,11 @@ namespace RoseCalc
             //double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));  //Raio de curvatura 2
 
             double arc = 0;
-            if (comboBox4.Text == "Norte")
+            if (hemis == "Norte")
             {
                 arc = y / k0;
             }
-            if (comboBox4.Text == "Sul")
+            if (hemis == "Sul")
             {
                 arc = (10000000-y) / k0;
             }
@@ -1090,7 +1092,7 @@ namespace RoseCalc
 
         }
 
-        public double UTMParaGeogEste(double x, double y)
+        public double UTMParaGeogEste(double x, double y, string hemis)
         {
             //Fator de escala da projeção (UTM)
             double k0 = 0.9996;
@@ -1160,11 +1162,11 @@ namespace RoseCalc
             //double nu = a / (Math.Pow(1 - Math.Pow(e * Math.Sin(theta), 2), 0.5));  //Raio de curvatura 2
 
             double arc = 0;
-            if (comboBox4.Text == "Norte")
+            if (hemis == "Norte")
             {
                 arc = y / k0;
             }
-            if (comboBox4.Text == "Sul")
+            if (hemis == "Sul")
             {
                 arc = (10000000 - y) / k0;
             }
@@ -1235,16 +1237,30 @@ namespace RoseCalc
         {
             if (radioButton4.Checked == true)
             {
-                numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
-                numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value)));
-                numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text,Convert.ToDouble(numericUpDown6.Value)));
-                comboBox4.Text = comboBox2.Text;
+                if (radioButton6.Checked == true)
+                {
+                    decimal latGraus = GMSparaGD(numericUpDown12.Value, numericUpDown11.Value, numericUpDown10.Value);
+                    decimal lonGraus = GMSparaGD(numericUpDown15.Value, numericUpDown14.Value, numericUpDown13.Value);
+
+                    numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(latGraus), Convert.ToDouble(lonGraus), comboBox5.Text, comboBox6.Text));
+                    numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(latGraus), Convert.ToDouble(lonGraus), comboBox5.Text, comboBox6.Text));
+                    numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text, Convert.ToDouble(lonGraus)));
+                    comboBox4.Text = comboBox2.Text;
+                }
+                if (radioButton6.Checked == false)
+                {
+                    numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value),comboBox2.Text, comboBox3.Text));
+                    numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value), comboBox2.Text, comboBox3.Text));
+                    numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text, Convert.ToDouble(numericUpDown6.Value)));
+                    comboBox4.Text = comboBox2.Text;
+                }
+
             }
             if (radioButton3.Checked == true)
             {               
-                numericUpDown5.Value = Convert.ToDecimal(UTMParaGeogNorte(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value)));
+                numericUpDown5.Value = Convert.ToDecimal(UTMParaGeogNorte(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value), comboBox4.Text));
 
-                double este = UTMParaGeogEste(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value));
+                double este = UTMParaGeogEste(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value), comboBox4.Text);
                 if (este < 0)
                 {
                     numericUpDown6.Value = Convert.ToDecimal(este * -1);
@@ -1296,11 +1312,9 @@ namespace RoseCalc
             numericUpDown9.BackColor = Color.FromArgb(255, 255, 255);
             numericUpDown9.Increment = 1;
 
-            numericUpDown5.ReadOnly = true;
-            numericUpDown5.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown5.ReadOnly = true;            
             numericUpDown5.Increment = 0;
-            numericUpDown6.ReadOnly = true;
-            numericUpDown6.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown6.ReadOnly = true;            
             numericUpDown6.Increment = 0;
 
             comboBox4.Enabled = true;
@@ -1331,6 +1345,59 @@ namespace RoseCalc
             numericUpDown9.Value = 0;
             comboBox4.ResetText();
         }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown5.ReadOnly = true;
+            numericUpDown6.ReadOnly = true;
+            numericUpDown5.Increment = 0;
+            numericUpDown6.Increment = 0;
+            comboBox2.Enabled = false;
+            comboBox3.Enabled = false;
+
+            numericUpDown10.ReadOnly = false;
+            numericUpDown11.ReadOnly = false;
+            numericUpDown12.ReadOnly = false;
+            numericUpDown13.ReadOnly = false;
+            numericUpDown14.ReadOnly = false;
+            numericUpDown15.ReadOnly = false;
+            numericUpDown10.Increment = 1;
+            numericUpDown11.Increment = 1;
+            numericUpDown12.Increment = 1;
+            numericUpDown13.Increment = 1;
+            numericUpDown14.Increment = 1;
+            numericUpDown15.Increment = 1;
+            comboBox5.Enabled = true;
+            comboBox6.Enabled = true;
+
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown5.ReadOnly = false;
+            numericUpDown6.ReadOnly = false;
+            numericUpDown5.Increment = 1;
+            numericUpDown6.Increment = 1;
+            comboBox2.Enabled = true;
+            comboBox3.Enabled = true;
+
+            numericUpDown10.ReadOnly = true;
+            numericUpDown11.ReadOnly = true;
+            numericUpDown12.ReadOnly = true;
+            numericUpDown13.ReadOnly = true;
+            numericUpDown14.ReadOnly = true;
+            numericUpDown15.ReadOnly = true;
+            numericUpDown10.Increment = 0;
+            numericUpDown11.Increment = 0;
+            numericUpDown12.Increment = 0;
+            numericUpDown13.Increment = 0;
+            numericUpDown14.Increment = 0;
+            numericUpDown15.Increment = 0;
+            comboBox5.Enabled = false;
+            comboBox6.Enabled = false;
+        }
+
+
 
 
 
