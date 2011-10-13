@@ -596,27 +596,54 @@ namespace RoseCalc
         private void ventoCorGraf_ColorChanged(object sender, ColorComboTestApp.ColorChangeArgs e)
         {
             graficoVento();
-        }        
+        }
+
+        public decimal GMSparaGD(decimal grau, decimal minuto, decimal segundo)
+        {
+            decimal vdecimal = grau + (minuto * 1 / 60) + (segundo * 1 / 3600);
+            return vdecimal;
+        }
+
+        public decimal GDparaGraus(decimal graus)
+        {
+            decimal vgraus = Math.Truncate(graus);
+            return vgraus;
+
+        }
+
+        public decimal GDparaMinutos(decimal graus)
+        {
+            decimal vgraus = Math.Truncate(graus);
+            decimal vresto = graus - vgraus;
+
+            decimal vminutos = Math.Truncate(vresto * 60);
+            return vminutos;
+
+        }
+
+        public decimal GDparaSegundos(decimal graus)
+        {
+            decimal vgraus = Math.Truncate(graus);
+            decimal vresto = graus - vgraus;
+
+            decimal vminutos = Math.Truncate(vresto * 60);
+
+            decimal vsegundos = ((vresto * 60) - vminutos) * 60;
+            return vsegundos;
+
+        }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked == true)
+            if (radioButton1.Checked == true) //Entrada em Grau / Minuto / Segundo
             {
-                decimal vdecimal = numericUpDown1.Value + (numericUpDown2.Value * 1 / 60) + (numericUpDown3.Value * 1 / 3600);
-                numericUpDown4.Value = vdecimal;
+                numericUpDown4.Value = GMSparaGD(numericUpDown1.Value, numericUpDown2.Value, numericUpDown3.Value);
             }
-            if (radioButton2.Checked == true)
+            if (radioButton2.Checked == true) //Entrada em Graus decimais
             {
-                decimal vgraus = Math.Truncate(numericUpDown4.Value);
-                numericUpDown1.Value = vgraus;
-
-                decimal vresto = numericUpDown4.Value - vgraus;
-
-                decimal vminutos = Math.Truncate(vresto * 60);
-                numericUpDown2.Value = vminutos;
-
-                decimal vsegundos = ((vresto*60)-vminutos)*60;
-                numericUpDown3.Value = vsegundos;                
+                numericUpDown1.Value = GDparaGraus(numericUpDown4.Value);
+                numericUpDown2.Value = GDparaMinutos(numericUpDown4.Value);
+                numericUpDown3.Value = GDparaSegundos(numericUpDown4.Value);          
             }
         }
 
