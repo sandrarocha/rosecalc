@@ -1235,29 +1235,9 @@ namespace RoseCalc
 
         private void button12_Click(object sender, EventArgs e)
         {
-            if (radioButton4.Checked == true)
+
+            if (radioButton7.Checked == true) //UTM para GD
             {
-                if (radioButton6.Checked == true)
-                {
-                    decimal latGraus = GMSparaGD(numericUpDown12.Value, numericUpDown11.Value, numericUpDown10.Value);
-                    decimal lonGraus = GMSparaGD(numericUpDown15.Value, numericUpDown14.Value, numericUpDown13.Value);
-
-                    numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(latGraus), Convert.ToDouble(lonGraus), comboBox5.Text, comboBox6.Text));
-                    numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(latGraus), Convert.ToDouble(lonGraus), comboBox5.Text, comboBox6.Text));
-                    numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text, Convert.ToDouble(lonGraus)));
-                    comboBox4.Text = comboBox2.Text;
-                }
-                if (radioButton6.Checked == false)
-                {
-                    numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value),comboBox2.Text, comboBox3.Text));
-                    numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value), comboBox2.Text, comboBox3.Text));
-                    numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text, Convert.ToDouble(numericUpDown6.Value)));
-                    comboBox4.Text = comboBox2.Text;
-                }
-
-            }
-            if (radioButton3.Checked == true)
-            {               
                 numericUpDown5.Value = Convert.ToDecimal(UTMParaGeogNorte(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value), comboBox4.Text));
 
                 double este = UTMParaGeogEste(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value), comboBox4.Text);
@@ -1273,113 +1253,66 @@ namespace RoseCalc
                 }
                 comboBox2.Text = comboBox4.Text;                
             }
-        }
 
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-            numericUpDown7.ReadOnly = true;
-            numericUpDown7.BackColor = Color.FromArgb(255, 255, 192);
-            numericUpDown7.Increment = 0;
-            numericUpDown8.ReadOnly = true;
-            numericUpDown8.BackColor = Color.FromArgb(255, 255, 192);
-            numericUpDown8.Increment = 0;
-            numericUpDown9.ReadOnly = true;
-            numericUpDown9.BackColor = Color.FromArgb(255, 255, 192);
-            numericUpDown9.Increment = 0;
+            if (radioButton8.Checked == true) //UTM para GMS
+            {
+                decimal latitude = Convert.ToDecimal(UTMParaGeogNorte(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value), comboBox4.Text));
 
-            numericUpDown5.ReadOnly = false;
-            numericUpDown5.BackColor = Color.FromArgb(255, 255, 255);
-            numericUpDown5.Increment = 1;
-            numericUpDown6.ReadOnly = false;
-            numericUpDown6.BackColor = Color.FromArgb(255, 255, 255);
-            numericUpDown6.Increment = 1;
-
-            comboBox4.Enabled = false;
-            comboBox2.Enabled = true;
-            comboBox3.Enabled = true;
+                decimal longitude = 0;
+                double este = UTMParaGeogEste(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value), comboBox4.Text);
+                if (este < 0)
+                {
+                    longitude = Convert.ToDecimal(este * -1);                    
+                }
+                if (este >= 0)
+                {
+                    longitude = Convert.ToDecimal(este);                    
+                }
                 
+
+                numericUpDown12.Value = GDparaGraus(latitude);
+                numericUpDown11.Value = GDparaMinutos(latitude);
+                numericUpDown10.Value = GDparaSegundos(latitude); 
+
+                numericUpDown15.Value = GDparaGraus(longitude);
+                numericUpDown14.Value = GDparaMinutos(longitude);
+                numericUpDown13.Value = GDparaSegundos(longitude); 
+            }
+
+            if (radioButton9.Checked == true) //GD para UTM
+            {
+                numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value),comboBox2.Text, comboBox3.Text));
+                numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value), comboBox2.Text, comboBox3.Text));
+                numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text, Convert.ToDouble(numericUpDown6.Value)));
+                comboBox4.Text = comboBox2.Text;
+            }
+
+             if (radioButton10.Checked == true) //GMS para UTM
+             {
+                 decimal latGraus = GMSparaGD(numericUpDown12.Value, numericUpDown11.Value, numericUpDown10.Value);
+                 decimal lonGraus = GMSparaGD(numericUpDown15.Value, numericUpDown14.Value, numericUpDown13.Value);
+                 numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(latGraus), Convert.ToDouble(lonGraus), comboBox5.Text, comboBox6.Text));
+                 numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(latGraus), Convert.ToDouble(lonGraus), comboBox5.Text, comboBox6.Text));
+                 numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text, Convert.ToDouble(lonGraus)));
+                 comboBox4.Text = comboBox2.Text;
+
+             }
         }
 
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        //Cores e padronagem
+        
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)//UTM para GD
         {
             numericUpDown7.ReadOnly = false;
-            numericUpDown7.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown7.BackColor = Color.FromArgb(255, 255, 192);
             numericUpDown7.Increment = 1;
             numericUpDown8.ReadOnly = false;
-            numericUpDown8.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown8.BackColor = Color.FromArgb(255, 255, 192);
             numericUpDown8.Increment = 1;
             numericUpDown9.ReadOnly = false;
-            numericUpDown9.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown9.BackColor = Color.FromArgb(255, 255, 192);
             numericUpDown9.Increment = 1;
-
-            numericUpDown5.ReadOnly = true;            
-            numericUpDown5.Increment = 0;
-            numericUpDown6.ReadOnly = true;            
-            numericUpDown6.Increment = 0;
-
             comboBox4.Enabled = true;
-            comboBox2.Enabled = false;
-            comboBox3.Enabled = false;
-
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-            radioButton1.Checked = true;
-            numericUpDown1.Value = 0;
-            numericUpDown2.Value = 0;
-            numericUpDown3.Value = 0;
-            numericUpDown4.Value = 0;
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            radioButton4.Checked = true;
-            comboBox1.Text = "WGS-1984";
-            numericUpDown5.Value = 0;
-            comboBox2.Text = "Sul";
-            numericUpDown6.Value = 0;
-            comboBox3.Text = "Oeste";
-            numericUpDown7.Value = 0;
-            numericUpDown8.Value = 0;
-            numericUpDown9.Value = 0;
-            comboBox4.ResetText();
-        }
-
-        private void radioButton6_CheckedChanged(object sender, EventArgs e)
-        {
-            numericUpDown5.ReadOnly = true;
-            numericUpDown6.ReadOnly = true;
-            numericUpDown5.Increment = 0;
-            numericUpDown6.Increment = 0;
-            comboBox2.Enabled = false;
-            comboBox3.Enabled = false;
-
-            numericUpDown10.ReadOnly = false;
-            numericUpDown11.ReadOnly = false;
-            numericUpDown12.ReadOnly = false;
-            numericUpDown13.ReadOnly = false;
-            numericUpDown14.ReadOnly = false;
-            numericUpDown15.ReadOnly = false;
-            numericUpDown10.Increment = 1;
-            numericUpDown11.Increment = 1;
-            numericUpDown12.Increment = 1;
-            numericUpDown13.Increment = 1;
-            numericUpDown14.Increment = 1;
-            numericUpDown15.Increment = 1;
-            comboBox5.Enabled = true;
-            comboBox6.Enabled = true;
-
-        }
-
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-            numericUpDown5.ReadOnly = false;
-            numericUpDown6.ReadOnly = false;
-            numericUpDown5.Increment = 1;
-            numericUpDown6.Increment = 1;
-            comboBox2.Enabled = true;
-            comboBox3.Enabled = true;
 
             numericUpDown10.ReadOnly = true;
             numericUpDown11.ReadOnly = true;
@@ -1395,7 +1328,202 @@ namespace RoseCalc
             numericUpDown15.Increment = 0;
             comboBox5.Enabled = false;
             comboBox6.Enabled = false;
+
+            numericUpDown5.ReadOnly = false;
+            numericUpDown5.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown5.Increment = 0;
+            numericUpDown6.ReadOnly = false;
+            numericUpDown6.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown6.Increment = 0;
+
+
         }
+
+         private void radioButton8_CheckedChanged(object sender, EventArgs e)//UTM para GMS
+        {
+
+        }
+        
+         private void radioButton9_CheckedChanged(object sender, EventArgs e)//GD para UTM
+        {
+
+        }
+
+         private void radioButton10_CheckedChanged(object sender, EventArgs e)//GMS para UTM
+        {
+
+        }
+
+        //if (radioButton7.Checked == true) //UTM para GD
+        //if (radioButton8.Checked == true) //UTM para GMS
+        //if (radioButton9.Checked == true) //GD para UTM
+        //if (radioButton10.Checked == true) //GMS para UTM
+
+        ////// Código antigo
+
+        //    if (radioButton4.Checked == true)
+        //    {
+        //        if (radioButton6.Checked == true)
+        //        {
+        //            decimal latGraus = GMSparaGD(numericUpDown12.Value, numericUpDown11.Value, numericUpDown10.Value);
+        //            decimal lonGraus = GMSparaGD(numericUpDown15.Value, numericUpDown14.Value, numericUpDown13.Value);
+
+        //            numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(latGraus), Convert.ToDouble(lonGraus), comboBox5.Text, comboBox6.Text));
+        //            numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(latGraus), Convert.ToDouble(lonGraus), comboBox5.Text, comboBox6.Text));
+        //            numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text, Convert.ToDouble(lonGraus)));
+        //            comboBox4.Text = comboBox2.Text;
+        //        }
+        //        if (radioButton6.Checked == false)
+        //        {
+        //            numericUpDown8.Value = Convert.ToDecimal(GeogParaUTMNorte(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value),comboBox2.Text, comboBox3.Text));
+        //            numericUpDown7.Value = Convert.ToDecimal(GeogParaUTMEste(Convert.ToDouble(numericUpDown5.Value), Convert.ToDouble(numericUpDown6.Value), comboBox2.Text, comboBox3.Text));
+        //            numericUpDown9.Value = Convert.ToDecimal(UTMZona(comboBox3.Text, Convert.ToDouble(numericUpDown6.Value)));
+        //            comboBox4.Text = comboBox2.Text;
+        //        }
+
+        //    }
+        //    if (radioButton3.Checked == true)
+        //    {               
+        //        numericUpDown5.Value = Convert.ToDecimal(UTMParaGeogNorte(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value), comboBox4.Text));
+
+        //        double este = UTMParaGeogEste(Convert.ToDouble(numericUpDown7.Value), Convert.ToDouble(numericUpDown8.Value), comboBox4.Text);
+        //        if (este < 0)
+        //        {
+        //            numericUpDown6.Value = Convert.ToDecimal(este * -1);
+        //            comboBox3.Text = "Oeste";
+        //        }
+        //        if (este >= 0)
+        //        {
+        //            numericUpDown6.Value = Convert.ToDecimal(este);
+        //            comboBox3.Text = "Leste";
+        //        }
+        //        comboBox2.Text = comboBox4.Text;                
+        //    }
+        //}
+
+        //private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    numericUpDown7.ReadOnly = true;
+        //    numericUpDown7.BackColor = Color.FromArgb(255, 255, 255);
+        //    numericUpDown7.Increment = 0;
+        //    numericUpDown8.ReadOnly = true;
+        //    numericUpDown8.BackColor = Color.FromArgb(255, 255, 255);
+        //    numericUpDown8.Increment = 0;
+        //    numericUpDown9.ReadOnly = true;
+        //    numericUpDown9.BackColor = Color.FromArgb(255, 255, 255);
+        //    numericUpDown9.Increment = 0;
+
+
+
+        //    numericUpDown5.ReadOnly = false;
+        //    numericUpDown5.BackColor = Color.FromArgb(255, 255, 192);
+        //    numericUpDown5.Increment = 1;
+        //    numericUpDown6.ReadOnly = false;
+        //    numericUpDown6.BackColor = Color.FromArgb(255, 255, 192);
+        //    numericUpDown6.Increment = 1;
+
+        //    comboBox4.Enabled = false;
+        //    comboBox2.Enabled = true;
+        //    comboBox3.Enabled = true;
+                
+        //}
+
+        //private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    numericUpDown7.ReadOnly = false;
+        //    numericUpDown7.BackColor = Color.FromArgb(255, 255, 192);
+        //    numericUpDown7.Increment = 1;
+        //    numericUpDown8.ReadOnly = false;
+        //    numericUpDown8.BackColor = Color.FromArgb(255, 255, 192);
+        //    numericUpDown8.Increment = 1;
+        //    numericUpDown9.ReadOnly = false;
+        //    numericUpDown9.BackColor = Color.FromArgb(255, 255, 192);
+        //    numericUpDown9.Increment = 1;
+
+        //    numericUpDown5.ReadOnly = true;            
+        //    numericUpDown5.Increment = 0;
+        //    numericUpDown6.ReadOnly = true;            
+        //    numericUpDown6.Increment = 0;
+
+        //    comboBox4.Enabled = true;
+        //    comboBox2.Enabled = false;
+        //    comboBox3.Enabled = false;
+
+        //}
+
+        //private void button13_Click(object sender, EventArgs e)
+        //{
+        //    radioButton1.Checked = true;
+        //    numericUpDown1.Value = 0;
+        //    numericUpDown2.Value = 0;
+        //    numericUpDown3.Value = 0;
+        //    numericUpDown4.Value = 0;
+        //}
+
+        //private void button14_Click(object sender, EventArgs e)
+        //{
+        //    radioButton4.Checked = true;
+        //    comboBox1.Text = "WGS-1984";
+        //    numericUpDown5.Value = 0;
+        //    comboBox2.Text = "Sul";
+        //    numericUpDown6.Value = 0;
+        //    comboBox3.Text = "Oeste";
+        //    numericUpDown7.Value = 0;
+        //    numericUpDown8.Value = 0;
+        //    numericUpDown9.Value = 0;
+        //    comboBox4.ResetText();
+        //}
+
+        //private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    numericUpDown5.ReadOnly = true;
+        //    numericUpDown6.ReadOnly = true;
+        //    numericUpDown5.Increment = 0;
+        //    numericUpDown6.Increment = 0;
+        //    comboBox2.Enabled = false;
+        //    comboBox3.Enabled = false;
+
+        //    numericUpDown10.ReadOnly = false;
+        //    numericUpDown11.ReadOnly = false;
+        //    numericUpDown12.ReadOnly = false;
+        //    numericUpDown13.ReadOnly = false;
+        //    numericUpDown14.ReadOnly = false;
+        //    numericUpDown15.ReadOnly = false;
+        //    numericUpDown10.Increment = 1;
+        //    numericUpDown11.Increment = 1;
+        //    numericUpDown12.Increment = 1;
+        //    numericUpDown13.Increment = 1;
+        //    numericUpDown14.Increment = 1;
+        //    numericUpDown15.Increment = 1;
+        //    comboBox5.Enabled = true;
+        //    comboBox6.Enabled = true;
+
+        //}
+
+        //private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    numericUpDown5.ReadOnly = false;
+        //    numericUpDown6.ReadOnly = false;
+        //    numericUpDown5.Increment = 1;
+        //    numericUpDown6.Increment = 1;
+        //    comboBox2.Enabled = true;
+        //    comboBox3.Enabled = true;
+
+        //    numericUpDown10.ReadOnly = true;
+        //    numericUpDown11.ReadOnly = true;
+        //    numericUpDown12.ReadOnly = true;
+        //    numericUpDown13.ReadOnly = true;
+        //    numericUpDown14.ReadOnly = true;
+        //    numericUpDown15.ReadOnly = true;
+        //    numericUpDown10.Increment = 0;
+        //    numericUpDown11.Increment = 0;
+        //    numericUpDown12.Increment = 0;
+        //    numericUpDown13.Increment = 0;
+        //    numericUpDown14.Increment = 0;
+        //    numericUpDown15.Increment = 0;
+        //    comboBox5.Enabled = false;
+        //    comboBox6.Enabled = false;
+        //}
 
 
 
