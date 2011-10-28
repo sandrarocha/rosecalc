@@ -23,7 +23,7 @@ namespace RoseCalc
             //tabControl1.TabPages.Remove(coordenadasTab);
             tabControl1.TabPages.Remove(declinacaoTab);
             tabControl1.TabPages.Remove(unidadesTab);            
-            tabControl1.TabPages.Remove(rumoTab);
+            //tabControl1.TabPages.Remove(rumoTab);
             tabControl1.TabPages.Remove(transporteTab);
             tabControl1.TabPages.Remove(topografiaTab);
 
@@ -1394,6 +1394,59 @@ namespace RoseCalc
             numericUpDown13.BackColor = Color.FromArgb(255, 255, 192);
             numericUpDown14.BackColor = Color.FromArgb(255, 255, 192);
             numericUpDown15.BackColor = Color.FromArgb(255, 255, 192);
+        }
+
+        public decimal rumo(decimal yA, decimal xA, decimal yB, decimal xB)
+        {
+            decimal C = xB - xA;
+            decimal D = yB - yA;
+
+            decimal rumo = C / D;
+
+            return rumo;
+        }
+
+        public decimal azimute(decimal yA, decimal xA, decimal yB, decimal xB)
+        {
+            decimal C = xB - xA;
+            decimal D = yB - yA;
+
+            decimal rumo = C / D;
+
+            decimal azimute = 0;
+            
+            if (C > 0 && D > 0)
+            {
+                azimute = rumo;
+            }
+            if (C > 0 && D < 0)
+            {
+                azimute = 180 - rumo;
+            }
+            if (C < 0 && D < 0)
+            {
+                azimute = 180 + rumo;
+            }
+            if (C < 0 && D > 0)
+            {
+                azimute = 360 - rumo;
+            }
+            
+            return azimute;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            decimal yA = numericUpDown26.Value;
+            decimal xA = numericUpDown25.Value;
+
+            decimal yB = numericUpDown17.Value;
+            decimal xB = numericUpDown16.Value;
+
+            numericUpDown19.Value = azimute(yA, xA, yB, xB);
+            numericUpDown18.Value = rumo(yA, xA, yB, xB);
+
+            //http://pt.wikihow.com/Calcular-um-Azimute
         }
 
         //Cores e padronagem
