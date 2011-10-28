@@ -1396,6 +1396,27 @@ namespace RoseCalc
             numericUpDown15.BackColor = Color.FromArgb(255, 255, 192);
         }
 
+        private void button14_Click(object sender, EventArgs e)
+        {
+            //UTM
+            numericUpDown7.Value = 0;
+            numericUpDown8.Value = 0;
+            numericUpDown9.Value = 0;
+
+            //GD
+            numericUpDown5.Value = 0;
+            numericUpDown6.Value = 0;
+
+            //GMS
+            numericUpDown10.Value = 0;
+            numericUpDown11.Value = 0;
+            numericUpDown12.Value = 0;
+            numericUpDown13.Value = 0;
+            numericUpDown14.Value = 0;
+            numericUpDown15.Value = 0;
+
+        }
+
         public decimal rumo(decimal yA, decimal xA, decimal yB, decimal xB)
         {
             decimal C = xB - xA;
@@ -1448,6 +1469,8 @@ namespace RoseCalc
 
             //http://pt.wikihow.com/Calcular-um-Azimute
         }
+
+        
 
         //Cores e padronagem
         
