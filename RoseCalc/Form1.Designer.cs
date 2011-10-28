@@ -129,9 +129,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.cartasTab = new System.Windows.Forms.TabPage();
             this.coordenadasTab = new System.Windows.Forms.TabPage();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button14 = new System.Windows.Forms.Button();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
@@ -191,9 +188,6 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.transporteTab = new System.Windows.Forms.TabPage();
             this.declinacaoTab = new System.Windows.Forms.TabPage();
             this.rumoTab = new System.Windows.Forms.TabPage();
@@ -250,7 +244,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ventoNE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventoN)).BeginInit();
             this.coordenadasTab.SuspendLayout();
-            this.groupBox16.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox17.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -276,7 +269,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox7.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             this.sobreTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -1433,10 +1425,8 @@
             // 
             // coordenadasTab
             // 
-            this.coordenadasTab.Controls.Add(this.groupBox16);
             this.coordenadasTab.Controls.Add(this.groupBox10);
             this.coordenadasTab.Controls.Add(this.groupBox6);
-            this.coordenadasTab.Controls.Add(this.groupBox11);
             this.coordenadasTab.Location = new System.Drawing.Point(4, 40);
             this.coordenadasTab.Name = "coordenadasTab";
             this.coordenadasTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1444,39 +1434,6 @@
             this.coordenadasTab.TabIndex = 1;
             this.coordenadasTab.Text = "Transformação de coordenadas";
             this.coordenadasTab.UseVisualStyleBackColor = true;
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.radioButton5);
-            this.groupBox16.Controls.Add(this.radioButton6);
-            this.groupBox16.Location = new System.Drawing.Point(622, 300);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(208, 44);
-            this.groupBox16.TabIndex = 14;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Tipo";
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(121, 19);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(63, 17);
-            this.radioButton5.TabIndex = 12;
-            this.radioButton5.Text = "Decimal";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Checked = true;
-            this.radioButton6.Location = new System.Drawing.Point(6, 19);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(109, 17);
-            this.radioButton6.TabIndex = 11;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Grau/Minuto/Seg";
-            this.radioButton6.UseVisualStyleBackColor = true;
             // 
             // groupBox10
             // 
@@ -1719,7 +1676,7 @@
             // 
             this.groupBox12.Controls.Add(this.groupBox15);
             this.groupBox12.Controls.Add(this.groupBox14);
-            this.groupBox12.Location = new System.Drawing.Point(6, 122);
+            this.groupBox12.Location = new System.Drawing.Point(6, 106);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(477, 201);
             this.groupBox12.TabIndex = 13;
@@ -1744,6 +1701,7 @@
             this.groupBox15.Controls.Add(this.numericUpDown10);
             this.groupBox15.Controls.Add(this.numericUpDown11);
             this.groupBox15.Controls.Add(this.numericUpDown12);
+            this.groupBox15.Enabled = false;
             this.groupBox15.Location = new System.Drawing.Point(13, 20);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(458, 81);
@@ -1801,6 +1759,7 @@
             // 
             // numericUpDown13
             // 
+            this.numericUpDown13.BackColor = System.Drawing.Color.LightGray;
             this.numericUpDown13.DecimalPlaces = 5;
             this.numericUpDown13.Location = new System.Drawing.Point(255, 49);
             this.numericUpDown13.Name = "numericUpDown13";
@@ -1809,6 +1768,7 @@
             // 
             // numericUpDown14
             // 
+            this.numericUpDown14.BackColor = System.Drawing.Color.LightGray;
             this.numericUpDown14.Location = new System.Drawing.Point(156, 49);
             this.numericUpDown14.Name = "numericUpDown14";
             this.numericUpDown14.Size = new System.Drawing.Size(43, 20);
@@ -1816,6 +1776,8 @@
             // 
             // numericUpDown15
             // 
+            this.numericUpDown15.BackColor = System.Drawing.Color.LightGray;
+            this.numericUpDown15.ForeColor = System.Drawing.SystemColors.WindowText;
             this.numericUpDown15.Location = new System.Drawing.Point(69, 49);
             this.numericUpDown15.Minimum = new decimal(new int[] {
             100,
@@ -1876,6 +1838,7 @@
             // 
             // numericUpDown10
             // 
+            this.numericUpDown10.BackColor = System.Drawing.Color.LightGray;
             this.numericUpDown10.DecimalPlaces = 5;
             this.numericUpDown10.Location = new System.Drawing.Point(255, 23);
             this.numericUpDown10.Name = "numericUpDown10";
@@ -1884,6 +1847,7 @@
             // 
             // numericUpDown11
             // 
+            this.numericUpDown11.BackColor = System.Drawing.Color.LightGray;
             this.numericUpDown11.Location = new System.Drawing.Point(156, 23);
             this.numericUpDown11.Name = "numericUpDown11";
             this.numericUpDown11.Size = new System.Drawing.Size(43, 20);
@@ -1891,6 +1855,7 @@
             // 
             // numericUpDown12
             // 
+            this.numericUpDown12.BackColor = System.Drawing.Color.LightGray;
             this.numericUpDown12.Location = new System.Drawing.Point(69, 23);
             this.numericUpDown12.Minimum = new decimal(new int[] {
             100,
@@ -2048,7 +2013,7 @@
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.numericUpDown4.BackColor = System.Drawing.SystemColors.Window;
             this.numericUpDown4.DecimalPlaces = 10;
             this.numericUpDown4.Increment = new decimal(new int[] {
             0,
@@ -2110,6 +2075,7 @@
             // 
             // numericUpDown3
             // 
+            this.numericUpDown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.numericUpDown3.DecimalPlaces = 5;
             this.numericUpDown3.Location = new System.Drawing.Point(194, 20);
             this.numericUpDown3.Name = "numericUpDown3";
@@ -2118,6 +2084,7 @@
             // 
             // numericUpDown2
             // 
+            this.numericUpDown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.numericUpDown2.Location = new System.Drawing.Point(95, 20);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(43, 20);
@@ -2125,6 +2092,7 @@
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.numericUpDown1.Location = new System.Drawing.Point(8, 20);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             100,
@@ -2179,39 +2147,6 @@
             this.radioButton1.Text = "Grau/Minuto/Seg";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.radioButton3);
-            this.groupBox11.Controls.Add(this.radioButton4);
-            this.groupBox11.Location = new System.Drawing.Point(672, 250);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(149, 44);
-            this.groupBox11.TabIndex = 12;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Entrada";
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(94, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(49, 17);
-            this.radioButton3.TabIndex = 12;
-            this.radioButton3.Text = "UTM";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.Location = new System.Drawing.Point(6, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(76, 17);
-            this.radioButton4.TabIndex = 11;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Geodésica";
-            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // transporteTab
             // 
@@ -2514,8 +2449,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ventoNE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventoN)).EndInit();
             this.coordenadasTab.ResumeLayout(false);
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox17.ResumeLayout(false);
@@ -2548,8 +2481,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
             this.sobreTab.ResumeLayout(false);
             this.sobreTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -2714,9 +2645,6 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.NumericUpDown numericUpDown6;
         private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.NumericUpDown numericUpDown9;
         private System.Windows.Forms.ComboBox comboBox4;
@@ -2741,9 +2669,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown11;
         private System.Windows.Forms.NumericUpDown numericUpDown12;
         private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.GroupBox groupBox17;
         private System.Windows.Forms.RadioButton radioButton10;
         private System.Windows.Forms.RadioButton radioButton9;

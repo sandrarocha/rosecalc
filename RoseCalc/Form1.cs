@@ -652,32 +652,32 @@ namespace RoseCalc
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown1.ReadOnly = true;
-            numericUpDown1.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown1.BackColor = Color.FromArgb(255, 255, 255);
             numericUpDown1.Increment = 0;
             numericUpDown2.ReadOnly = true;
-            numericUpDown2.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown2.BackColor = Color.FromArgb(255, 255, 255);
             numericUpDown2.Increment = 0;
             numericUpDown3.ReadOnly = true;
-            numericUpDown3.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown3.BackColor = Color.FromArgb(255, 255, 255);
             numericUpDown3.Increment = 0;            
             numericUpDown4.ReadOnly = false;
             numericUpDown4.Increment = 1;
-            numericUpDown4.BackColor = Color.FromArgb(255,255,255);
+            numericUpDown4.BackColor = Color.FromArgb(255,255,192);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown1.ReadOnly = false;
-            numericUpDown1.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown1.BackColor = Color.FromArgb(255, 255, 192);
             numericUpDown1.Increment = 1;
             numericUpDown2.ReadOnly = false;
-            numericUpDown2.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown2.BackColor = Color.FromArgb(255, 255, 192);
             numericUpDown2.Increment = 1;
             numericUpDown3.ReadOnly = false;
-            numericUpDown3.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown3.BackColor = Color.FromArgb(255, 255, 192);
             numericUpDown3.Increment = 1;
             numericUpDown4.ReadOnly = true;
-            numericUpDown4.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown4.BackColor = Color.FromArgb(255, 255, 255);
             numericUpDown4.Increment = 0;
             
             
@@ -1304,6 +1304,23 @@ namespace RoseCalc
             groupBox13.Enabled = true; //UTM
             groupBox14.Enabled = true; //GD
             groupBox15.Enabled = false; //GMS
+
+            //UTM
+            numericUpDown7.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown8.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown9.BackColor = Color.FromArgb(255, 255, 192);
+
+            //GD
+            numericUpDown5.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown6.BackColor = Color.FromArgb(255, 255, 255);
+
+            //GMS
+            numericUpDown10.BackColor = Color.LightGray;            
+            numericUpDown11.BackColor = Color.LightGray;
+            numericUpDown12.BackColor = Color.LightGray;
+            numericUpDown13.BackColor = Color.LightGray;
+            numericUpDown14.BackColor = Color.LightGray;
+            numericUpDown15.BackColor = Color.LightGray;
         }
 
         private void radioButton9_CheckedChanged(object sender, EventArgs e)//GD para UTM
@@ -1312,6 +1329,23 @@ namespace RoseCalc
             groupBox14.Enabled = true; //GD
             groupBox15.Enabled = false; //GMS
 
+            //UTM
+            numericUpDown7.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown8.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown9.BackColor = Color.FromArgb(255, 255, 255);
+
+            //GD
+            numericUpDown5.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown6.BackColor = Color.FromArgb(255, 255, 192);
+
+            //GMS
+            numericUpDown10.BackColor = Color.LightGray;
+            numericUpDown11.BackColor = Color.LightGray;
+            numericUpDown12.BackColor = Color.LightGray;
+            numericUpDown13.BackColor = Color.LightGray;
+            numericUpDown14.BackColor = Color.LightGray;
+            numericUpDown15.BackColor = Color.LightGray;
+
         }
 
         private void radioButton8_CheckedChanged(object sender, EventArgs e)//UTM para GMS
@@ -1319,6 +1353,23 @@ namespace RoseCalc
             groupBox13.Enabled = true; //UTM
             groupBox14.Enabled = false; //GD
             groupBox15.Enabled = true; //GMS
+
+            //UTM
+            numericUpDown7.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown8.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown9.BackColor = Color.FromArgb(255, 255, 192);
+
+            //GD
+            numericUpDown5.BackColor = Color.LightGray;
+            numericUpDown6.BackColor = Color.LightGray;
+
+            //GMS
+            numericUpDown10.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown11.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown12.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown13.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown14.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown15.BackColor = Color.FromArgb(255, 255, 255);
         }
 
         private void radioButton10_CheckedChanged(object sender, EventArgs e)//GMS para UTM
@@ -1326,6 +1377,23 @@ namespace RoseCalc
             groupBox13.Enabled = true; //UTM
             groupBox14.Enabled = false; //GD
             groupBox15.Enabled = true; //GMS
+
+            //UTM
+            numericUpDown7.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown8.BackColor = Color.FromArgb(255, 255, 255);
+            numericUpDown9.BackColor = Color.FromArgb(255, 255, 255);
+
+            //GD
+            numericUpDown5.BackColor = Color.LightGray;
+            numericUpDown6.BackColor = Color.LightGray;
+
+            //GMS
+            numericUpDown10.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown11.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown12.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown13.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown14.BackColor = Color.FromArgb(255, 255, 192);
+            numericUpDown15.BackColor = Color.FromArgb(255, 255, 192);
         }
 
         //Cores e padronagem
