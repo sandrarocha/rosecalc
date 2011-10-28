@@ -1525,6 +1525,7 @@
             this.radioButton10.TabIndex = 3;
             this.radioButton10.Text = "GMS --> UTM";
             this.radioButton10.UseVisualStyleBackColor = true;
+            this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged);
             // 
             // radioButton9
             // 
@@ -1535,6 +1536,7 @@
             this.radioButton9.TabIndex = 2;
             this.radioButton9.Text = "GD --> UTM";
             this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
             // 
             // radioButton8
             // 
@@ -1545,6 +1547,7 @@
             this.radioButton8.TabIndex = 1;
             this.radioButton8.Text = "UTM --> GMS";
             this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
             // 
             // radioButton7
             // 
@@ -1557,6 +1560,7 @@
             this.radioButton7.TabStop = true;
             this.radioButton7.Text = "UTM --> GD";
             this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // groupBox13
             // 

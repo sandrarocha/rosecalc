@@ -1299,60 +1299,38 @@ namespace RoseCalc
              }
         }
 
-        //Cores e padronagem
-        
         private void radioButton7_CheckedChanged(object sender, EventArgs e)//UTM para GD
         {
-            numericUpDown7.ReadOnly = false;
-            numericUpDown7.BackColor = Color.FromArgb(255, 255, 192);
-            numericUpDown7.Increment = 1;
-            numericUpDown8.ReadOnly = false;
-            numericUpDown8.BackColor = Color.FromArgb(255, 255, 192);
-            numericUpDown8.Increment = 1;
-            numericUpDown9.ReadOnly = false;
-            numericUpDown9.BackColor = Color.FromArgb(255, 255, 192);
-            numericUpDown9.Increment = 1;
-            comboBox4.Enabled = true;
-
-            numericUpDown10.ReadOnly = true;
-            numericUpDown11.ReadOnly = true;
-            numericUpDown12.ReadOnly = true;
-            numericUpDown13.ReadOnly = true;
-            numericUpDown14.ReadOnly = true;
-            numericUpDown15.ReadOnly = true;
-            numericUpDown10.Increment = 0;
-            numericUpDown11.Increment = 0;
-            numericUpDown12.Increment = 0;
-            numericUpDown13.Increment = 0;
-            numericUpDown14.Increment = 0;
-            numericUpDown15.Increment = 0;
-            comboBox5.Enabled = false;
-            comboBox6.Enabled = false;
-
-            numericUpDown5.ReadOnly = false;
-            numericUpDown5.BackColor = Color.FromArgb(255, 255, 255);
-            numericUpDown5.Increment = 0;
-            numericUpDown6.ReadOnly = false;
-            numericUpDown6.BackColor = Color.FromArgb(255, 255, 255);
-            numericUpDown6.Increment = 0;
-
-
+            groupBox13.Enabled = true; //UTM
+            groupBox14.Enabled = true; //GD
+            groupBox15.Enabled = false; //GMS
         }
 
-         private void radioButton8_CheckedChanged(object sender, EventArgs e)//UTM para GMS
+        private void radioButton9_CheckedChanged(object sender, EventArgs e)//GD para UTM
         {
+            groupBox13.Enabled = true; //UTM
+            groupBox14.Enabled = true; //GD
+            groupBox15.Enabled = false; //GMS
 
         }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)//UTM para GMS
+        {
+            groupBox13.Enabled = true; //UTM
+            groupBox14.Enabled = false; //GD
+            groupBox15.Enabled = true; //GMS
+        }
+
+        private void radioButton10_CheckedChanged(object sender, EventArgs e)//GMS para UTM
+        {
+            groupBox13.Enabled = true; //UTM
+            groupBox14.Enabled = false; //GD
+            groupBox15.Enabled = true; //GMS
+        }
+
+        //Cores e padronagem
         
-         private void radioButton9_CheckedChanged(object sender, EventArgs e)//GD para UTM
-        {
 
-        }
-
-         private void radioButton10_CheckedChanged(object sender, EventArgs e)//GMS para UTM
-        {
-
-        }
 
         //if (radioButton7.Checked == true) //UTM para GD
         //if (radioButton8.Checked == true) //UTM para GMS
