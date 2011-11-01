@@ -225,10 +225,19 @@ namespace RoseCalc
         {
             decimal d = ConverteMetro(escRegDistMapa.Value, escRegDistMapaUnid.SelectedItem.ToString());
             decimal D = ConverteMetro(escRegDistReal.Value, escRegDistRealUnid.SelectedItem.ToString());
+
+            if (d == 0)
+            {
+                MessageBox.Show("A distância no mapa precisa ser maior do que 0.", "Determinação da Escala", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                decimal escRegEscalaValor;
+                escRegEscalaValor = D / d;
+                escRegEscala.Text = "1:" + Math.Round(escRegEscalaValor, 2).ToString();
+            }
+
             
-            decimal escRegEscalaValor;
-            escRegEscalaValor = D / d;            
-            escRegEscala.Text = "1:"+Math.Round(escRegEscalaValor,2).ToString();
             
         }
 
@@ -236,10 +245,19 @@ namespace RoseCalc
         //Botão: Calcula distância real com medida a partir de curvímetro ou escalímetro
         private void button2_Click(object sender, EventArgs e)
         {
-            decimal razao = (escCurvLeit.Value * escCurvEscMapa.Value) / (escCurvEscCurv.Value);
-            decimal valor = ConverteDeMetro(razao,escCurvDistUnit.SelectedItem.ToString());   
+            if (escCurvEscCurv.Value == 0)
+            {
+                MessageBox.Show("A escala do curvimetro precisa ser maior do que 0.", "Curvimetro ou escalimetro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                decimal razao = (escCurvLeit.Value * escCurvEscMapa.Value) / (escCurvEscCurv.Value);
+                decimal valor = ConverteDeMetro(razao, escCurvDistUnit.SelectedItem.ToString());
 
-            escCurvDist.Text = Math.Round(valor,2).ToString();
+                escCurvDist.Text = Math.Round(valor, 2).ToString();
+            }
+
+
         }
 
 
@@ -272,13 +290,23 @@ namespace RoseCalc
             decimal dist = ConverteMetro(decDist.Value, decDistUnit.SelectedItem.ToString());
             decimal elev = ConverteMetro(decElev.Value, decElevUnit.SelectedItem.ToString());
 
-            decimal d = elev / dist;
+            if (dist == 0)
+            {
+                MessageBox.Show("A distância horizontal precisa ser maior do que 0.", "Declividade", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                decimal d = elev / dist;
 
-            decimal decper = d * 100;            
-            decimal decgraus = Convert.ToDecimal(Math.Atan(Convert.ToDouble(d))*180/Math.PI);
+                decimal decper = d * 100;
+                decimal decgraus = Convert.ToDecimal(Math.Atan(Convert.ToDouble(d)) * 180 / Math.PI);
 
-            decGraus.Text = Math.Round(decgraus,2).ToString()+"°";
-            decPer.Text = Math.Round(decper,2).ToString()+" %";
+                decGraus.Text = Math.Round(decgraus, 2).ToString() + "°";
+                decPer.Text = Math.Round(decper, 2).ToString() + " %";
+            }          
+            
+
+
         }
 
         //Aba 'Perfil de relevo'
