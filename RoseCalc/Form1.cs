@@ -23,7 +23,7 @@ namespace RoseCalc
             //tabControl1.TabPages.Remove(coordenadasTab);
             tabControl1.TabPages.Remove(declinacaoTab);
             tabControl1.TabPages.Remove(unidadesTab);            
-            //tabControl1.TabPages.Remove(rumoTab);
+            tabControl1.TabPages.Remove(rumoTab);
             tabControl1.TabPages.Remove(transporteTab);
             tabControl1.TabPages.Remove(topografiaTab);
 
@@ -33,7 +33,7 @@ namespace RoseCalc
             linkLabel1.Text = "http://code.google.com/p/rosecalc/";
             linkLabel1.Links.Add(0, 34, "http://code.google.com/p/rosecalc/");
             //label23.Text = "Versão "+System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            label23.Text = "Versão 1.0.0.6";
+            label23.Text = "Versão 1.0.0.7";
 
             //Aba 'Perfil de relevo'
 
