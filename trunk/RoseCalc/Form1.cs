@@ -23,7 +23,7 @@ namespace RoseCalc
             //tabControl1.TabPages.Remove(coordenadasTab);
             tabControl1.TabPages.Remove(declinacaoTab);
             tabControl1.TabPages.Remove(unidadesTab);            
-            tabControl1.TabPages.Remove(rumoTab);
+            //tabControl1.TabPages.Remove(rumoTab);
             tabControl1.TabPages.Remove(transporteTab);
             tabControl1.TabPages.Remove(topografiaTab);
 
@@ -1445,22 +1445,33 @@ namespace RoseCalc
 
         }
 
+        public decimal radParaGraus(decimal rad)
+        {
+            decimal graus = (180 / Convert.ToDecimal(Math.PI)) * rad;
+            return graus;
+        }
+
         public decimal rumo(decimal yA, decimal xA, decimal yB, decimal xB)
         {
-            decimal C = xB - xA;
-            decimal D = yB - yA;
+            
+            decimal C = yB - yA;
+            decimal D = xB - xA;
 
-            decimal rumo = C / D;
+            decimal razao = (C / D);
+
+            decimal rumo = radParaGraus(Convert.ToDecimal(Math.Atan(Convert.ToDouble(razao))));
 
             return rumo;
         }
 
         public decimal azimute(decimal yA, decimal xA, decimal yB, decimal xB)
         {
-            decimal C = xB - xA;
-            decimal D = yB - yA;
+            decimal C = yB - yA;
+            decimal D = xB - xA;
 
-            decimal rumo = C / D;
+            decimal razao = (C / D);
+
+            decimal rumo = radParaGraus(Convert.ToDecimal(Math.Atan(Convert.ToDouble(razao))));
 
             decimal azimute = 0;
             
@@ -1496,6 +1507,7 @@ namespace RoseCalc
             numericUpDown18.Value = rumo(yA, xA, yB, xB);
 
             //http://pt.wikihow.com/Calcular-um-Azimute
+            //http://www.brasilescola.com/matematica/calculo-coeficiente-angular-uma-reta.htm
         }
 
         
