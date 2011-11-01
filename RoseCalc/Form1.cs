@@ -1508,6 +1508,7 @@ namespace RoseCalc
 
             //http://pt.wikihow.com/Calcular-um-Azimute
             //http://www.brasilescola.com/matematica/calculo-coeficiente-angular-uma-reta.htm
+            //http://www.google.com.br/url?sa=t&rct=j&q=rumo%20azimute&source=web&cd=3&sqi=2&ved=0CCwQFjAC&url=http%3A%2F%2Fwww.arquitetosdaa3.com.br%2Farquivos_03%2Ftopografia%2Frumos_azimutes.doc&ei=MfqvTqzKEMHh4QTjsqWxAQ&usg=AFQjCNGHUUClueH3JL9wWAxFtxMqcYRCSA&sig2=D2W2MJ_irKbtotjyziIaEA&cad=rja
         }
 
         
